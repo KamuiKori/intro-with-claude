@@ -1,0 +1,262 @@
+$bg: #edf1fa;
+$primary: #1a2c52;
+$disclaimer-color: rgba(10, 35, 66, 0.5);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a {
+  color: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+// Semi-transparent overlay behind the popup
+.ar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  cursor: pointer;
+}
+
+// --- Popup card ---
+.ar-popup {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  width: 699px;
+  height: 496px;
+  border-radius: 24px;
+  background: $bg;
+  overflow: hidden;
+}
+
+// Close button (X icon, top-right corner)
+.ar-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 15px;
+  height: 15px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Left column — building photo
+.ar-image {
+  width: 325px;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 24px;
+  }
+}
+
+// Right column — content area
+.ar-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+// --- States (form / thank-you) ---
+.ar-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  // Form state: content starts from top
+  &--form {
+    padding: 35px 20px 20px 20px;
+  }
+
+  // Thank-you state: content vertically centered
+  &--thanks {
+    padding: 20px;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+// --- Typography ---
+.ar-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: $primary;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+.ar-text {
+  font-size: 16px;
+  color: $primary;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+// Extra gap between subtitle and first input
+.ar-state--form > .ar-text {
+  margin-bottom: 20px;
+}
+
+// --- Form elements ---
+#ar-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ar-input {
+  width: 100%;
+  height: 49px;
+  background: $bg;
+  border: 1px solid $primary;
+  border-radius: 1000px;
+  padding: 0 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  color: $primary;
+  text-align: center;
+  outline: none;
+  margin-bottom: 15px;
+
+  &::placeholder {
+    color: $primary;
+    opacity: 0.7;
+  }
+
+  &.success { border-color: #388e3c; }
+  &.error   { border-color: #d32f2f; }
+}
+
+.ar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 49px;
+  background: $primary;
+  color: #fff;
+  border: none;
+  border-radius: 1000px;
+  padding: 0 32px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  margin-bottom: 15px;
+
+  &:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+}
+
+.ar-disclaimer {
+  font-size: 12px;
+  line-height: normal;
+  color: $disclaimer-color;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+// In thanks state, last text gets extra margin before button
+.ar-state--thanks .ar-text:last-of-type {
+  margin-bottom: 5px;
+}
+
+// Remove bottom margin from button inside thanks (gap handles spacing)
+.ar-state--thanks .ar-btn {
+  margin-bottom: 0;
+}
+
+// --- Mobile (≤ 499px) ---
+@media (max-width: 499px) {
+  .ar-popup {
+    flex-direction: column;
+    width: 355px;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  .ar-close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .ar-image {
+    width: 100%;
+    height: 185px;
+    flex-shrink: 0;
+
+    img {
+      border-radius: 16px;
+    }
+  }
+
+  .ar-panel {
+    height: auto;
+    overflow-y: visible;
+  }
+
+  .ar-state {
+    flex: none;
+
+    &--form {
+      padding: 20px;
+    }
+
+    &--thanks {
+      justify-content: flex-start;
+      padding: 20px;
+    }
+  }
+
+  .ar-title {
+    font-size: 18px;
+  }
+
+  .ar-text {
+    font-size: 14px;
+  }
+}

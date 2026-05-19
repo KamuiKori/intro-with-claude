@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./popup/dist/popup.css" inline>
+</head>
+<body>
+
+<div class="am-overlay" data-close></div>
+
+<div class="am-modal">
+    <button type="button" class="am-close" data-close aria-label="Закрыть">
+        <svg viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+    </button>
+
+    <div class="am-image">
+        <img src="https://www.figma.com/api/mcp/asset/2ad665f7-f95d-40bb-834f-667615cbf6c5" alt="">
+    </div>
+
+    <div class="am-content">
+        <div class="am-state am-state--form" id="am-form-state">
+            <div class="am-eyebrow">Заявка на консультацию</div>
+            <h2 class="am-title">Оставьте контакты — менеджер свяжется с вами</h2>
+            <p class="am-text">Подберём варианты под ваш бюджет и расскажем о действующих скидках до&nbsp;18%.</p>
+
+            <div id="am-form">
+                <div class="am-field" data-field="name">
+                    <label class="am-field__label" for="am-name">Имя</label>
+                    <input class="am-field__input" id="am-name" name="name" type="text" placeholder="Иван" autocomplete="given-name">
+                    <div class="am-field__error"></div>
+                </div>
+
+                <div class="am-field" data-field="phone">
+                    <label class="am-field__label" for="am-phone">Телефон</label>
+                    <input class="am-field__input" id="am-phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel">
+                    <div class="am-field__error"></div>
+                </div>
+
+                <div class="am-field" data-field="email">
+                    <label class="am-field__label" for="am-email">E-mail</label>
+                    <input class="am-field__input" id="am-email" name="email" type="email" placeholder="name@mail.com" autocomplete="email" inputmode="email">
+                    <div class="am-field__error"></div>
+                </div>
+
+                <label class="am-consent">
+                    <input type="checkbox" class="am-consent__input" id="am-consent" checked>
+                    <span class="am-consent__box" aria-hidden="true"></span>
+                    <span class="am-consent__text">
+                        Я принимаю условия <a href="#" target="_blank" rel="noopener">политики конфиденциальности</a> и&nbsp;даю согласие на обработку персональных данных
+                    </span>
+                </label>
+
+                <button type="button" class="am-btn" id="am-submit-btn">
+                    <span>Отправить заявку</span>
+                    <svg class="am-btn__arrow" viewBox="0 0 22 10" fill="none" aria-hidden="true">
+                        <path d="M0 5 H17 M12 1L17 5L12 9" stroke="currentColor" stroke-width="1.3" fill="none"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="am-state am-state--thanks hidden" id="am-thanks-state">
+            <h2 class="am-title">Спасибо<span id="am-name-out"></span>!</h2>
+            <p class="am-text">Менеджер свяжется с вами в&nbsp;течение <strong>15&nbsp;минут</strong> в&nbsp;рабочее время (10:00&ndash;20:00&nbsp;МСК).</p>
+        </div>
+    </div>
+</div>
+
+<script src="./popup/dist/popup.js" inline></script>
+</body>
+</html>

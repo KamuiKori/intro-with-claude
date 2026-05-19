@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./popup/dist/popup.css" inline />
+  </head>
+
+  <body>
+    <div class="cqp__bg"></div>
+    <div class="wrapper wrapper__body">
+      <div class="cqp__body wrapper wrapper-row">
+        <section class="cqp__form wrapper wrapper-col" id="form-1">
+          <a class="cqp__close"></a>
+          <img
+            src="https://files.carrotquest.app/message-images/43484/43484-1683013958039-tnsq07tp.png"
+            alt=""
+          />
+          <div class="cqp__form_title wrapper wrapper-col">
+            <p class="cqp__text-h1">Купите дешевле на 3% 🔥</p>
+            <p class="cqp__text">Успевайте сделать заказ за 30 минут</p>
+          </div>
+          <div class="cqp__form_inputs wrapper wrapper-col">
+            <input class="cqp__button yes" value="Да, я успею" type="button" />
+          </div>
+        </section>
+        <section class="cqp__form wrapper wrapper-col hidden" id="form-2">
+          <a class="cqp__close cqp__minimize"></a>
+          <a class="cqp__close hidden"></a>
+          <div class="timer">
+            <div class="timer-wrapper">
+              <img
+                src="https://files.carrotquest.app/message-images/43484/43484-1683014598987-qcb3um48.png"
+                alt=""
+              />
+              <div class="time-wrapper">
+                <span class="time timer-minute"></span
+                ><span class="sepparator">:</span
+                ><span class="time timer-second"></span>
+              </div>
+            </div>
+            <p class="check hidden minimize_text">Посмотреть промокод</p>
+          </div>
+          <p class="cqp__text-h1">Дарим любимым покупателям скидку 3%</p>
+          <div class="cqp__wrapper-block wrapper-col">
+            <div class="promocode__wrapper">
+              <div
+                class="promocode"
+                data-clipboard-target=".promocode"
+                data-clipboard-action="copy"
+                name="ПРОМО2022"
+              >
+                ПРОМО2022
+                <svg
+                  width="21"
+                  height="24"
+                  viewBox="0 0 21 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M12.7031 24H3.75C1.6822 24 0 22.3178 0 20.25V7.54688C0 5.47908 1.6822 3.79688 3.75 3.79688H12.7031C14.7709 3.79688 16.4531 5.47908 16.4531 7.54688V20.25C16.4531 22.3178 14.7709 24 12.7031 24ZM3.75 5.67188C2.71617 5.67188 1.875 6.51305 1.875 7.54688V20.25C1.875 21.2838 2.71617 22.125 3.75 22.125H12.7031C13.737 22.125 14.5781 21.2838 14.5781 20.25V7.54688C14.5781 6.51305 13.737 5.67188 12.7031 5.67188H3.75ZM20.2031 17.9062V3.75C20.2031 1.6822 18.5209 0 16.4531 0H6.04688C5.52905 0 5.10938 0.419672 5.10938 0.9375C5.10938 1.45533 5.52905 1.875 6.04688 1.875H16.4531C17.487 1.875 18.3281 2.71617 18.3281 3.75V17.9062C18.3281 18.4241 18.7478 18.8438 19.2656 18.8438C19.7835 18.8438 20.2031 18.4241 20.2031 17.9062Z"
+                    fill="white"
+                  />
+                </svg>
+              </div>
+              <span class="success_copy">Промокод скопирован</span>
+            </div>
+            <div class="cqp__form_content wrapper wrapper-col">
+              <p class="cqp__text grey">
+                и вставьте на странице <br />
+                оформления заказа 😉
+              </p>
+            </div>
+          </div>
+          <div class="minimize_text hidden"></div>
+        </section>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script src="./popup/dist/popup.js" inline></script>
+  </body>
+</html>

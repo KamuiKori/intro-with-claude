@@ -1,0 +1,158 @@
+<!DOCTYPE html><html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!--[if mso]>
+    <xml><w:WordDocument xmlns:w="urn:schemas-microsoft-com:office:word"><w:DontUseAdvancedTypographyReadingMail/></w:WordDocument>
+        <o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml>
+    <![endif]--><!--[if !mso]><!--><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&display=swap" rel="stylesheet" type="text/css"><!--<![endif]--><style>
+        *{box-sizing:border-box}body{margin:0;padding:0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:inherit!important}#MessageViewBody a{color:inherit;text-decoration:none}p{line-height:inherit}.desktop_hide,.desktop_hide table{mso-hide:all;display:none;max-height:0;overflow:hidden}.image_block img+div{display:none}sub,sup{font-size:75%;line-height:0} @media (max-width:620px){.image_block div.fullWidth{max-width:100%!important}.row-content{width:100%!important}.stack .column{width:100%;display:block}.mobile_hide{min-height:0;max-height:0;max-width:0;display:none;overflow:hidden;font-size:0}.desktop_hide,.desktop_hide table{display:table!important;max-height:none!important}.row-1 .column-1 .block-3.heading_block h1{font-size:22px!important}.row-4 .column-1 .block-1.text_block td.pad{padding:30px 20px 25px 20px!important}.row-5 .column-2 .block-1.text_block td.pad{padding:30px 20px 0 20px!important}.row-5 .column-2 .block-2.text_block td.pad{padding:10px 20px 30px 20px!important}.row-2 .column-1 .col-pad{padding:0!important}.social_block .social-table{display:inline-block!important}.row-1 .column-1 .block-4.text_block td.pad,.row-1 .column-1 .block-5.text_block td.pad,.row-2 .column-1 .block-1.image_block td.pad{padding:0 20px 15px 20px!important}.row-1 .column-1 .block-3.heading_block td.pad,.row-5 .column-1 .block-1.text_block td.pad{padding:30px 20px 20px 20px!important}.row-1 .column-1 .block-6.text_block td.pad,.row-4 .column-1 .block-2.text_block td.pad{padding:0 20px 30px 20px!important}.row-3 .column-1 .block-1.image_block td.pad,.row-3 .column-1 .block-2.image_block td.pad{padding:0 20px 10px 20px!important}.row-2 .column-1 .block-2.image_block td.pad,.row-5 .column-1 .block-2.social_block td.pad{padding:0 20px!important}}
+    </style><!--[if mso ]><style>sup, sub { font-size: 100% !important; } sup { mso-text-raise:10% } sub { mso-text-raise:-10% }</style> <![endif]--><style em="styles">
+        @media only screen and (max-device-width:660px),only screen and (max-width:660px) {
+            .em-mob-wrap {
+                display: block!important;
+            }
+            .em-mob-width-100perc {
+                width: 100%!important;
+                max-width: 100%!important;
+            }
+            .em-mob-padding_right-20 {
+                padding-right: 20px!important;
+            }
+            .em-mob-padding_left-20 {
+                padding-left: 20px!important;
+            }
+        }
+    </style></head>
+<body class="body" style="margin:0;padding:0;-webkit-text-size-adjust:none;text-size-adjust:none;background-color:#fcf0e2">
+
+<!-- ====== JINJA: подготовка данных ====== -->
+<p style="display:none;">
+    {% set events_orchestra = get_last_events('Посмотрел событие imperialorchestra.ru') %}
+    {% set events_hall = get_last_events('Посмотрел событие imperialhall.spb.ru') %}
+
+    {% if events_orchestra and events_orchestra | length > 0 %}
+    {% set source_events = events_orchestra %}
+    {% elif events_hall and events_hall | length > 0 %}
+    {% set source_events = events_hall %}
+    {% else %}
+    {% set source_events = [] %}
+    {% endif %}
+
+    {% set itemsArray = [] %}
+    {% set massEventName = [] %}
+
+    {% if source_events | length > 0 %}
+    {% for e in source_events %}
+    {% if e.props['Название'].lower().strip() not in massEventName %}
+    {% set x = itemsArray.append(e) %}
+    {% set x = massEventName.append(e.props['Название'].lower().strip()) %}
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+</p>
+<!-- ====== КОНЕЦ подготовки данных ====== -->
+
+<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;background-color:#fcf0e2"><tr><td>
+    <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0" em="group"><tr><td>
+        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;background-color:#fcf0e2;border-radius:0;color:#000;width:600px;margin:0 auto" width="600" em="block"><tr><td class="column column-1" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top">
+            <table class="html_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr><td class="pad"><div style="font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;text-align:center" align="center"><div style="display:none;font-size:0px;color:#333333;line-height:0px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Надеемся, что ваши ожидания оправдались</div></div></td></tr></table>
+            <table class="image_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr><td class="pad" style="width:100%" align="center"><div class="fullWidth" style="max-width:600px"><a href="https://imperialorchestra.ru" target="_blank"><img src="https://emcdn.ru/1299824/101e259abc88707740d1cc7b7e2714b4f6445c81c87bd92257f44b0d0c0d53ee/Group_52_(2).png" style="display:block;height:auto;border:0;width:100%" width="600" alt="" title="" height="auto"></a></div></td></tr></table>
+            <table class="heading_block block-3" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr><td class="pad" style="width: 100%; padding: 50px 35px 20px;" align="center"><h1 style="margin:0;color:#391a0f;direction:ltr;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;font-size:24px;font-weight:700;letter-spacing:normal;line-height:1.2;text-align:left;margin-top:0;margin-bottom:0;mso-line-height-alt:29px"><span class="tinyMce-placeholder" style="word-break: break-word;">Здравствуйте!</span></h1></td></tr></table>
+            <table class="text_block block-4" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class="pad" style="padding-bottom:20px;padding-left:35px;padding-right:35px"><div style="font-family:'Trebuchet MS',Tahoma,sans-serif"><div style="font-size:14px;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;mso-line-height-alt:16.8px;color:#391a0f;line-height:1.2"><p style="margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style="word-break: break-word; font-size: 15px;">Вы интересовались нашими шоу, но так и не определились с&nbsp;событием. <strong>Самое время это исправить и провести свой вечер в компании виртуозов музыкального жанра.</strong></span></p></div></div></td></tr></table>
+            <table class="text_block block-5" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class="pad" style="padding-bottom:20px;padding-left:35px;padding-right:35px"><div style="font-family:'Trebuchet MS',Tahoma,sans-serif"><div style="font-size:14px;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;mso-line-height-alt:16.8px;color:#391a0f;line-height:1.2"><p style="margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style="word-break: break-word; font-size: 15px;">На некоторые даты места уже заканчиваются, поэтому советуем поторопиться 👍</span></p></div></div></td></tr></table>
+            <table class="text_block block-6" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class="pad" style="padding-left:35px;padding-right:35px"><div style="font-family:'Trebuchet MS',Tahoma,sans-serif"><div style="font-size:14px;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;mso-line-height-alt:16.8px;color:#391a0f;line-height:1.2"></div></div></td></tr></table>
+        </td></tr></table></td></tr></table>
+
+    <!-- ====== JINJA: цикл по карточкам событий ====== -->
+    {% if itemsArray | length > 0 %}
+    {% for b in itemsArray[:2] %}
+    {% set eventImg = b.props['Картинка'] %}
+    {% set eventName = b.props['Название'] %}
+
+    <table cellspacing="0" cellpadding="0" align="center" border="0" em="block" width="600" class="em-mob-width-100perc">
+        <tr class="em-structure">
+            <td align="left" style="padding: 30px 39px 10px 40px;" class="em-mob-padding_left-20 em-mob-padding_right-20">
+                <table align="center" border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+                    <tr>
+                        <td width="521" valign="top" class="em-mob-wrap em-mob-width-100perc">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="em-mob-width-100perc" em="atom">
+                                <tr><td style="padding-bottom: 10px;">
+                                    <div style="font-family: Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif; font-size: 20px; line-height: 21px; color: #391a0f; font-weight: bold; border-bottom: 3px solid #f6ae01; padding-bottom: 8px; display: inline-block;">{{eventName}}</div>
+                                </td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <table cellspacing="0" cellpadding="0" align="center" border="0" em="block" width="600" class="em-mob-width-100perc">
+        <tr class="em-structure">
+            <td align="center" style="padding: 0px 40px 30px 40px;" class="em-mob-padding_left-20 em-mob-padding_right-20">
+                <table align="center" border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+                    <tr>
+                        <td valign="top" class="em-mob-wrap em-mob-width-100perc">
+                            <table cellpadding="0" cellspacing="0" border="0" width="100%" class="em-mob-width-100perc" em="atom">
+                                <tr><td>
+                                    <img src="{{eventImg}}" width="520" border="0" alt="" style="display: block; width: 100%; max-width: 520px;">
+                                </td></tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    {% endfor %}
+    {% endif %}
+    <!-- ====== КОНЕЦ цикла ====== -->
+
+    <table class="row row-4" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0" em="group"><tr><td>
+        <table cellspacing="0" cellpadding="0" align="center" border="0" em="block" width="600" class="em-mob-width-100perc">
+            <tr class="em-structure">
+                <td align="center" style="padding-right: 35px; padding-bottom: 20px; padding-left: 35px;" class="em-mob-padding_left-20 em-mob-padding_right-20">
+                    <table align="center" border="0" cellspacing="0" cellpadding="0" class="em-mob-width-100perc">
+                        <tr>
+                            <td width="530" valign="top" class="em-mob-wrap em-mob-width-100perc">
+                                <table cellpadding="0" cellspacing="0" border="0" width="100%" class="em-mob-width-100perc" em="atom"><tr><td style="padding-right: 0px; padding-left: 0px;">
+                                    <table cellpadding="0" cellspacing="0" border="0" width="100%" class="em-mob-width-100perc" style="width: 100%;">
+                                        <tr>
+                                            <td align="center" valign="middle" height="50" style="background-color: #f6ae01; height: 50px;" bgcolor="#F6AE01">
+                                                <a href="" target="_blank" style="display: block; font-family: -apple-system, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 20px; line-height: 50px; text-decoration: none; white-space: nowrap; color: #391a0f; padding: 0px;">
+                                                    <span style="font-weight: bold;">К АФИШЕ</span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td></tr></table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;background-color:#fcf0e2;border-radius:0;color:#000;width:600px;margin:0 auto" width="600" em="block"><tr><td class="column column-1" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top">
+            <table class="text_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class="pad" style="padding-bottom: 50px; padding-left: 35px; padding-right: 35px;"><div style="font-family:'Trebuchet MS',Tahoma,sans-serif"><div style="font-size:14px;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;mso-line-height-alt:16.8px;color:#391a0f;line-height:1.2"><p style="margin:0;font-size:14px;mso-line-height-alt:16.8px" align="center"><strong><span style="word-break: break-word; font-size: 15px;">Увидимся в зале!</span></strong></p></div></div></td></tr></table>
+        </td></tr></table>
+
+    </td></tr></table>
+
+    <table class="row row-5" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0" em="group"><tr><td>
+        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;background-color:#f6ae01;border-radius:0;color:#000;width:600px;margin:0 auto" width="600" em="block"><tr>
+            <td class="column column-1" width="50%" style="mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top">
+                <table class="text_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class="pad" style="padding-top:50px;padding-bottom:20px;padding-left:35px;padding-right:15px"><div style="font-family:'Trebuchet MS',Tahoma,sans-serif"><div style="font-size:14px;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;mso-line-height-alt:16.8px;color:#391a0f;line-height:1.2"><p style="margin:0;font-size:14px;mso-line-height-alt:16.8px"><strong><span style="word-break: break-word; font-size: 15px;">«Мы в соцсетях — закулисье, анонсы и музыка!»</span></strong></p></div></div></td></tr></table>
+                <table class="social_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr><td class="pad" style="padding-bottom:50px;padding-left:35px;padding-right:15px" align="left"><table class="social-table" width="106px" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr>
+                    <td style="padding:0"><a href="https://t.me/imperialorchestra" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-circle-dark-gray/telegram@2x.png" width="32" height="auto" alt="Telegram" title="Telegram" style="display:block;height:auto;border:0"></a></td>
+                    <td style="padding:0 0 0 5px"><a href="https://vk.com/imperialorcherstra" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-circle-dark-gray/vkontakte@2x.png" width="32" height="auto" alt="Vkontakte" title="Vkontakte" style="display:block;height:auto;border:0"></a></td>
+                    <td style="padding:0 0 0 5px"><a href="https://www.youtube.com/channel/UC6CXcNMbWakeINaiHvA2LKg" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-circle-dark-gray/youtube@2x.png" width="32" height="auto" alt="YouTube" title="YouTube" style="display:block;height:auto;border:0"></a></td>
+                </tr></table></td></tr></table>
+            </td>
+            <td class="column column-2" width="50%" style="mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top">
+                <table class="text_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class="pad" style="padding-top:40px;padding-left:15px;padding-right:35px"><div style="font-family:'Trebuchet MS',Tahoma,sans-serif"><div style="font-size:14px;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;mso-line-height-alt:16.8px;color:#391a0f;line-height:1.2"><p style="margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style="word-break: break-word; font-size: 12px;">Оркестр Импеариал — самый масштабный симфонический оркестр России, <a href="https://imperialorchestra.ru/premiabravo" target="_blank" style="text-decoration: underline; color: #391a0f;">обладатель премии «Браво».</a> Вы получили это письмо, потому что подписаны на анонсы.&nbsp;</span></p></div></div></td></tr></table>
+                <table class="text_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr><td class="pad" style="padding-top:5px;padding-bottom:40px;padding-left:15px;padding-right:35px"><div style="font-family:'Trebuchet MS',Tahoma,sans-serif"><div style="font-size:14px;font-family:Montserrat,'Trebuchet MS','Lucida Grande','Lucida Sans Unicode','Lucida Sans',Tahoma,sans-serif;mso-line-height-alt:16.8px;color:#391a0f;line-height:1.2"><p style="margin:0;font-size:14px;mso-line-height-alt:16.8px"><span style="word-break: break-word; font-size: 12px;"><a href="{{unsubscribe_url}}" target="_blank" style="color: #391a0f;">Отписаться</a></span></p></div></div></td></tr></table>
+            </td>
+        </tr></table>
+    </td></tr></table>
+
+    <!-- End -->
+</td></tr></table></body></html>

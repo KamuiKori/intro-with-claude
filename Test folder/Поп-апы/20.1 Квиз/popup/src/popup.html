@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./popup/dist/popup.css" inline>
+</head>
+<body>
+<div class="cq-popup__bg"></div>
+<div class="quiz-wrapper">
+    <div class="quiz-card">
+        <button class="quiz-close" type="button"></button>
+
+        <div class="quiz-step active" id="step-1">
+            <p class="quiz-subtitle">Ответьте на несколько вопросов и мы подберем для вас идеальную квартиру</p>
+            <div class="quiz-step-header">
+                <p class="quiz-step-label">Шаг 1 из 4: ЗАДАЧА</p>
+                <p class="quiz-step-question">Для кого вы выбираете квартиру?</p>
+            </div>
+            <div class="quiz-options quiz-options--grid">
+                <label class="quiz-option">
+                    <input type="checkbox" name="step1" value="Для себя">
+                    <span class="option-text">Для себя</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step1" value="Для инвестиций">
+                    <span class="option-text">Для инвестиций</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step1" value="Для ребёнка / родителей">
+                    <span class="option-text">Для ребёнка / родителей</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step1" value="Пока просто присматриваюсь">
+                    <span class="option-text">Пока просто присматриваюсь</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn-secondary" type="button" data-action="close">
+                    <span class="btn-arrow btn-arrow--left"></span>
+                    Назад
+                </button>
+                <button class="quiz-btn-primary" type="button" data-action="next">
+                    <span class="btn-arrow btn-arrow--right"></span>
+                    Далее
+                </button>
+            </div>
+        </div>
+
+        <div class="quiz-step" id="step-2">
+            <p class="quiz-subtitle">Ответьте на несколько вопросов и мы подберем для вас идеальную квартиру</p>
+            <div class="quiz-step-header">
+                <p class="quiz-step-label">Шаг 2 из 4: ПРЕДПОЧТЕНИЯ</p>
+                <p class="quiz-step-question">Что для вас самое важное в будущей квартире?</p>
+            </div>
+            <div class="quiz-options quiz-options--grid">
+                <label class="quiz-option">
+                    <input type="checkbox" name="step2" value="Тишина и уют">
+                    <span class="option-text">Тишина и уют</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step2" value="Красивый вид из окна">
+                    <span class="option-text">Красивый вид из окна</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step2" value="Просторная кухня-гостиная">
+                    <span class="option-text">Просторная кухня-гостиная</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step2" value="Много света">
+                    <span class="option-text">Много света</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step2" value="Удобная планировка">
+                    <span class="option-text">Удобная планировка</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn-secondary" type="button" data-action="prev">
+                    <span class="btn-arrow btn-arrow--left"></span>
+                    Назад
+                </button>
+                <button class="quiz-btn-primary" type="button" data-action="next">
+                    <span class="btn-arrow btn-arrow--right"></span>
+                    Далее
+                </button>
+            </div>
+        </div>
+
+        <div class="quiz-step" id="step-3">
+            <p class="quiz-subtitle">Ответьте на несколько вопросов и мы подберем для вас идеальную квартиру</p>
+            <div class="quiz-step-header">
+                <p class="quiz-step-label">Шаг 3 из 4: БЮДЖЕТ</p>
+                <p class="quiz-step-question">В каком бюджете вы рассматриваете квартиру?</p>
+            </div>
+            <div class="quiz-options quiz-options--grid">
+                <label class="quiz-option">
+                    <input type="checkbox" name="step3" value="До 6 млн">
+                    <span class="option-text">До 6 млн</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step3" value="6–8 млн">
+                    <span class="option-text">6–8 млн</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step3" value="8–10 млн">
+                    <span class="option-text">8–10 млн</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option">
+                    <input type="checkbox" name="step3" value="10+ млн">
+                    <span class="option-text">10+ млн</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+                <label class="quiz-option quiz-option--full">
+                    <input type="checkbox" name="step3" value="Нужна ипотека / помощь с расчётом">
+                    <span class="option-text">Нужна ипотека / помощь с расчётом</span>
+                    <span class="quiz-checkbox"></span>
+                </label>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn-secondary" type="button" data-action="prev">
+                    <span class="btn-arrow btn-arrow--left"></span>
+                    Назад
+                </button>
+                <button class="quiz-btn-primary" type="button" data-action="next">
+                    <span class="btn-arrow btn-arrow--right"></span>
+                    Далее
+                </button>
+            </div>
+        </div>
+
+        <div class="quiz-step" id="step-4">
+            <div class="quiz-step-header quiz-step-header--contacts">
+                <p class="quiz-step-label">Шаг 4 из 4: КОНТАКТЫ</p>
+                <p class="quiz-step-question">Мы подберем для вас лучшие варианты квартир</p>
+                <p class="quiz-step-desc">На основе ваших ответов мы уже подобрали вам несколько квартир, которые подходят именно вам. Готовы показать планировки, цены и лучшие варианты по вашему бюджету.</p>
+            </div>
+            <div class="quiz-form">
+                <div class="quiz-input-wrap">
+                    <label class="quiz-input-label" for="quiz-name">ИМЯ</label>
+                    <input id="quiz-name" class="quiz-input" type="text" name="name" placeholder="Иван">
+                </div>
+                <div class="quiz-input-wrap">
+                    <label class="quiz-input-label" for="quiz-phone">ТЕЛЕФОН</label>
+                    <input id="quiz-phone" class="quiz-input" type="tel" name="phone" placeholder="+7 (999) 999-99-99">
+                </div>
+                <div class="quiz-input-wrap">
+                    <label class="quiz-input-label" for="quiz-email">E-MAIL</label>
+                    <input id="quiz-email" class="quiz-input" type="email" name="email" placeholder="example@mail.ru">
+                </div>
+                <div class="quiz-privacy">
+                    <label class="quiz-privacy-label">
+                        <input type="checkbox" id="quiz-privacy-check" class="quiz-privacy-check">
+                        <span class="quiz-privacy-box"></span>
+                        <span class="quiz-privacy-text">Я принимаю условия <a href="https://atlasdevelopment.su/policy" target="_blank">политики конфиденциальности</a> и даю согласие на <a href="https://atlasdevelopment.su/personal-agree" target="_blank">обработку персональных данных</a></span>
+                    </label>
+                </div>
+            </div>
+            <div class="quiz-actions">
+                <button class="quiz-btn-primary" type="button" data-action="submit">
+                    <span class="btn-arrow btn-arrow--right"></span>
+                    Оставить заявку
+                </button>
+            </div>
+        </div>
+
+        <div class="quiz-step" id="step-5">
+            <div class="quiz-thankyou">
+                <p class="quiz-thankyou-title">Спасибо! Ваша заявка успешно отправлена.</p>
+                <p class="quiz-thankyou-text">Больше о наших проектах и возможностях партнерства — в боте Atlas.</p>
+            </div>
+            <div class="quiz-actions quiz-actions--center">
+                <a class="quiz-btn-primary quiz-btn-primary--full" href="https://t.me/AtlasDevelopmentBot" target="_blank">
+                    <span class="btn-arrow btn-arrow--right"></span>
+                    Перейти в Telegram-бот
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./popup/dist/popup.js" inline></script>
+</body>
+</html>
