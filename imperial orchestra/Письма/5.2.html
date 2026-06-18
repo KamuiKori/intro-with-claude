@@ -1,4 +1,4 @@
-<!DOCTYPE html><html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en"><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!--[if mso]>
+<!DOCTYPE html><html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en"><div style="display:none;font-size:0px;color:#333333;line-height:0px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Билет все еще доступен к покупке</div><head><title></title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><!--[if mso]>
     <xml><w:WordDocument xmlns:w="urn:schemas-microsoft-com:office:word"><w:DontUseAdvancedTypographyReadingMail/></w:WordDocument>
         <o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml>
     <![endif]--><!--[if !mso]><!--><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" type="text/css"><!--<![endif]--><style>
@@ -36,17 +36,14 @@
     <table align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr><td>
         <table class="row-content" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;background-color:#fcf0e2;width:600px;margin:0 auto" width="600">
             <tr><td class="column" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;font-weight:400;text-align:left;vertical-align:top">
-
                 <!-- hidden preheader -->
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr><td style="padding:0"><div style="font-family:Montserrat,'Helvetica Neue',Arial,sans-serif;text-align:center" align="center"><div style="display:none;font-size:0px;color:#333333;line-height:0px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Надеемся, что ваши ожидания оправдались</div></div></td></tr></table>
-
                 <!-- Greeting -->
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0"><tr>
                     <td class="mob-pad" style="padding:50px 35px 20px 35px">
                         <h1 style="margin:0;color:#391a0f;direction:ltr;font-family:Montserrat,'Helvetica Neue',Arial,sans-serif;font-size:24px;font-weight:700;letter-spacing:normal;line-height:1.2;text-align:left;mso-line-height-alt:29px">Здравствуйте!</h1>
                     </td>
                 </tr></table>
-
                 <!-- Text 1 -->
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr>
                     <td class="mob-pad" style="padding:0 35px 20px 35px">
@@ -55,7 +52,6 @@
                         </div>
                     </td>
                 </tr></table>
-
                 <!-- Text 2 -->
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr>
                     <td class="mob-pad" style="padding:0 35px 30px 35px">
@@ -64,24 +60,20 @@
                         </div>
                     </td>
                 </tr></table>
-
                 <!-- ======================== JINJA БЛОК: КАРТОЧКА КОНЦЕРТА ======================== -->
                 <p style="display:none;">
                     {% set itemsArray = [] %}
                     {% set massViewedName = [] %}
-
                     {% set events_imperial = get_last_events('Клик на "Купить билет" imperialorchestra.ru') %}
                     {% set events_hall = get_last_events('Клик на "Купить билет" imperialhall.spb.ru') %}
-
-                    {% if events_imperial and events_imperial | length > 0 %}
+                    {% if events_imperial and events_imperial | length> 0 %}
                     {% set source_events = events_imperial %}
-                    {% elif events_hall and events_hall | length > 0 %}
+                    {% elif events_hall and events_hall | length> 0 %}
                     {% set source_events = events_hall %}
                     {% else %}
                     {% set source_events = [] %}
                     {% endif %}
-
-                    {% if source_events | length > 0 %}
+                    {% if source_events | length> 0 %}
                     {% for e in source_events %}
                     {% if e.props['Название'].lower().strip() not in massViewedName %}
                     {% set x = itemsArray.append(e) %}
@@ -90,8 +82,7 @@
                     {% endfor %}
                     {% endif %}
                 </p>
-
-                {% if itemsArray | length > 0 %}
+                {% if itemsArray | length> 0 %}
                 {% for b in itemsArray[:1] %}
                 {% set url = b.props['Ссылка'] %}
                 {% set img = b.props['Ссылка на картинку'] %}
@@ -101,12 +92,10 @@
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;">
                     <tr>
                         <td class="mob-pad" style="padding:0 35px 30px 35px;">
-
                             <!-- Concert photo -->
                             <a href="{{url}}" target="_blank" style="text-decoration:none;display:block;">
-                                <img src="{{img}}" style="display:block;border:0;width:100%;height:auto;font-size:13px;" alt="{{name}}" />
+                                <img src="{{img}}" style="display:block;border:0;width:100%;height:auto;font-size:13px;" alt="{{name}}">
                             </a>
-
                             <!-- Concert name + info rows (indented per design) -->
                             <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;"><tr>
                                 <td style="padding:20px 80px 0 65px;">
@@ -135,27 +124,24 @@
                                     </table>
                                 </td>
                             </tr></table>
-
                         </td>
                     </tr>
                 </table>
-                {% endfor %}
-                {% endif %}
-                <!-- ======================== КОНЕЦ JINJA БЛОКА ======================== -->
-
                 <!-- К ЗАКАЗУ button -->
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;"><tr>
                     <td class="mob-pad" style="padding:0 35px 30px 35px;">
                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="mso-table-lspace:0;mso-table-rspace:0;border-collapse:separate;">
                             <tr>
                                 <td class="mob-btn" align="center" bgcolor="#f6ae01" style="background-color:#f6ae01;mso-padding-alt:18px 20px;">
-                                    <a href="" target="_blank" style="display:inline-block;background:#f6ae01;color:#391a0f;font-family:Montserrat,'Helvetica Neue',Arial,sans-serif;font-size:20px;font-weight:800;line-height:1;margin:0;text-decoration:none;padding:19px 20px;mso-padding-alt:0px;letter-spacing:0.5px;">К ЗАКАЗУ</a>
+                                    <a href="{{url}}" target="_blank" style="display:inline-block;background:#f6ae01;color:#391a0f;font-family:Montserrat,'Helvetica Neue',Arial,sans-serif;font-size:20px;font-weight:800;line-height:1;margin:0;text-decoration:none;padding:19px 20px;mso-padding-alt:0px;letter-spacing:0.5px;">К ЗАКАЗУ</a>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr></table>
-
+                {% endfor %}
+                {% endif %}
+                <!-- ======================== КОНЕЦ JINJA БЛОКА ======================== -->
                 <!-- "До встречи на шоу!" text -->
                 <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace:0;mso-table-rspace:0;word-break:break-word"><tr>
                     <td class="mob-pad" style="padding:0 35px 50px 35px;">
@@ -164,7 +150,6 @@
                         </div>
                     </td>
                 </tr></table>
-
             </td></tr>
         </table>
     </td></tr></table>

@@ -1,0 +1,224 @@
+$textColor: #000;
+$backgroundColor: #fff;
+$inputTextColor: #000;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Arial', sans-serif;
+  font-weight: 400;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.cq-popup__bg {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+}
+
+.d_flex {
+  display: flex;
+}
+
+.flex_col {
+  flex-direction: column;
+}
+
+.flex_row {
+  flex-direction: row;
+}
+
+.wrapper__body {
+  align-items: flex-end;
+  width: 100%;
+  height: 100%;
+}
+
+.cq-popup__body {
+  position: relative;
+  z-index: 2;
+
+  max-height: 237px;
+  width: 100%;
+  max-width: 320px;
+
+  box-shadow: 0px 0px 3px rgba(111, 111, 111, 0.25);
+  background-color: $backgroundColor;
+  border-radius: 20px;
+}
+
+.cq-popup__close {
+  cursor: pointer;
+  height: 21px;
+  width: 21px;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 99;
+}
+
+.cq-popup__close:before,
+.cq-popup__close:after {
+  background-color: #000000;
+  content: " ";
+  height: 21px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 1px;
+  border-radius: 3px;
+}
+
+.cq-popup__close:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.cq-popup__close:after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.cq-popup__form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  height: 100%;
+
+  overflow: hidden;
+}
+
+.cq-popup__form {
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 26px 39px 0;
+}
+
+.cq-popup__form-content {
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cq-popup__form-inputs {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.cq-popup-inputs-title{
+  font-size: 18px;
+  line-height: 21px;
+  max-width: 355px;
+  margin: 20px 0;
+  text-align: center;
+}
+.cqp__input{
+  border: 1px solid #9d9d9d;
+  border-radius: 5px;
+  width: 100%;
+  height: 46px;
+  font-size: 16px;
+  line-height: 21px;
+  margin-bottom: 10px;
+  max-width: 355px;
+  outline: none;
+  text-align: center;
+}
+.cq-popup__text-h1 {
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  line-height: 21px;
+  color: $textColor;
+  text-align: center;
+  font-weight: 400;
+}
+
+.cqp_timer_wrapper{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.cqp-timer_img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 26px;
+  margin-right: 8px;
+}
+.cqp-timer_img img{
+  height: 26px;
+}
+.cqp_timer span{
+  color: $textColor;
+  font-size: 18px;
+  line-height: 21px;
+}
+.cq-promocode{
+  background: #727883;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  max-width: 214px;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cq-promocode-text{
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  max-width: 100px;
+  margin-left: 60px;
+  color: #fff;
+}
+.cq-promocode-button{
+  margin-right: 13px;
+  cursor: pointer;
+}
+.cq-promocode-discription{
+  color: #9BA2AB;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+@media (max-width: 390px) {
+  .cq-popup__bg{
+    display: block;
+  }
+  .wrapper__body {
+    align-items: center;
+    justify-content: center;
+  }
+}

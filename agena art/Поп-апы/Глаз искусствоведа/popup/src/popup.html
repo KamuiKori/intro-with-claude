@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./popup/dist/popup.css" inline>
+</head>
+<body>
+<div class="cq-popup__bg js-close-bg"></div>
+<div class="wrapper__body">
+  <div class="quiz-card">
+
+    <!-- ====== START SCREEN ====== -->
+    <div id="s0" class="quiz-screen quiz-screen--start">
+      <div class="start-header">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="start-title">Глаз искусствоведа</p>
+        <p class="start-subtitle">10 вопросов, которые определят, знаток Вы или любитель.</p>
+      </div>
+      <div class="start-body">
+        <div class="start-photo">
+          <img src="https://files.carrotquest.app/message-images/71534/71534-1781681667626-yr868nt2.png" alt="">
+        </div>
+        <div class="start-content">
+          <p class="start-heading">Тест: какой Вы искусствовед?</p>
+          <p class="start-text">Этот тест на определение «насмотренного глаза» составил искусствовед, который преподает в нашей Академии. Будет <strong>10 вопросов на 5–7 минут.</strong> После каждого ответа Вы сразу увидите, верно ответили или нет, и почему.</p>
+          <p class="start-text">В конце — <strong>Ваш результат с разбором сильных и слабых сторон,</strong> а также несколько советов: что почитать, посмотреть и куда расти дальше.</p>
+          <div class="start-btn-wrap">
+            <button class="start-btn js-start-quiz">НАЧАТЬ ТЕСТ</button>
+            <span class="start-btn-border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== EXIT MODAL ====== -->
+    <div id="exit-modal" class="exit-modal hidden">
+      <div class="exit-modal__box">
+        <a class="quiz-close exit-modal__close js-exit-cancel"></a>
+        <p class="exit-modal__text">Вы прошли уже <strong class="js-exit-progress">0</strong> вопросов из 10, точно хотите выйти?</p>
+        <p class="exit-modal__sub">Прогресс не сохранится.</p>
+        <div class="btn-wrap btn-wrap--exit">
+          <button class="quiz-btn js-exit-confirm">ВЫЙТИ</button>
+          <span class="btn-wrap__border"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== QUESTION SCREENS s1–s10 ====== -->
+
+    <!-- Q1: painting left, answers right -->
+    <div id="s1" class="quiz-screen hidden" data-q="1">
+      <div class="quiz-header quiz-header--has-painting">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">Перед вами увеличенный фрагмент картины — обнажённое мужское тело, написанное с почти анатомической точностью, с тёмным фоном и резким контрастом светотени. Кому из мастеров принадлежит эта работа?</p>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-painting-col">
+          <div class="quiz-painting-bg quiz-painting-bg--yellow">
+            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/49a6eb35-f763-4d54-951d-92c2a75c61fb" alt="">
+            <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+          </div>
+        </div>
+        <div class="quiz-answers-col">
+          <div class="quiz-answers js-answers">
+            <label class="quiz-answer"><input type="radio" name="q1" value="0"><span>Микеланджело Буонарроти</span></label>
+            <label class="quiz-answer"><input type="radio" name="q1" value="1"><span>Каравадджо</span></label>
+            <label class="quiz-answer"><input type="radio" name="q1" value="2"><span>Питер Пауль Рубенс</span></label>
+            <label class="quiz-answer"><input type="radio" name="q1" value="3"><span>Хосе де Рибера</span></label>
+          </div>
+          <div class="quiz-feedback hidden js-feedback">
+            <div class="quiz-feedback-answer js-feedback-answer"></div>
+            <p class="quiz-feedback-text js-feedback-text"></p>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (1 ИЗ 10)</button>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2: painting left, answers right -->
+    <div id="s2" class="quiz-screen hidden" data-q="2">
+      <div class="quiz-header quiz-header--has-painting">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">Фрагмент: кисть руки, держащая жемчужное украшение. Кожа написана прозрачными слоями, виден лёгкий голубоватый рефлекс на ногтях, фон — глубокий чёрный. Из какой национальной школы эта картина?</p>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-painting-col">
+          <div class="quiz-painting-bg quiz-painting-bg--yellow">
+            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/4bd6a7a3-af28-45bc-87db-8d0037cd2fe0" alt="">
+            <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+          </div>
+        </div>
+        <div class="quiz-answers-col">
+          <div class="quiz-answers js-answers">
+            <label class="quiz-answer"><input type="radio" name="q2" value="0"><span>Итальянская школа XVI века</span></label>
+            <label class="quiz-answer"><input type="radio" name="q2" value="1"><span>Голландская школа XVII века</span></label>
+            <label class="quiz-answer"><input type="radio" name="q2" value="2"><span>Французская школа XVIII века</span></label>
+            <label class="quiz-answer"><input type="radio" name="q2" value="3"><span>Английская школа XIX века</span></label>
+          </div>
+          <div class="quiz-feedback hidden js-feedback">
+            <div class="quiz-feedback-answer js-feedback-answer"></div>
+            <p class="quiz-feedback-text js-feedback-text"></p>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (2 ИЗ 10)</button>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3: 4 image options (Madonnas) -->
+    <div id="s3" class="quiz-screen hidden" data-q="3">
+      <div class="quiz-header quiz-header--full">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">Перед Вами четыре изображения Мадонны с младенцем. Три из них относятся к одной эпохе, одно — к совершенно другой, и лишь имитирует более ранний стиль. Найдите лишнее.</p>
+      </div>
+      <div class="quiz-body quiz-body--full">
+        <div class="quiz-image-answers js-answers">
+          <label class="quiz-image-answer">
+            <input type="radio" name="q3" value="0">
+            <div class="quiz-image-answer__img-wrap">
+              <img src="https://www.figma.com/api/mcp/asset/c25e0ee5-d3b2-4ac6-809c-941b00ef7673" alt="Беллини">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+            <span>Беллини, кватроченто XV в.</span>
+          </label>
+          <label class="quiz-image-answer">
+            <input type="radio" name="q3" value="1">
+            <div class="quiz-image-answer__img-wrap">
+              <img src="https://www.figma.com/api/mcp/asset/a4b4efa7-3754-4f73-88df-73340d1c1556" alt="Липпи">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+            <span>Липпи, флорентийская XV в.</span>
+          </label>
+          <label class="quiz-image-answer">
+            <input type="radio" name="q3" value="2">
+            <div class="quiz-image-answer__img-wrap">
+              <img src="https://www.figma.com/api/mcp/asset/f778ced4-8fbc-4537-ad58-6aac89241c28" alt="Назарейец">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+            <span>Мадонна немецкого назарейца XIX в.</span>
+          </label>
+          <label class="quiz-image-answer">
+            <input type="radio" name="q3" value="3">
+            <div class="quiz-image-answer__img-wrap">
+              <img src="https://www.figma.com/api/mcp/asset/011dad37-3562-43f4-84ba-99b4962311eb" alt="Боттичелли">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+            <span>Боттичелли, флорентийская XV в.</span>
+          </label>
+        </div>
+        <div class="quiz-feedback hidden js-feedback quiz-feedback--full">
+          <div class="quiz-feedback-answer js-feedback-answer"></div>
+          <p class="quiz-feedback-text js-feedback-text"></p>
+        </div>
+        <div class="quiz-nav quiz-nav--full">
+          <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (3 ИЗ 10)</button>
+          <span class="btn-wrap__border"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4: 2x2 painting grid left, text answers right -->
+    <div id="s4" class="quiz-screen hidden" data-q="4">
+      <div class="quiz-header quiz-header--has-painting quiz-header--small">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">Расставьте четыре картины в хронологическом порядке: от самой ранней к самой поздней.</p>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-painting-col quiz-painting-col--grid">
+          <div class="quiz-paintings-grid">
+            <div class="quiz-paint-cell quiz-paint-cell--yellow">
+              <img src="https://www.figma.com/api/mcp/asset/4d1e3446-7087-413e-abfd-bacb0a315d99" alt="Картина А">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+            <div class="quiz-paint-cell quiz-paint-cell--coral">
+              <img src="https://www.figma.com/api/mcp/asset/104d1432-eadd-464e-866d-4645d9ec83eb" alt="Картина Б">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+            <div class="quiz-paint-cell quiz-paint-cell--coral">
+              <img src="https://www.figma.com/api/mcp/asset/bbd271a4-e071-48b5-a515-e4e63b83cb10" alt="Картина В">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+            <div class="quiz-paint-cell quiz-paint-cell--yellow">
+              <img src="https://www.figma.com/api/mcp/asset/b352d0e9-9c86-4578-98cd-acfe8c0a9e11" alt="Картина Г">
+              <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+            </div>
+          </div>
+        </div>
+        <div class="quiz-answers-col">
+          <div class="quiz-answers js-answers">
+            <label class="quiz-answer"><input type="radio" name="q4" value="0"><span>Рафаэль → Веласкес → Делакруа → Мане</span></label>
+            <label class="quiz-answer"><input type="radio" name="q4" value="1"><span>Рафаэль → Делакруа → Веласкес → Мане</span></label>
+            <label class="quiz-answer"><input type="radio" name="q4" value="2"><span>Веласкес → Рафаэль → Мане → Делакруа</span></label>
+            <label class="quiz-answer"><input type="radio" name="q4" value="3"><span>Рафаэль → Веласкес → Мане → Делакруа</span></label>
+          </div>
+          <div class="quiz-feedback hidden js-feedback">
+            <div class="quiz-feedback-answer js-feedback-answer"></div>
+            <p class="quiz-feedback-text js-feedback-text"></p>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (4 ИЗ 10)</button>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q5: painting left, answers right -->
+    <div id="s5" class="quiz-screen hidden" data-q="5">
+      <div class="quiz-header quiz-header--has-painting">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">На картине молодая женщина выходит из раковины посреди моря, её несут к берегу. Слева летит крылатая фигура с надутыми щеками, справа стоит женщина с плащом. Какой это сюжет?</p>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-painting-col">
+          <div class="quiz-painting-bg quiz-painting-bg--yellow">
+            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/66236319-cb25-4ffe-aa55-7972e8f99d45" alt="">
+            <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+          </div>
+        </div>
+        <div class="quiz-answers-col">
+          <div class="quiz-answers js-answers">
+            <label class="quiz-answer"><input type="radio" name="q5" value="0"><span>Рождение Афродиты по Гесиоду</span></label>
+            <label class="quiz-answer"><input type="radio" name="q5" value="1"><span>Крещение Господне</span></label>
+            <label class="quiz-answer"><input type="radio" name="q5" value="2"><span>Триумф Галатеи</span></label>
+            <label class="quiz-answer"><input type="radio" name="q5" value="3"><span>Спасение Андромеды Персеем</span></label>
+          </div>
+          <div class="quiz-feedback hidden js-feedback">
+            <div class="quiz-feedback-answer js-feedback-answer"></div>
+            <p class="quiz-feedback-text js-feedback-text"></p>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (5 ИЗ 10)</button>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q6: painting left, answers right -->
+    <div id="s6" class="quiz-screen hidden" data-q="6">
+      <div class="quiz-header quiz-header--has-painting">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">Взгляните на картину. Что это за сюжет, и кто эта женщина в зелёном?</p>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-painting-col">
+          <div class="quiz-painting-bg quiz-painting-bg--yellow">
+            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/87535259-a28a-48c2-a491-71bf4491314f" alt="">
+            <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+          </div>
+        </div>
+        <div class="quiz-answers-col">
+          <div class="quiz-answers js-answers">
+            <label class="quiz-answer"><input type="radio" name="q6" value="0"><span>Святое семейство — Мария, Иосиф и младенец Иисус</span></label>
+            <label class="quiz-answer"><input type="radio" name="q6" value="1"><span>Сретение Господне</span></label>
+            <label class="quiz-answer"><input type="radio" name="q6" value="2"><span>Мадонна с младенцем Иисусом, а пожилая женщина — это святая Анна</span></label>
+            <label class="quiz-answer"><input type="radio" name="q6" value="3"><span>Поклонение волхвов</span></label>
+          </div>
+          <div class="quiz-feedback hidden js-feedback">
+            <div class="quiz-feedback-answer js-feedback-answer"></div>
+            <p class="quiz-feedback-text js-feedback-text"></p>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (6 ИЗ 10)</button>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q7: text only, full width -->
+    <div id="s7" class="quiz-screen hidden" data-q="7">
+      <div class="quiz-header quiz-header--full">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">Какое из утверждений о голландском натюрморте XVII века верно?</p>
+      </div>
+      <div class="quiz-body quiz-body--full">
+        <div class="quiz-answers quiz-answers--full js-answers">
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q7" value="0"><span>Натюрморты-«vanitas» с черепами, песочными часами и потухшими свечами писались как декоративные украшения для гостиных богатых купцов</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q7" value="1"><span>Натюрморты с накрытыми столами («pronk stilleven») демонстрировали богатство заказчика и его доступ к колониальным товарам — лимонам, китайскому фарфору, серебру</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q7" value="2"><span>Цветочные натюрморты писались «с натуры», для чего художник должен был успеть запечатлеть букет до того, как цветы завянут</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q7" value="3"><span>Главным заказчиком голландского натюрморта была протестантская церковь, использовавшая его в богослужениях</span></label>
+        </div>
+        <div class="quiz-feedback hidden js-feedback quiz-feedback--full">
+          <div class="quiz-feedback-answer js-feedback-answer"></div>
+          <p class="quiz-feedback-text js-feedback-text"></p>
+        </div>
+        <div class="quiz-nav quiz-nav--full">
+          <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (7 ИЗ 10)</button>
+          <span class="btn-wrap__border"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q8: text only, full width -->
+    <div id="s8" class="quiz-screen hidden" data-q="8">
+      <div class="quiz-header quiz-header--full">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">В XIX веке в Российской империи произошёл «Бунт четырнадцати» — событие, ставшее переломным для русского искусства. О чём идёт речь?</p>
+      </div>
+      <div class="quiz-body quiz-body--full">
+        <div class="quiz-answers quiz-answers--full js-answers">
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q8" value="0"><span>Это бунт студентов Московского училища живописи, ваяния и зодчества против обязательного посещения занятий по церковной живописи</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q8" value="1"><span>Это отказ четырнадцати выпускников Петербургской Академии художеств писать дипломную работу на заданный академией мифологический сюжет, что привело к созданию первой независимой Артели художников</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q8" value="2"><span>Это коллективное обращение четырнадцати членов Императорской академии к Александру II с требованием отменить крепостное право для художников</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q8" value="3"><span>Это разгром выставки передвижников консервативными зрителями, обвинившими художников в «оскорблении национальных святынь»</span></label>
+        </div>
+        <div class="quiz-feedback hidden js-feedback quiz-feedback--full">
+          <div class="quiz-feedback-answer js-feedback-answer"></div>
+          <p class="quiz-feedback-text js-feedback-text"></p>
+        </div>
+        <div class="quiz-nav quiz-nav--full">
+          <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (8 ИЗ 10)</button>
+          <span class="btn-wrap__border"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q9: painting left, answers right -->
+    <div id="s9" class="quiz-screen hidden" data-q="9">
+      <div class="quiz-header quiz-header--has-painting">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">Эта картина известна тем, что на её обратной стороне написана вторая, не менее значимая работа того же автора. О какой картине идёт речь?</p>
+      </div>
+      <div class="quiz-body">
+        <div class="quiz-painting-col">
+          <div class="quiz-painting-bg quiz-painting-bg--yellow">
+            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/8deba7da-3033-4e8a-8748-1376da5c0c4e" alt="">
+            <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>
+          </div>
+        </div>
+        <div class="quiz-answers-col">
+          <div class="quiz-answers js-answers">
+            <label class="quiz-answer"><input type="radio" name="q9" value="0"><span>«Сад земных наслаждений» Иеронима Босха — это триптих, и на внешних створках, когда он закрыт, изображён мир в третий день творения</span></label>
+            <label class="quiz-answer"><input type="radio" name="q9" value="1"><span>«Тайная вечеря» Леонардо да Винчи — на обратной стороне стены написана композиция «Распятие» работы Монторфано</span></label>
+            <label class="quiz-answer"><input type="radio" name="q9" value="2"><span>«Менины» Веласкеса — на обратной стороне холста скрыт автопортрет художника</span></label>
+            <label class="quiz-answer"><input type="radio" name="q9" value="3"><span>«Девушка с жемчужной серёжкой» Вермеера — на обратной стороне доски есть подготовительный рисунок другой работы</span></label>
+          </div>
+          <div class="quiz-feedback hidden js-feedback">
+            <div class="quiz-feedback-answer js-feedback-answer"></div>
+            <p class="quiz-feedback-text js-feedback-text"></p>
+          </div>
+          <div class="quiz-nav">
+            <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (9 ИЗ 10)</button>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q10: text only, full width -->
+    <div id="s10" class="quiz-screen hidden" data-q="10">
+      <div class="quiz-header quiz-header--full">
+        <a class="quiz-close js-close-btn"></a>
+        <p class="quiz-header-q">В русской иконописи существует канонический сюжет, который западному зрителю часто кажется ошибочным — он изображает Святую Троицу как трёх ангелов за столом. Откуда взялась такая иконография и кто канонически считается её главным мастером?</p>
+      </div>
+      <div class="quiz-body quiz-body--full">
+        <div class="quiz-answers quiz-answers--full js-answers">
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q10" value="0"><span>Этот сюжет восходит к описанию Троицы в Откровении Иоанна Богослова, а главный мастер — Феофан Грек</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q10" value="1"><span>Сюжет восходит к ветхозаветному эпизоду «Гостеприимства Авраама» (явление трёх странников у Мамврийского дуба), главный мастер — Андрей Рублёв с его иконой около 1411 или 1425–1427 годов</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q10" value="2"><span>Сюжет придумал лично Андрей Рублёв как самостоятельную композицию, без опоры на библейский текст</span></label>
+          <label class="quiz-answer quiz-answer--wide"><input type="radio" name="q10" value="3"><span>Этот сюжет основан на видении пророка Исайи и был развит Дионисием в XV–XVI веках</span></label>
+        </div>
+        <div class="quiz-feedback hidden js-feedback quiz-feedback--full">
+          <div class="quiz-feedback-answer js-feedback-answer"></div>
+          <p class="quiz-feedback-text js-feedback-text"></p>
+        </div>
+        <div class="quiz-nav quiz-nav--full">
+          <button class="quiz-btn quiz-btn--next js-btn-next" disabled>ДАЛЕЕ (10 ИЗ 10)</button>
+          <span class="btn-wrap__border"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== EMAIL FORM SCREEN ====== -->
+    <div id="s-email" class="quiz-screen quiz-screen--email hidden">
+      <a class="quiz-close js-close-btn"></a>
+      <div class="email-header">
+        <h2 class="email-header__title">Готовы узнать ваш уровень?</h2>
+        <p class="email-header__sub">Оставьте email — мы сразу покажем результат, пришлем его копию вам на почту и подберем курс под ваш уровень. Без спама, только материалы, релевантные вашему результату.</p>
+      </div>
+      <div class="email-body">
+        <div class="email-body__img">
+          <img src="https://www.figma.com/api/mcp/asset/380a9e96-3095-440f-92c1-87824126ac89" alt="">
+        </div>
+        <div class="email-body__form">
+          <input type="text" class="quiz-field js-name-input" placeholder="Введите Ваше имя" name="name">
+          <input type="email" class="quiz-field js-email-input" placeholder="Введите Ваш эл. адрес *" name="email">
+          <div class="quiz-checkbox-row">
+            <input type="checkbox" id="cb1" class="js-cb1">
+            <label for="cb1">Я даю <a href="#" class="cb-link">согласие</a> на обработку своих персональных данных.</label>
+          </div>
+          <div class="quiz-checkbox-row">
+            <input type="checkbox" id="cb2" class="js-cb2">
+            <label for="cb2">Я ознакомлен с <a href="https://agena-art.ru/privacy" target="_blank" class="cb-link">Политикой конфиденциальности.</a></label>
+          </div>
+          <div class="btn-wrap btn-wrap--email-cta">
+            <button class="quiz-btn js-submit-email">УЗНАТЬ РЕЗУЛЬТАТ</button>
+            <span class="btn-wrap__border"></span>
+          </div>
+          <a href="#" class="quiz-skip-email js-skip-email">Посмотреть результат без e-mail →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====== RESULT SCREENS ====== -->
+
+    <!-- Result 1: 0–3 correct — Турист в музее -->
+    <div id="s-result-1" class="quiz-screen quiz-screen--result hidden">
+      <a class="quiz-close js-close-btn"></a>
+      <div class="result-header">
+        <h2 class="result-title">Вы — Турист в музее</h2>
+      </div>
+      <div class="result-body">
+        <p class="result-desc">Вы любите искусство, но пока смотрите на картины как на красивые иллюстрации. И это абсолютно нормальная стартовая точка: так же когда-то начинал почти каждый из тех, кто сегодня водит экскурсии в Эрмитаже и Третьяковке.</p>
+        <p class="result-desc">Хорошая новость в том, что и базовую «насмотренность» в искусствоведении вполне реально наработать за несколько месяцев системного обучения.</p>
+        <p class="result-tips-title">Три совета:</p>
+        <ul class="result-tips">
+          <li>Начните с обзорного курса по истории искусств, он даст вам опорную сетку эпох и стилей, на которую дальше будет ложиться все остальное.</li>
+          <li>Возьмите за правило смотреть в любом музее не больше 3–5 залов за раз, но с гайдом или аудиогидом — поверхностный пробег по 30 залам дает меньше, чем медленный вдумчивый разбор 3-5 залов.</li>
+          <li>Прочитайте «Историю искусств» Гомбриха — самую дружелюбную для новичка книгу об истории искусства, написанных за последние 70 лет.</li>
+        </ul>
+      </div>
+      <div class="result-actions">
+        <div class="btn-wrap btn-wrap--result-cta">
+          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/vvedenie-v-istoriyu-iskusstv/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Записаться на курс «Введение в историю искусств» →</a>
+          <span class="btn-wrap__border"></span>
+        </div>
+        <div class="result-socials">
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result 2: 4–6 correct — Внимательный зритель -->
+    <div id="s-result-2" class="quiz-screen quiz-screen--result hidden">
+      <a class="quiz-close js-close-btn"></a>
+      <div class="result-header">
+        <h2 class="result-title">Вы — Внимательный зритель</h2>
+      </div>
+      <div class="result-body">
+        <p class="result-desc">У Вас уже есть то, что искусствоведы называют «насмотренностью». Вы узнаете крупные имена, не путаете эпохи на уровне «Возрождение или барокко», ловите знакомые сюжеты.</p>
+        <p class="result-desc">Скорее всего, Вы хорошо знаете один-два периода (любимых). Это типичная картина для человека, который много читает и ходит в музеи, но никогда не изучал историю искусств</p>
+        <p class="result-tips-title">Три совета:</p>
+        <ul class="result-tips">
+          <li>Пройдите 2–3 курса по тем периодам, которые знаете хуже всего. Лучше глубоко по одной теме, чем поверхностно по всей истории.</li>
+          <li>Начните читать классические книги по истории искусства: «Жизнеописания» Вазари, «История искусства как история духа» Дворжак, «Этюды по иконология» Панофского.</li>
+          <li>Запишитесь на экскурсию с искусствоведом-практиком — на углубленный разбор 5–7 картин за два часа. Это меняет угол зрения.</li>
+        </ul>
+      </div>
+      <div class="result-actions">
+        <div class="btn-wrap btn-wrap--result-cta">
+          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Посмотреть курсы по эпохам →</a>
+          <span class="btn-wrap__border"></span>
+        </div>
+        <div class="result-socials">
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result 3: 7–8 correct — Любитель с библиотекой -->
+    <div id="s-result-3" class="quiz-screen quiz-screen--result hidden">
+      <a class="quiz-close js-close-btn"></a>
+      <div class="result-header">
+        <h2 class="result-title">Вы — Любитель с библиотекой</h2>
+      </div>
+      <div class="result-body">
+        <p class="result-desc">Вы знаете предмет глубже, чем девять из десяти посетителей музея. У Вас есть и насмотренность, и знание контекста — этот тест намеренно сделан очень сложным, и 7–8 правильных ответов из 10 говорят о серьезной подготовке.</p>
+        <p class="result-desc">Дальше вам стоит не «расширяться», а «углубляться»: брать одну тему (допустим, ювелирное искусство иконопись или нидерландскую живопись) и развиваться в ней до уровня, на котором Вы сможете отличать стили разных мастеров одной школы. Это и есть переход от любительства к экспертности.</p>
+        <p class="result-tips-title">Три совета:</p>
+        <ul class="result-tips">
+          <li>Выберите узкую специализацию по душе и пройдите по ней углубленный курс. Хороший выбор — иконография, история мебельного искусства, фальсификация в искусстве, ювелирное искусство дома Фаберже.</li>
+          <li>Начните ходить на крупные международные ярмарки и аукционы как зритель.</li>
+          <li>Подумайте, нужен ли вам формальный диплом. Если хотите перевести увлечение в профессию (экскурсовод, эксперт, галерист, арт-дилер, антиквар), без диплома о профпереподготовке двигаться сложно.</li>
+        </ul>
+      </div>
+      <div class="result-actions">
+        <div class="btn-wrap btn-wrap--result-cta">
+          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Выбрать углубленный курс →</a>
+          <span class="btn-wrap__border"></span>
+        </div>
+        <div class="result-socials">
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result 4: 9–10 correct — Кандидат в кураторы -->
+    <div id="s-result-4" class="quiz-screen quiz-screen--result hidden">
+      <a class="quiz-close js-close-btn"></a>
+      <div class="result-header">
+        <h2 class="result-title">Вы — Кандидат в кураторы</h2>
+      </div>
+      <div class="result-body">
+        <p class="result-desc">Честно говоря, мы не ожидали такого результата от поп-апа на сайте. 9–10 из 10 на тесте — это уровень профессионального искусствоведа или очень серьезного коллекционера.</p>
+        <p class="result-desc">Возможно, вы из числа тех, кто работает в музее, владеет галереей или просто посвятил искусству десятилетия жизни. В этом случае обычные курсы для вас будут слишком поверхностными. В вашем случае имеет смысл говорить о программе профессиональной переподготовки с дипломом, дающей право работать искусствоведом, экспертом, арт-дилером, галеристом, антикваром или экскурсоводом официально.</p>
+        <p class="result-tips-title">Три совета:</p>
+        <ul class="result-tips">
+          <li>Рассмотрите программу ДПО «Искусствоведение» с дипломом. Это дает юридическое право вести экспертную деятельность, преподавать и работать в музеях. Часто это последний недостающий формальный элемент для людей с вашим уровнем знаний.</li>
+          <li>Подумайте о собственных публикациях (статьях, лекциях, экскурсиях). У Академии есть программы, помогающие готовить экскурсоводов и преподавателей.</li>
+          <li>Если интересуют конкретные узкие специализации (атрибуция, экспертиза, антикварный рынок, арт-менеджмент), обратите внимание на программы ДПО «Искусствоведение», «Арт-менеджмент» и «Атрибуция антиквариата» — внутри них Вы найдете насыщенную программу по всем аспектам профессии и истории искусства.</li>
+        </ul>
+      </div>
+      <div class="result-actions">
+        <div class="btn-wrap btn-wrap--result-cta">
+          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Подробнее о программах профпереподготовки →</a>
+          <span class="btn-wrap__border"></span>
+        </div>
+        <div class="result-socials">
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+          <div class="btn-wrap btn-wrap--social">
+            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>
+            <span class="btn-wrap__border"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .quiz-card -->
+</div><!-- .wrapper__body -->
+
+<div id="quiz-lightbox" class="quiz-lightbox hidden">
+  <div class="quiz-lightbox__overlay js-lightbox-close"></div>
+  <div class="quiz-lightbox__box">
+    <img class="quiz-lightbox__img js-lightbox-img" src="" alt="">
+    <button class="quiz-lightbox__close js-lightbox-close"></button>
+  </div>
+</div>
+
+<script src="./popup/dist/popup.js" inline></script>
+</body>
+</html>

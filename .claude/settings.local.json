@@ -4,7 +4,28 @@
       "mcp__plugin_figma_figma__get_design_context",
       "Skill(figma:figma-implement-design)",
       "mcp__plugin_figma_figma__get_screenshot",
-      "PowerShell(Get-Command *)"
+      "PowerShell(Get-Command *)",
+      "mcp__plugin_figma_figma__use_figma",
+      "Bash(npx gulp *)",
+      "Bash(node *)",
+      "Bash(curl -s -o \"C:/Users/kamui/AppData/Local/Temp/figma_shot.png\" \"https://www.figma.com/api/mcp/asset/df713063-b07d-4828-b957-52f594cac633\")",
+      "Bash(curl -s -o /tmp/figma_screenshot.png \"https://www.figma.com/api/mcp/asset/ae025bb0-1394-4408-9de7-da93a60acc34\")",
+      "Read(//tmp/**)",
+      "PowerShell($u=\"https://www.figma.com/api/mcp/asset/ae025bb0-1394-4408-9de7-da93a60acc34\"; Invoke-WebRequest -Uri $u -OutFile \"$env:TEMP\\\\figma_shot.png\"; Write-Output \"$env:TEMP\\\\figma_shot.png\")",
+      "PowerShell($base=\"C:\\\\Users\\\\kamui\\\\WebstormProjects\\\\clients-intro-with-claude\\\\karlssonhaus\\\\Поп-апы\"; Write-Output \"node_modules: $\\(Test-Path \"$base\\\\node_modules\"\\)\"; Write-Output \"sass: $\\(Test-Path \"$base\\\\node_modules\\\\.bin\\\\sass.cmd\"\\)\"; Write-Output \"gulp: $\\(Test-Path \"$base\\\\node_modules\\\\.bin\\\\gulp.cmd\"\\)\"; \\(Get-Command node\\).Source)",
+      "PowerShell($edge=\"C:\\\\Program Files \\(x86\\)\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\"; $edge2=\"C:\\\\Program Files\\\\Microsoft\\\\Edge\\\\Application\\\\msedge.exe\"; Write-Output \"edge1: $\\(Test-Path $edge\\)\"; Write-Output \"edge2: $\\(Test-Path $edge2\\)\"; $chrome=\"C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"; $chrome2=\"C:\\\\Program Files \\(x86\\)\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe\"; Write-Output \"chrome1: $\\(Test-Path $chrome\\)\"; Write-Output \"chrome2: $\\(Test-Path $chrome2\\)\")",
+      "Read(//mnt/c/Users/kamui/WebstormProjects/**)",
+      "Bash(npx --yes sass \"karlssonhaus/Поп-апы/popup/src/popup.scss\" \"/tmp/popup_preview.css\" --no-source-map)",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(npx --yes sass karlssonhaus/Поп-апы/popup/src/popup.scss __TRACKED_VAR__/popup_preview.css --no-source-map)",
+      "PowerShell(Test-Path *)",
+      "Bash(powershell -Command \"[System.IO.File]::ReadAllText\\('C:\\\\\\\\Users\\\\\\\\kamui\\\\\\\\WebstormProjects\\\\\\\\clients-intro-with-claude\\\\\\\\karlssonhaus\\\\\\\\Поп-апы\\\\\\\\popup\\\\\\\\src\\\\\\\\popup.scss', [System.Text.Encoding]::UTF8\\)\")",
+      "Bash(Select-String -Pattern \"^\\\\s*/\\\\*\")",
+      "Bash(Select-Object -First 20)",
+      "Bash(del *)",
+      "mcp__plugin_figma_figma__get_metadata",
+      "mcp__plugin_figma_figma__search_design_system",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); text=data[0]['text']; lines=[l for l in text.split\\('\\\\n'\\) if '116:' in l or 'email' in l.lower\\(\\) or 'result' in l.lower\\(\\) or 'почт' in l.lower\\(\\) or 'итог' in l.lower\\(\\) or 'финал' in l.lower\\(\\) or 'форм' in l.lower\\(\\)]; print\\('\\\\n'.join\\(lines[:80]\\)\\)\")"
     ]
   }
 }

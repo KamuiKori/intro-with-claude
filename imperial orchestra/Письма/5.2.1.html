@@ -40,7 +40,7 @@
 
     {% if source_events | length > 0 %}
     {% for e in source_events %}
-    {% if e.props['Название'].lower().strip() not in massEventName %}
+    {% if e.props['Название'].lower().strip() not in massEventName and e.props.get('Картинка') %}
     {% set x = itemsArray.append(e) %}
     {% set x = massEventName.append(e.props['Название'].lower().strip()) %}
     {% endif %}

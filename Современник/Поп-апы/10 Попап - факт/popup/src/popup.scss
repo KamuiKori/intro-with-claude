@@ -1,0 +1,441 @@
+$clr-beige:   #efebe1;
+$clr-dark:    #2d2d2b;
+$clr-white:   #ffffff;
+$clr-overlay: rgba(51, 51, 51, 0.5);
+$font-main: 'Basis Grotesque Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+@font-face {
+  font-family: "Basis Grotesque Pro";
+  font-weight: 500;
+  src: url("https://sovremennik.ru/packs/media/fonts/BasisGrotesquePro-Medium-3a4f1d525cbb8b808873b7cabf23a2c2.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Basis Grotesque Pro";
+  font-weight: 400;
+  src: url("https://sovremennik.ru/packs/media/fonts/BasisGrotesquePro-Regular-fc5973283fa334f121eab2cc2ba8ecc2.woff2") format("woff2");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  font-family: $font-main;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+.cq-popup__bg {
+  position: fixed;
+  inset: 0;
+  background: $clr-overlay;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 0;
+}
+
+.wrapper__body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+}
+
+.quiz-card {
+  position: relative;
+  background: $clr-beige;
+  width: 100%;
+  max-width: 653px;
+  padding: 5px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    border: 1px solid $clr-dark;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &--thanks {
+    .card-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+    }
+  }
+}
+
+.card-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 10;
+  width: 14px;
+  height: 14px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background: $clr-dark;
+    transform-origin: center;
+  }
+
+  &::before { transform: translateY(-50%) rotate(45deg); }
+  &::after  { transform: translateY(-50%) rotate(-45deg); }
+}
+
+.card-header {
+  position: relative;
+  z-index: 2;
+  padding: 15px 19px 0;
+}
+
+.card-logo {
+  display: block;
+  width: 100%;
+  height: 76px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-inner {
+  position: relative;
+  z-index: 2;
+  padding: 20px 35px 30px;
+
+  &--center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+  }
+}
+
+.quiz-title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: $clr-dark;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.question-box {
+  position: relative;
+  padding: 4px 8px;
+  margin-bottom: 24px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 21px;
+    height: 21px;
+    border-left: 1px solid $clr-dark;
+    border-bottom: 1px solid $clr-dark;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -6px;
+    width: 21px;
+    height: 21px;
+    border-right: 1px solid $clr-dark;
+    border-top: 1px solid $clr-dark;
+  }
+}
+
+.question-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $clr-dark;
+  text-align: center;
+
+  strong {
+    font-weight: 500;
+  }
+}
+
+.history-photo {
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 221px;
+    object-fit: cover;
+    object-position: center top;
+  }
+}
+
+.promo-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: $clr-dark;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-answer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 16px;
+  font-family: $font-main;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid $clr-dark;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &--filled {
+    background: $clr-dark;
+    color: $clr-white;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  &--outline {
+    background: $clr-beige;
+    color: $clr-dark;
+
+    &:hover {
+      background: $clr-dark;
+      color: $clr-white;
+    }
+  }
+}
+
+.email-row {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.email-field {
+  flex: 1;
+  border-bottom: 1px solid $clr-dark;
+}
+
+.email-input {
+  display: block;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: $font-main;
+  font-size: 16px;
+  font-weight: 400;
+  color: $clr-dark;
+  text-align: center;
+
+  &::placeholder {
+    color: $clr-dark;
+    opacity: 0.5;
+  }
+}
+
+.btn-submit-arrow {
+  flex-shrink: 0;
+  width: 110px;
+  height: 50px;
+  background: $clr-dark;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.btn-desktop-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-mobile-text {
+  display: none;
+  font-family: $font-main;
+  font-size: 16px;
+  font-weight: 400;
+  color: $clr-white;
+  letter-spacing: 0.02em;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: $clr-dark;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    flex-shrink: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    margin-top: 1px;
+    border: 1px solid $clr-dark;
+    background: $clr-beige;
+    cursor: pointer;
+    position: relative;
+
+    &:checked::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      width: 4px;
+      height: 7px;
+      border: 1.5px solid $clr-dark;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    color: $clr-dark;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .wrapper__body {
+    padding: 20px;
+  }
+
+  .card-logo {
+    height: auto;
+  }
+
+  .card-inner {
+    padding: 16px 20px 24px;
+  }
+
+  .quiz-title {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .question-text {
+    font-size: 14px;
+  }
+
+  .history-photo img {
+    height: 160px;
+  }
+
+  .btn-row {
+    flex-direction: column;
+  }
+
+  .btn-answer {
+    flex: none;
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+  }
+
+  .promo-text {
+    font-size: 14px;
+  }
+
+  .email-row {
+    flex-direction: column;
+  }
+
+  .email-field {
+    width: 100%;
+  }
+
+  .email-input {
+    font-size: 14px;
+    text-align: left;
+    padding: 0 4px;
+  }
+
+  .btn-submit-arrow {
+    flex-shrink: 0;
+    width: 100%;
+    height: 50px;
+  }
+
+  .btn-desktop-icon {
+    display: none;
+  }
+
+  .btn-mobile-text {
+    display: block;
+    font-size: 14px;
+  }
+}

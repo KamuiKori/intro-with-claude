@@ -1,0 +1,771 @@
+var popupContent = '\
+<!DOCTYPE html>\
+<html lang="ru">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1">\
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">\
+    <style>@font-face {\
+  font-family: "Basis Grotesque Pro";\
+  font-weight: 500;\
+  src: url("https://sovremennik.ru/packs/media/fonts/BasisGrotesquePro-Medium-3a4f1d525cbb8b808873b7cabf23a2c2.woff2") format("woff2");\
+}\
+\
+@font-face {\
+  font-family: "Basis Grotesque Pro";\
+  font-weight: 400;\
+  src: url("https://sovremennik.ru/packs/media/fonts/BasisGrotesquePro-Regular-fc5973283fa334f121eab2cc2ba8ecc2.woff2") format("woff2");\
+}\
+\
+* {\
+  margin: 0;\
+  padding: 0;\
+  box-sizing: border-box;\
+  -webkit-font-smoothing: antialiased;\
+  -webkit-tap-highlight-color: transparent;\
+  font-family: "Basis Grotesque Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;\
+}\
+\
+html,\
+body {\
+  height: 100%;\
+}\
+\
+body {\
+  overflow: hidden;\
+}\
+\
+a {\
+  color: inherit;\
+}\
+\
+.cq-popup__bg {\
+  position: fixed;\
+  inset: 0;\
+  background: rgba(51, 51, 51, 0.5);\
+  backdrop-filter: blur(5px);\
+  -webkit-backdrop-filter: blur(5px);\
+  z-index: 0;\
+}\
+\
+.wrapper__body {\
+  position: relative;\
+  z-index: 1;\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+  width: 100%;\
+  height: 100%;\
+  padding: 15px;\
+}\
+\
+.quiz-card {\
+  position: relative;\
+  background: #efebe1;\
+  width: 100%;\
+  max-width: 653px;\
+  padding: 5px;\
+}\
+\
+.quiz-card::before {\
+  content: "";\
+  position: absolute;\
+  inset: 5px;\
+  border: 1px solid #2d2d2b;\
+  pointer-events: none;\
+  z-index: 1;\
+}\
+\
+.quiz-card--thanks .card-inner {\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-direction: column;\
+      flex-direction: column;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+  min-height: 180px;\
+}\
+\
+.card-close {\
+  position: absolute;\
+  top: 18px;\
+  right: 20px;\
+  z-index: 10;\
+  width: 14px;\
+  height: 14px;\
+  background: transparent;\
+  border: none;\
+  cursor: pointer;\
+  padding: 0;\
+}\
+\
+.card-close::before,\
+.card-close::after {\
+  content: "";\
+  position: absolute;\
+  top: 50%;\
+  left: 0;\
+  width: 100%;\
+  height: 1.5px;\
+  background: #2d2d2b;\
+  -webkit-transform-origin: center;\
+          transform-origin: center;\
+}\
+\
+.card-close::before {\
+  -webkit-transform: translateY(-50%) rotate(45deg);\
+          transform: translateY(-50%) rotate(45deg);\
+}\
+\
+.card-close::after {\
+  -webkit-transform: translateY(-50%) rotate(-45deg);\
+          transform: translateY(-50%) rotate(-45deg);\
+}\
+\
+.card-header {\
+  position: relative;\
+  z-index: 2;\
+  padding: 15px 19px 0;\
+}\
+\
+.card-logo {\
+  display: block;\
+  width: 100%;\
+  height: 76px;\
+  -o-object-fit: cover;\
+     object-fit: cover;\
+  -o-object-position: center;\
+     object-position: center;\
+}\
+\
+.card-inner {\
+  position: relative;\
+  z-index: 2;\
+  padding: 20px 35px 30px;\
+}\
+\
+.card-inner--center {\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-direction: column;\
+      flex-direction: column;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+  min-height: 180px;\
+}\
+\
+.quiz-title {\
+  font-size: 24px;\
+  font-weight: 500;\
+  line-height: 1.2;\
+  color: #2d2d2b;\
+  text-transform: uppercase;\
+  text-align: center;\
+  margin-bottom: 20px;\
+}\
+\
+.question-box {\
+  position: relative;\
+  padding: 4px 8px;\
+  margin-bottom: 24px;\
+}\
+\
+.question-box::before {\
+  content: "";\
+  position: absolute;\
+  left: 0;\
+  bottom: -6px;\
+  width: 21px;\
+  height: 21px;\
+  border-left: 1px solid #2d2d2b;\
+  border-bottom: 1px solid #2d2d2b;\
+}\
+\
+.question-box::after {\
+  content: "";\
+  position: absolute;\
+  right: 0;\
+  top: -6px;\
+  width: 21px;\
+  height: 21px;\
+  border-right: 1px solid #2d2d2b;\
+  border-top: 1px solid #2d2d2b;\
+}\
+\
+.question-text {\
+  font-size: 16px;\
+  font-weight: 400;\
+  line-height: 1.5;\
+  color: #2d2d2b;\
+  text-align: center;\
+}\
+\
+.question-text strong {\
+  font-weight: 500;\
+}\
+\
+.history-photo {\
+  width: 100%;\
+  margin-bottom: 20px;\
+  overflow: hidden;\
+}\
+\
+.history-photo img {\
+  display: block;\
+  width: 100%;\
+  height: 221px;\
+  -o-object-fit: cover;\
+     object-fit: cover;\
+  -o-object-position: center top;\
+     object-position: center top;\
+}\
+\
+.promo-text {\
+  font-size: 16px;\
+  font-weight: 400;\
+  line-height: 1.4;\
+  color: #2d2d2b;\
+  text-align: center;\
+  margin-bottom: 16px;\
+}\
+\
+.btn-row {\
+  display: -ms-flexbox;\
+  display: flex;\
+  gap: 10px;\
+}\
+\
+.btn-answer {\
+  -ms-flex: 1;\
+      flex: 1;\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+  height: 50px;\
+  padding: 0 16px;\
+  font-family: "Basis Grotesque Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;\
+  font-size: 16px;\
+  font-weight: 400;\
+  line-height: 1;\
+  text-decoration: none;\
+  cursor: pointer;\
+  border: 1px solid #2d2d2b;\
+  letter-spacing: 0.02em;\
+  transition: background 0.2s ease, color 0.2s ease;\
+}\
+\
+.btn-answer--filled {\
+  background: #2d2d2b;\
+  color: #ffffff;\
+}\
+\
+.btn-answer--filled:hover {\
+  opacity: 0.85;\
+}\
+\
+.btn-answer--outline {\
+  background: #efebe1;\
+  color: #2d2d2b;\
+}\
+\
+.btn-answer--outline:hover {\
+  background: #2d2d2b;\
+  color: #ffffff;\
+}\
+\
+.email-row {\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: stretch;\
+      align-items: stretch;\
+  gap: 10px;\
+  margin-bottom: 14px;\
+}\
+\
+.email-field {\
+  -ms-flex: 1;\
+      flex: 1;\
+  border-bottom: 1px solid #2d2d2b;\
+}\
+\
+.email-input {\
+  display: block;\
+  width: 100%;\
+  height: 50px;\
+  background: transparent;\
+  border: none;\
+  outline: none;\
+  font-family: "Basis Grotesque Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;\
+  font-size: 16px;\
+  font-weight: 400;\
+  color: #2d2d2b;\
+  text-align: center;\
+}\
+\
+.email-input::-webkit-input-placeholder {\
+  color: #2d2d2b;\
+  opacity: 0.5;\
+}\
+\
+.email-input:-ms-input-placeholder {\
+  color: #2d2d2b;\
+  opacity: 0.5;\
+}\
+\
+.email-input::-ms-input-placeholder {\
+  color: #2d2d2b;\
+  opacity: 0.5;\
+}\
+\
+.email-input::placeholder {\
+  color: #2d2d2b;\
+  opacity: 0.5;\
+}\
+\
+.btn-submit-arrow {\
+  -ms-flex-negative: 0;\
+      flex-shrink: 0;\
+  width: 110px;\
+  height: 50px;\
+  background: #2d2d2b;\
+  border: none;\
+  cursor: pointer;\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+  transition: opacity 0.2s ease;\
+}\
+\
+.btn-submit-arrow:hover {\
+  opacity: 0.85;\
+}\
+\
+.btn-desktop-icon {\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+}\
+\
+.btn-mobile-text {\
+  display: none;\
+  font-family: "Basis Grotesque Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;\
+  font-size: 16px;\
+  font-weight: 400;\
+  color: #ffffff;\
+  letter-spacing: 0.02em;\
+}\
+\
+.checkboxes {\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-direction: column;\
+      flex-direction: column;\
+  gap: 8px;\
+}\
+\
+.checkbox-label {\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: start;\
+      align-items: flex-start;\
+  gap: 8px;\
+  font-size: 11px;\
+  font-weight: 400;\
+  line-height: 1.5;\
+  color: #2d2d2b;\
+  cursor: pointer;\
+}\
+\
+.checkbox-label input[type=checkbox] {\
+  -ms-flex-negative: 0;\
+      flex-shrink: 0;\
+  appearance: none;\
+  -webkit-appearance: none;\
+  width: 15px;\
+  height: 15px;\
+  margin-top: 1px;\
+  border: 1px solid #2d2d2b;\
+  background: #efebe1;\
+  cursor: pointer;\
+  position: relative;\
+}\
+\
+.checkbox-label input[type=checkbox]:checked::after {\
+  content: "";\
+  position: absolute;\
+  top: 2px;\
+  left: 4px;\
+  width: 4px;\
+  height: 7px;\
+  border: 1.5px solid #2d2d2b;\
+  border-top: none;\
+  border-left: none;\
+  -webkit-transform: rotate(45deg);\
+          transform: rotate(45deg);\
+}\
+\
+.checkbox-label a {\
+  text-decoration: underline;\
+  color: #2d2d2b;\
+}\
+\
+.hidden {\
+  display: none !important;\
+}\
+\
+@media (max-width: 600px) {\
+  .wrapper__body {\
+    padding: 20px;\
+  }\
+\
+  .card-logo {\
+    height: auto;\
+  }\
+\
+  .card-inner {\
+    padding: 16px 20px 24px;\
+  }\
+\
+  .quiz-title {\
+    font-size: 18px;\
+    margin-bottom: 14px;\
+  }\
+\
+  .question-text {\
+    font-size: 14px;\
+  }\
+\
+  .history-photo img {\
+    height: 160px;\
+  }\
+\
+  .btn-row {\
+    -ms-flex-direction: column;\
+        flex-direction: column;\
+  }\
+\
+  .btn-answer {\
+    -ms-flex: none;\
+        flex: none;\
+    width: 100%;\
+    height: 50px;\
+    font-size: 14px;\
+  }\
+\
+  .promo-text {\
+    font-size: 14px;\
+  }\
+\
+  .email-row {\
+    -ms-flex-direction: column;\
+        flex-direction: column;\
+  }\
+\
+  .email-field {\
+    width: 100%;\
+  }\
+\
+  .email-input {\
+    font-size: 14px;\
+    text-align: left;\
+    padding: 0 4px;\
+  }\
+\
+  .btn-submit-arrow {\
+    -ms-flex-negative: 0;\
+        flex-shrink: 0;\
+    width: 100%;\
+    height: 50px;\
+  }\
+\
+  .btn-desktop-icon {\
+    display: none;\
+  }\
+\
+  .btn-mobile-text {\
+    display: block;\
+    font-size: 14px;\
+  }\
+}</style>\
+</head>\
+<body>\
+<div class="cq-popup__bg"></div>\
+\
+<div class="wrapper__body">\
+\
+    <div class="quiz-card" id="step-quiz">\
+        <button class="card-close" aria-label="Закрыть"></button>\
+        <div class="card-header">\
+            <img src="https://files.carrotquest.app/message-images/70629/70629-1780653911274-icla7i7e.png" alt="Московский театр Современник" class="card-logo">\
+        </div>\
+        <div class="card-inner">\
+            <p class="quiz-title">Угадайте театральный факт и получите промокод на скидку</p>\
+            <div class="question-box">\
+                <p class="question-text"><strong>Правда или нет:</strong> «Современник» появился буквально после одной&nbsp;ночи, когда зрители сами потребовали создать новый театр.</p>\
+            </div>\
+            <div class="btn-row">\
+                <button class="btn-answer btn-answer--outline" id="btn-true">ЭТО ПРАВДА</button>\
+                <button class="btn-answer btn-answer--outline" id="btn-false">ЭТО НЕПРАВДА</button>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <div class="quiz-card hidden" id="step-answer">\
+        <button class="card-close" aria-label="Закрыть"></button>\
+        <div class="card-header">\
+            <img src="https://files.carrotquest.app/message-images/70629/70629-1780653911274-icla7i7e.png" alt="Московский театр Современник" class="card-logo">\
+        </div>\
+        <div class="card-inner">\
+            <p class="quiz-title">ДА, ЭТО ПРАВДА</p>\
+            <div class="history-photo">\
+                <img src="https://files.carrotquest.app/message-images/70629/70629-1780654151506-v2dety1v.png" alt="Премьера «Вечно живые», 1956">\
+            </div>\
+            <div class="question-box">\
+                <p class="question-text">После показа «Вечно живые» в ночь с 15 на 16 апреля 1956&nbsp;года зрители не разошлись, вызвали артистов на разговор и&nbsp;буквально потребовали, чтобы у них появился свой театр.</p>\
+            </div>\
+            <p class="promo-text">Спасибо за участие! Куда вам отправить промокод?</p>\
+            <div class="btn-row">\
+                <a class="btn-answer btn-answer--outline" id="btn-telegram" href="#" target="_blank">В TELEGRAM</a>\
+                <button class="btn-answer btn-answer--outline" id="btn-email">НА ПОЧТУ</button>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <div class="quiz-card hidden" id="step-email">\
+        <button class="card-close" aria-label="Закрыть"></button>\
+        <div class="card-header">\
+            <img src="https://files.carrotquest.app/message-images/70629/70629-1780653911274-icla7i7e.png" alt="Московский театр Современник" class="card-logo">\
+        </div>\
+        <div class="card-inner">\
+            <p class="quiz-title">ДА, ЭТО ПРАВДА</p>\
+            <div class="history-photo">\
+                <img src="https://files.carrotquest.app/message-images/70629/70629-1780654151506-v2dety1v.png" alt="Премьера «Вечно живые», 1956">\
+            </div>\
+            <div class="question-box">\
+                <p class="question-text">После показа «Вечно живые» в ночь с 15 на 16 апреля 1956&nbsp;года зрители не разошлись, вызвали артистов на разговор и&nbsp;буквально потребовали, чтобы у них появился свой театр.</p>\
+            </div>\
+            <p class="promo-text">Спасибо за участие! Куда вам отправить промокод?</p>\
+            <div class="email-row">\
+                <div class="email-field">\
+                    <input class="email-input" type="email" id="email-input" placeholder="Введите ваш e-mail" autocomplete="email" name="email">\
+                </div>\
+                <button class="btn-submit-arrow" id="btn-submit" aria-label="Отправить">\
+                    <span class="btn-desktop-icon">\
+                        <svg width="53" height="12" viewBox="0 0 53 12" fill="none" xmlns="http://www.w3.org/2000/svg">\
+                            <path d="M0 6H51M51 6L46 1M51 6L46 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>\
+                        </svg>\
+                    </span>\
+                    <span class="btn-mobile-text">ОТПРАВИТЬ</span>\
+                </button>\
+            </div>\
+            <div class="checkboxes">\
+                <label class="checkbox-label">\
+                    <input type="checkbox" id="cb1">\
+                    <span>Я даю <a href="https://sovremennik.ru/uploads/content_file/file/231/%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%B2_%D0%BE%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.pdf" target="_blank">согласие</a> на обработку своих персональных данных.</span>\
+                </label>\
+                <label class="checkbox-label">\
+                    <input type="checkbox" id="cb2">\
+                    <span>Я ознакомлен с <a href="https://sovremennik.ru/page/privacy-policy" target="_blank">Политикой конфиденциальности.</a></span>\
+                </label>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <div class="quiz-card quiz-card--thanks hidden" id="step-thanks">\
+        <button class="card-close" aria-label="Закрыть"></button>\
+        <div class="card-header">\
+            <img src="https://files.carrotquest.app/message-images/70629/70629-1780653911274-icla7i7e.png" alt="Московский театр Современник" class="card-logo">\
+        </div>\
+        <div class="card-inner card-inner--center">\
+            <p class="quiz-title">СПАСИБО, ОТПРАВИЛИ!</p>\
+        </div>\
+    </div>\
+\
+</div>\
+\
+<script>"use strict";\
+\
+var cqpopup_name = "10 Попап - факт";\
+var carrotquest = {\
+  track: function track(eventName, params) {\
+    parent.window.carrotquest.track(eventName, params);\
+  },\
+  identify: function identify(props) {\
+    parent.window.carrotquest.identify(props);\
+  },\
+  trackMessageInteraction: function trackMessageInteraction(sendingId, type) {\
+    parent.window.carrotquest.trackMessageInteraction(sendingId, type);\
+  },\
+  animation: function animation() {\
+    var data = {\
+      command: "carrotquest.animationPopup",\
+      "id": "{{ sending_id }}",\
+      "cqpopup_name": cqpopup_name\
+    };\
+    top.postMessage(data, "*");\
+  },\
+  close: function close() {\
+    var data = {\
+      command: "carrotquest.closePopup",\
+      "id": "{{ sending_id }}"\
+    };\
+    top.postMessage(data, "*");\
+  },\
+  replied: function replied() {\
+    this.trackMessageInteraction("{{ sending_id }}", "replied");\
+    this.track(\'Ответил в попап\');\
+    this.track("Коммуникации: Ответил на сообщение - " + cqpopup_name);\
+  },\
+  clicked: function clicked() {\
+    this.trackMessageInteraction("{{ sending_id }}", "clicked");\
+    this.track(\'Перешел по ссылке в попапе\');\
+    this.track("Коммуникации: Перешел по ссылке в сообщении - " + cqpopup_name);\
+  },\
+  read: function read() {\
+    this.trackMessageInteraction("{{ sending_id }}", "read");\
+    this.track(\'Прочитал попап\');\
+    this.track("Коммуникации: Прочитано сообщение - " + cqpopup_name);\
+  }\
+};\
+document.addEventListener("readystatechange", function () {\
+  if (document.readyState === "complete") {\
+    carrotquest.read();\
+    carrotquest.animation();\
+    setTgLink(\'https://t.me/theatresovremennik_bot\');\
+  }\
+});\
+function setTgLink(link) {\
+  var tgLink = link;\
+  try {\
+    var sig = top.carrotquest.data.user.user_signature.telegram;\
+    if (sig) tgLink += \'?start=\' + sig;\
+  } catch (e) {}\
+  var btn = document.getElementById(\'btn-telegram\');\
+  if (btn) btn.href = tgLink;\
+}\
+function showStep(stepId) {\
+  document.querySelectorAll(\'.quiz-card\').forEach(function (card) {\
+    card.classList.add(\'hidden\');\
+  });\
+  document.getElementById(stepId).classList.remove(\'hidden\');\
+}\
+document.addEventListener(\'click\', function (e) {\
+  var btn = e.target.closest(\'#btn-true, #btn-false\');\
+  if (!btn) return;\
+  var isTrue = btn.id === \'btn-true\';\
+  var answer = isTrue ? \'Правда\' : \'Неправда\';\
+  carrotquest.track(cqpopup_name + \' - Ответил: \' + answer);\
+  carrotquest.identify([{\
+    op: \'update_or_create\',\
+    key: \'Ответ на квиз Современник - факт\',\
+    value: answer\
+  }]);\
+  showStep(\'step-answer\');\
+});\
+document.addEventListener(\'click\', function (e) {\
+  var btn = e.target.closest(\'#btn-telegram\');\
+  if (!btn) return;\
+  carrotquest.clicked();\
+  carrotquest.track(cqpopup_name + \' - Выбрал Telegram\');\
+  setTimeout(function () {\
+    carrotquest.close();\
+  }, 1000);\
+});\
+document.addEventListener(\'click\', function (e) {\
+  if (e.target.id !== \'btn-email\') return;\
+  carrotquest.track(cqpopup_name + \' - Выбрал Email\');\
+  showStep(\'step-email\');\
+});\
+document.addEventListener(\'click\', function (e) {\
+  if (!e.target.closest(\'#btn-submit\')) return;\
+  var emailInput = document.getElementById(\'email-input\');\
+  var cb1 = document.getElementById(\'cb1\');\
+  var cb2 = document.getElementById(\'cb2\');\
+  if (!emailInput) return;\
+  var email = emailInput.value.trim();\
+  var emailField = emailInput.closest(\'.email-field\');\
+  if (!email || email.indexOf(\'@\') === -1 || email.indexOf(\'.\') === -1) {\
+    if (emailField) emailField.style.borderBottomColor = \'#c0392b\';\
+    return;\
+  }\
+  if (cb1 && !cb1.checked || cb2 && !cb2.checked) {\
+    if (cb1 && !cb1.checked) cb1.style.outline = \'1px solid #c0392b\';\
+    if (cb2 && !cb2.checked) cb2.style.outline = \'1px solid #c0392b\';\
+    return;\
+  }\
+  if (emailField) emailField.style.borderBottomColor = \'\';\
+  if (cb1) cb1.style.outline = \'\';\
+  if (cb2) cb2.style.outline = \'\';\
+  carrotquest.replied();\
+  carrotquest.track(cqpopup_name + \' - Оставил email\');\
+  carrotquest.identify([{\
+    op: \'update_or_create\',\
+    key: \'$email\',\
+    value: email\
+  }, {\
+    op: \'update_or_create\',\
+    key: \'Согласие на обработку данных\',\
+    value: cb1 ? cb1.checked : false\
+  }, {\
+    op: \'update_or_create\',\
+    key: \'Ознакомлен с политикой\',\
+    value: cb2 ? cb2.checked : false\
+  }]);\
+  showStep(\'step-thanks\');\
+  setTimeout(function () {\
+    carrotquest.close();\
+  }, 3000);\
+});\
+document.addEventListener(\'click\', function (e) {\
+  if (e.target.closest(\'.card-close\') || e.target.classList.contains(\'cq-popup__bg\')) {\
+    carrotquest.close();\
+  }\
+});</script>\
+</body>\
+</html>\
+\
+';
+
+"use strict";
+
+var iframe = document.createElement('iframe');
+iframe.id = 'carrot_frame_{{ sending_id }}';
+iframe.frameBorder = 0;
+iframe.style.opacity = "0";
+iframe.style.position = 'fixed';
+iframe.style.zIndex = '9999999999';
+iframe.style.width = '100%';
+iframe.style.height = '100%';
+iframe.style.transition = '.5s';
+iframe.style.top = '0';
+iframe.style.right = '0';
+iframe.style.left = '0';
+iframe.style.bottom = '0';
+document.body.appendChild(iframe);
+var iframeContent = iframe.contentWindow || iframe.contentDocument;
+if (iframeContent.document) iframeContent = iframeContent.document;
+iframeContent.open();
+iframeContent.writeln(popupContent);
+iframeContent.close();
+carrotquest.identify([{
+  op: 'update_or_create',
+  key: 'popup',
+  value: 'opened'
+}]);
+localStorage["cq_popup"] = 'opened';

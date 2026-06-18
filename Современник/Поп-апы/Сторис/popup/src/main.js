@@ -1,0 +1,18 @@
+var iframe = document.createElement('iframe');
+iframe.id = 'carrot_frame_{{ sending_id }}';
+iframe.name = "cqp_stories";
+iframe.frameBorder = 0;
+iframe.style.opacity = 0;
+iframe.style.display = "block";
+iframe.style.position = "relative";
+iframe.style.transform = "translateY(0px)";
+iframe.style.height = "150px";
+iframe.style.width = "100%";
+iframe.style.zIndex = "1";
+iframe.style.transition = ".5s";
+document.querySelector("header").after(iframe);
+var iframeContent = iframe.contentWindow || iframe.contentDocument;
+if (iframeContent.document) iframeContent = iframeContent.document;
+iframeContent.open();
+iframeContent.writeln(popupContent);
+iframeContent.close();

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="./popup/dist/popup.css" inline>
+</head>
+
+<body>
+<p style="display: none;">
+    {% set massViewed = [] %}
+    {% set massViewedName = [] %}
+    {% for e in get_last_events("$product_viewed") %}
+    {% if e.props["$name"].lower().strip() not in massViewedName %}
+    {% set x = massViewed.append(e) %}
+    {% set x = massViewedName.append(e.props["$name"].lower().strip()) %}
+    {% endif %}
+    {% endfor %}
+</p>
+<div class="wrapper__body d_flex">
+    <div class="cq-popup__body d_flex flex_col">
+        <div class="cq-popup__form-title">
+            <p class="cq-popup__text-h1">Судя по всему, эти товары <br>Вам приглянулись 💛</p>
+            <p class="cq-popup__text">Сохраним их в корзине, чтобы не потерялись? Всегда можно вернуться позже.</p>
+        </div>
+        <a class="cq-popup__close"></a>
+        <div class="cq-popup__viewed-products-wrapper">
+            <div class="cq-popup__viewed-products d_flex flex_col">
+                <p style="display: none;">
+                    {% for b in massViewed[:3] %}
+                    {% set url = b.props["$url"] %}
+                    {% set img = b.props["$img"] %}
+                    {% set name = b.props["$name"] %}
+                    {% set amount = b.props["$amount"] %}
+                    {% set salePercentage = b.props["dcred"] %}
+                    {% set oldPrice = b.props["dcold"] %}
+                </p>
+                <div class="product-wrapper d_flex">
+                    <div class="wrap">
+                        <div class="prev_btn slider_btn">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.182 9.09091L11.8184 15L18.182 20.9091" stroke="#CC0A3B"
+                                      stroke-width="1.81818"/>
+                            </svg>
+                        </div>
+                        <div class="next_btn slider_btn">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.818 9.09091L18.1816 15L11.818 20.9091" stroke="#CC0A3B"
+                                      stroke-width="1.81818"/>
+                            </svg>
+                        </div>
+                        <div class="product-img">
+                            <a href="{{url}}" target="_blank">
+                                <img src="{{img}}" alt="product_pic">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="product-discr">
+                        <div class="product-name">
+                            <a href="{{url}}" target="_blank">
+                                <p>{{name}}</p>
+                            </a>
+                        </div>
+                        <div class="product-price">
+                            <p class="old_price">{{oldPrice}} Р</p>
+                            <p class="amount">{{amount}} ₽</p>
+                            <p class="sale_percent">{{salePercentage}} ₽</p>
+                        </div>
+                        <a href="{{url}}" class="link" target="_blank">ПОСМОТРЕТЬ ТОВАР</a>
+                    </div>
+                </div>
+                <p style="display: none;">{% endfor %}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./popup/dist/popup.js" inline></script>
+</body>
+</html>

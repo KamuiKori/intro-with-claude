@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./popup/dist/popup.css" inline>
+</head>
+
+<body>
+<div class="cq-popup__bg"></div>
+
+<div class="wrapper__body">
+
+    <div class="quiz-card" id="step-1">
+        <button class="card-close" aria-label="Закрыть"></button>
+        <div class="card-inner">
+            <p class="quiz-title">Поможем подобрать то,&nbsp;что вам понравится</p>
+            <p class="quiz-subtitle">Всего несколько вопросов — и&nbsp;подборка мероприятий у&nbsp;вас.</p>
+            <div class="answers-grid">
+                <button class="answer-btn" data-value="Хочу посмеяться и расслабиться">Хочу посмеяться и&nbsp;расслабиться</button>
+                <button class="answer-btn" data-value="Хочу сильную историю и эмоции">Хочу сильную историю и&nbsp;эмоции</button>
+                <button class="answer-btn" data-value="Хочу что-то необычное">Хочу что-то необычное</button>
+                <button class="answer-btn" data-value="Ищу семейный формат или спокойный культурный выход">Ищу семейный формат или спокойный культурный выход</button>
+            </div>
+            <div class="quiz-footer">
+                <span class="quiz-counter">1\4</span>
+                <div class="quiz-nav">
+                    <button class="btn-next" disabled>
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-card hidden" id="step-2">
+        <button class="card-close" aria-label="Закрыть"></button>
+        <div class="card-inner">
+            <p class="quiz-title">С&nbsp;кем планируете идти?</p>
+            <p class="quiz-subtitle">Выберите один вариант ответа.</p>
+            <div class="answers-grid">
+                <button class="answer-btn" data-value="Один / одна">Один / одна</button>
+                <button class="answer-btn" data-value="Вдвоём">Вдвоём</button>
+                <button class="answer-btn" data-value="С друзьями">С&nbsp;друзьями</button>
+                <button class="answer-btn" data-value="С ребёнком / семьёй">С&nbsp;ребёнком / семьёй</button>
+            </div>
+            <div class="quiz-footer">
+                <span class="quiz-counter">2\4</span>
+                <div class="quiz-nav">
+                    <button class="btn-prev">
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="btn-next" disabled>
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-card hidden" id="step-3">
+        <button class="card-close" aria-label="Закрыть"></button>
+        <div class="card-inner">
+            <p class="quiz-title">Что для вас важнее всего при выборе?</p>
+            <p class="quiz-subtitle">Выберите один вариант ответа.</p>
+            <div class="answers-grid">
+                <button class="answer-btn" data-value="Что-то популярное и проверенное">Что-то популярное и&nbsp;проверенное</button>
+                <button class="answer-btn" data-value="Что-то новое для себя">Что-то новое для&nbsp;себя</button>
+                <button class="answer-btn" data-value="Хочу самый простой и понятный выбор">Хочу самый простой и&nbsp;понятный выбор</button>
+                <button class="answer-btn" data-value="Пока просто присматриваюсь">Пока просто присматриваюсь</button>
+            </div>
+            <div class="quiz-footer">
+                <span class="quiz-counter">3\4</span>
+                <div class="quiz-nav">
+                    <button class="btn-prev">
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="btn-next" disabled>
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-card hidden" id="step-4">
+        <button class="card-close" aria-label="Закрыть"></button>
+        <div class="card-inner">
+            <p class="quiz-title">Что вам интереснее по&nbsp;формату?</p>
+            <p class="quiz-subtitle">Выберите один вариант ответа.</p>
+            <div class="answers-grid">
+                <button class="answer-btn" data-value="Спектакль">Спектакль</button>
+                <button class="answer-btn" data-value="Экскурсия или другой формат">Экскурсия или другой формат</button>
+                <button class="answer-btn" data-value="Не принципиально, главное — чтобы понравилось">Не принципиально, главное — чтобы понравилось</button>
+            </div>
+            <div class="quiz-footer">
+                <span class="quiz-counter">4\4</span>
+                <div class="quiz-nav">
+                    <button class="btn-prev">
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 6H1M1 6L6 1M1 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="btn-next" disabled>
+                        <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 6H17M17 6L12 1M17 6L12 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-card quiz-card--sm hidden" id="step-contact">
+        <button class="card-close" aria-label="Закрыть"></button>
+        <div class="card-inner card-inner--center">
+            <p class="quiz-title quiz-title--center">Отлично, спасибо!</p>
+            <p class="quiz-subtitle quiz-subtitle--center">Куда вам отправить подборку?</p>
+            <div class="contact-btns">
+                <button class="btn-contact" id="btn-email">На почту</button>
+                <a class="btn-contact" id="btn-telegram" href="" target="_blank">В Telegram</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-card quiz-card--sm hidden" id="step-thanks">
+        <button class="card-close" aria-label="Закрыть"></button>
+        <div class="card-inner card-inner--center">
+            <p class="quiz-title">Спасибо!</p>
+            <p class="quiz-subtitle quiz-subtitle--center">Проверьте почту через пару минут</p>
+        </div>
+    </div>
+
+    <div class="quiz-card quiz-card--md hidden" id="step-email">
+        <button class="card-close" aria-label="Закрыть"></button>
+        <div class="card-inner card-inner--center">
+            <p class="quiz-title quiz-title--center">Отлично, спасибо!</p>
+            <p class="quiz-subtitle quiz-subtitle--center">Куда вам отправить подборку?</p>
+            <div class="email-field">
+                <input class="email-input" type="email" id="email-input" placeholder="Введите ваш e-mail" autocomplete="email" required name="email">
+            </div>
+            <button class="btn-submit" id="btn-submit">Отправить</button>
+            <div class="checkboxes">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="cb1">
+                    <span>Я даю <a href="https://sovremennik.ru/uploads/content_file/file/231/%D0%9F%D0%BE%D0%BB%D0%B8%D1%82%D0%B8%D0%BA%D0%B0_%D0%B2_%D0%BE%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B8_%D0%BE%D0%B1%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D0%B8_%D0%BF%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85.pdf" target="_blank">согласие</a> на обработку своих персональных данных.</span>
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" id="cb2">
+                    <span>Я ознакомлен с <a href="https://sovremennik.ru/page/privacy-policy" target="_blank">Политикой конфиденциальности.</a></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="./popup/dist/popup.js" inline></script>
+</body>
+</html>
