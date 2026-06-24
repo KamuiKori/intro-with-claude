@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Carrot quest Dev</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="events.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      background-image: url("https://files.carrotquest.io/message-images/42946/42946-1626683925371-z636gwcf.png");
+      margin: 0;
+    }
+  </style>
+  <script>
+    'use strict';
+    var carrotquest = {
+      track: function(eventName, params) {
+        console.log('%ccarrotquest.track: ', 'font-weight: bold; color: #2771ff;', eventName, params);
+      },
+      identify: function(props) {
+        console.log('%ccarrotquest.identify: ', 'font-weight: bold; color: #2771ff;', props);
+      },
+      open: function() {
+        console.log('%ccarrotquest.open', 'font-weight: bold; color: #2771ff;');
+      },
+      trackMessageInteraction: function(sendingId, type) {
+        console.log(`%ccarrotquest.trackMessageInteraction: %c${sendingId}, ${type}`, 'font-weight: bold; color: #2771ff;', 'font-weight: normal');
+      }
+    };
+
+    var popupDir = 'popup/dist';
+    var popupContent = '';
+    popupContent += loadFile(popupDir, 'popup.html');
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = false;
+    s.src = popupDir + '/main.js';
+    var x = document.getElementsByTagName('head')[0];
+    x.appendChild(s);
+
+    function loadFile(dir, name) {
+      var str = '';
+      $.ajax({
+        url: dir + '/' + name,
+        success: function(content) {
+          str = content;
+        },
+        async: false
+      });
+      return str;
+    };
+  </script>
+</head>
+<body>
+</body>
+</html>

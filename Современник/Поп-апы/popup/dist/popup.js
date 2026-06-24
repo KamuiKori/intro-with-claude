@@ -1,6 +1,6 @@
 "use strict";
 
-var cqpopup_name = "10 Попап - факт";
+var cqpopup_name = "Попап партнеры";
 var carrotquest = {
   track: function track(eventName, params) {
     parent.window.carrotquest.track(eventName, params);
@@ -42,97 +42,67 @@ var carrotquest = {
     this.track("Коммуникации: Прочитано сообщение - " + cqpopup_name);
   }
 };
+var desserts = {
+  medovik: {
+    name: 'Медовик',
+    title: 'Женитьба Бальзаминова',
+    desc: 'Для вас ценны традиции вкуса и не выходящая из моды русская классика «Женитьба Бальзаминова»',
+    link: 'https://sovremennik.ru/plays/zhenitba-balzaminova'
+  },
+  tiramisu: {
+    name: 'Тирамису',
+    title: 'Житие FM',
+    desc: 'Вы цените нежные текстуры и сбалансированный кофейно-сливочный вкус. У итальянского десерта многослойная структура',
+    link: 'https://sovremennik.ru/plays/zhitie-fyodora-mihajlovicha'
+  },
+  cheesecake: {
+    name: 'Чизкейк',
+    title: 'Сашашишин',
+    desc: 'Этот десерт ценят не только за нежный вкус, но и за красивую подачу',
+    link: 'https://sovremennik.ru/plays/sasha-shishin'
+  },
+  fondan: {
+    name: 'Шоколадный фондан',
+    title: 'Три товарища',
+    desc: 'Вам нравится контраст текстур и насыщенный вкус. Вам подходят спектакли, которые оставляют яркие впечатления',
+    link: 'https://sovremennik.ru/plays/tri-tovarischa'
+  }
+};
 document.addEventListener("readystatechange", function () {
   if (document.readyState === "complete") {
     carrotquest.read();
     carrotquest.animation();
-    setTgLink('https://t.me/theatresovremennik_bot');
   }
 });
-function setTgLink(link) {
-  var tgLink = link;
-  try {
-    var sig = top.carrotquest.data.user.user_signature.telegram;
-    if (sig) tgLink += '?start=' + sig;
-  } catch (e) {}
-  var btn = document.getElementById('btn-telegram');
-  if (btn) btn.href = tgLink;
-}
-function showStep(stepId) {
-  document.querySelectorAll('.quiz-card').forEach(function (card) {
-    card.classList.add('hidden');
+document.addEventListener('click', function (e) {
+  var btn = e.target.closest('.dessert-btn');
+  if (!btn) return;
+  var key = btn.getAttribute('data-dessert');
+  var data = desserts[key];
+  if (!data) return;
+  carrotquest.track('Выбрал десерт', {
+    десерт: data.name
   });
-  document.getElementById(stepId).classList.remove('hidden');
-}
-document.addEventListener('click', function (e) {
-  var btn = e.target.closest('#btn-true, #btn-false');
-  if (!btn) return;
-  var isTrue = btn.id === 'btn-true';
-  var answer = isTrue ? 'Правда' : 'Неправда';
-  carrotquest.track(cqpopup_name + ' - Ответил: ' + answer);
-  carrotquest.identify([{
-    op: 'update_or_create',
-    key: 'Ответ на квиз Современник - факт',
-    value: answer
-  }]);
-  showStep('step-answer');
-});
-document.addEventListener('click', function (e) {
-  var btn = e.target.closest('#btn-telegram');
-  if (!btn) return;
-  carrotquest.clicked();
-  carrotquest.track(cqpopup_name + ' - Выбрал Telegram');
-  setTimeout(function () {
-    carrotquest.close();
-  }, 1000);
-});
-document.addEventListener('click', function (e) {
-  if (e.target.id !== 'btn-email') return;
-  carrotquest.track(cqpopup_name + ' - Выбрал Email');
-  showStep('step-email');
-});
-document.addEventListener('click', function (e) {
-  if (!e.target.closest('#btn-submit')) return;
-  var emailInput = document.getElementById('email-input');
-  var cb1 = document.getElementById('cb1');
-  var cb2 = document.getElementById('cb2');
-  if (!emailInput) return;
-  var email = emailInput.value.trim();
-  var emailField = emailInput.closest('.email-field');
-  if (!email || email.indexOf('@') === -1 || email.indexOf('.') === -1) {
-    if (emailField) emailField.style.borderBottomColor = '#c0392b';
-    return;
-  }
-  if (cb1 && !cb1.checked || cb2 && !cb2.checked) {
-    if (cb1 && !cb1.checked) cb1.style.outline = '1px solid #c0392b';
-    if (cb2 && !cb2.checked) cb2.style.outline = '1px solid #c0392b';
-    return;
-  }
-  if (emailField) emailField.style.borderBottomColor = '';
-  if (cb1) cb1.style.outline = '';
-  if (cb2) cb2.style.outline = '';
   carrotquest.replied();
-  carrotquest.track(cqpopup_name + ' - Оставил email');
-  carrotquest.identify([{
-    op: 'update_or_create',
-    key: '$email',
-    value: email
-  }, {
-    op: 'update_or_create',
-    key: 'Согласие на обработку данных',
-    value: cb1 ? cb1.checked : false
-  }, {
-    op: 'update_or_create',
-    key: 'Ознакомлен с политикой',
-    value: cb2 ? cb2.checked : false
-  }]);
-  showStep('step-thanks');
-  setTimeout(function () {
-    carrotquest.close();
-  }, 3000);
+  document.getElementById('result-title').textContent = data.title;
+  document.getElementById('result-desc').textContent = data.desc;
+  document.getElementById('result-link').href = data.link;
+  showStep('step-result');
+});
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('#result-link')) return;
+  carrotquest.track('Нажал подробнее попап партнеры');
+  carrotquest.clicked();
 });
 document.addEventListener('click', function (e) {
   if (e.target.closest('.card-close') || e.target.classList.contains('cq-popup__bg')) {
+    carrotquest.track('Закрыл попап партнеры');
     carrotquest.close();
   }
 });
+function showStep(stepId) {
+  document.querySelectorAll('.dessert-step').forEach(function (el) {
+    el.classList.add('hidden');
+  });
+  document.getElementById(stepId).classList.remove('hidden');
+}

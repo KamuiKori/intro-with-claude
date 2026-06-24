@@ -25,7 +25,8 @@
       "Bash(del *)",
       "mcp__plugin_figma_figma__get_metadata",
       "mcp__plugin_figma_figma__search_design_system",
-      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); text=data[0]['text']; lines=[l for l in text.split\\('\\\\n'\\) if '116:' in l or 'email' in l.lower\\(\\) or 'result' in l.lower\\(\\) or 'почт' in l.lower\\(\\) or 'итог' in l.lower\\(\\) or 'финал' in l.lower\\(\\) or 'форм' in l.lower\\(\\)]; print\\('\\\\n'.join\\(lines[:80]\\)\\)\")"
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); text=data[0]['text']; lines=[l for l in text.split\\('\\\\n'\\) if '116:' in l or 'email' in l.lower\\(\\) or 'result' in l.lower\\(\\) or 'почт' in l.lower\\(\\) or 'итог' in l.lower\\(\\) or 'финал' in l.lower\\(\\) or 'форм' in l.lower\\(\\)]; print\\('\\\\n'.join\\(lines[:80]\\)\\)\")",
+      "Bash(grep -n \"//\\\\|/\\\\*\" \"C:/Users/kamui/WebstormProjects/clients-intro-with-claude/agena art/Поп-апы/popup/src/popup.js\")"
     ]
   }
 }

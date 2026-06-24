@@ -5,9 +5,7 @@ var popupContent = '\
   <meta charset="UTF-8">\
   <meta name="viewport" content="width=device-width, initial-scale=1">\
   <meta http-equiv="X-UA-Compatible" content="ie=edge">\
-  <style>@charset "UTF-8";\
-\
-@font-face {\
+  <style>@font-face {\
   font-family: "KyivTypeSans";\
   font-weight: 700;\
   src: url("https://agena-art.ru/src/fonts/KyivTypeSans-Bold.woff") format("woff");\
@@ -83,12 +81,12 @@ a {\
   background: #fff;\
   width: 100%;\
   max-width: 904px;\
+  max-height: calc(100vh - 30px);\
   position: relative;\
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);\
-  overflow: hidden;\
+  overflow-x: hidden;\
+  overflow-y: auto;\
 }\
-\
-/* ====== CLOSE BUTTON ====== */\
 \
 .quiz-close {\
   cursor: pointer;\
@@ -125,8 +123,6 @@ a {\
           transform: rotate(-45deg);\
 }\
 \
-/* ====== QUIZ SCREEN ====== */\
-\
 .quiz-screen {\
   display: -ms-flexbox;\
   display: flex;\
@@ -134,8 +130,6 @@ a {\
   min-height: 460px;\
   overflow: hidden;\
 }\
-\
-/* ====== LEFT SIDEBAR (start / email / result) ====== */\
 \
 .quiz-left {\
   width: 305px;\
@@ -169,8 +163,6 @@ a {\
   display: block;\
 }\
 \
-/* ====== RIGHT CONTENT (start / email / result) ====== */\
-\
 .quiz-right {\
   -ms-flex: 1;\
       flex: 1;\
@@ -196,8 +188,6 @@ a {\
   -ms-flex-pack: start;\
       justify-content: flex-start;\
 }\
-\
-/* ====== START SCREEN ====== */\
 \
 .quiz-screen--start {\
   -ms-flex-direction: column;\
@@ -345,26 +335,23 @@ a {\
   z-index: 2;\
 }\
 \
-/* ====== QUESTION SCREENS — vertical layout ====== */\
-\
 .quiz-header {\
   background: #ee7668;\
-  padding: 34px 50px 18px 24px;\
+  padding: 30px;\
   position: relative;\
   display: -ms-flexbox;\
   display: flex;\
-  -ms-flex-align: end;\
-      align-items: flex-end;\
-  min-height: 120px;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+  height: 132px;\
+  -ms-flex-negative: 0;\
+      flex-shrink: 0;\
 }\
 \
 .quiz-header--full {\
   width: 100%;\
-}\
-\
-.quiz-header--small {\
-  min-height: 90px;\
-  padding-bottom: 12px;\
 }\
 \
 .quiz-header .quiz-close {\
@@ -381,8 +368,6 @@ a {\
   text-align: center;\
 }\
 \
-/* question screens are column-direction */\
-\
 #s1,\
 #s2,\
 #s3,\
@@ -398,39 +383,78 @@ a {\
   min-height: 500px;\
 }\
 \
-/* ====== QUIZ BODY ====== */\
-\
 .quiz-body {\
   display: -ms-flexbox;\
   display: flex;\
   -ms-flex: 1;\
       flex: 1;\
-  padding: 30px 30px 89px;\
+  padding: 30px;\
   gap: 30px;\
+  -ms-flex-align: start;\
+      align-items: flex-start;\
 }\
 \
 .quiz-body--full {\
   -ms-flex-direction: column;\
       flex-direction: column;\
-  padding: 18px 24px 89px;\
+  padding: 30px;\
   gap: 0;\
 }\
 \
-/* ====== PAINTING COLUMN ====== */\
-\
 .quiz-painting-col {\
   width: 417px;\
+  height: 307px;\
   -ms-flex-negative: 0;\
       flex-shrink: 0;\
 }\
 \
 .quiz-painting-col--grid {\
-  background: #f5f5f5;\
-  padding: 14px;\
   display: -ms-flexbox;\
   display: flex;\
   -ms-flex-align: center;\
       align-items: center;\
+  width: 422px;\
+}\
+\
+.quiz-painting-col--grid .quiz-paintings-grid {\
+  height: 307px;\
+}\
+\
+#s6 .quiz-answer {\
+  height: 50px;\
+}\
+\
+#s7 .quiz-answer {\
+  height: 76px;\
+}\
+\
+#s7,\
+#s8 {\
+  height: 615px;\
+}\
+\
+#s8 .quiz-answer {\
+  height: 76px;\
+}\
+\
+#s9 {\
+  height: 690px;\
+}\
+\
+#s9 .quiz-painting-col {\
+  height: 498px;\
+}\
+\
+#s9 .quiz-answers-col {\
+  height: 498px;\
+}\
+\
+#s10 {\
+  height: 615px;\
+}\
+\
+#s10 .quiz-answer {\
+  height: 76px;\
 }\
 \
 .quiz-painting-bg {\
@@ -438,7 +462,6 @@ a {\
   height: 100%;\
   overflow: hidden;\
   position: relative;\
-  padding: 7px;\
 }\
 \
 .quiz-painting-bg--yellow {\
@@ -452,12 +475,8 @@ a {\
 .quiz-painting-img {\
   width: 100%;\
   height: 100%;\
-  -o-object-fit: cover;\
-     object-fit: cover;\
   display: block;\
 }\
-\
-/* Q4 2x2 grid */\
 \
 .quiz-paintings-grid {\
   display: grid;\
@@ -467,7 +486,6 @@ a {\
 }\
 \
 .quiz-paint-cell {\
-  aspect-ratio: 4/3;\
   overflow: hidden;\
   position: relative;\
 }\
@@ -488,19 +506,16 @@ a {\
   display: block;\
 }\
 \
-/* ====== ANSWERS COLUMN ====== */\
-\
 .quiz-answers-col {\
   -ms-flex: 1;\
       flex: 1;\
+  height: 307px;\
   padding: 0;\
   display: -ms-flexbox;\
   display: flex;\
   -ms-flex-direction: column;\
       flex-direction: column;\
 }\
-\
-/* ====== RADIO ANSWERS ====== */\
 \
 .quiz-answers {\
   display: -ms-flexbox;\
@@ -588,8 +603,6 @@ a {\
   box-shadow: inset 0 0 0 3px #fff;\
 }\
 \
-/* ====== Q3 IMAGE-ANSWER FEEDBACK: two-column layout ====== */\
-\
 .quiz-body--feedback-img {\
   -ms-flex-direction: row;\
       flex-direction: row;\
@@ -644,14 +657,15 @@ a {\
 .quiz-body--feedback-img .quiz-answers-col {\
   -ms-flex: 1;\
       flex: 1;\
-  padding: 30px 30px 89px 0;\
+  height: auto;\
+  padding: 30px 30px 30px 0;\
   display: -ms-flexbox;\
   display: flex;\
   -ms-flex-direction: column;\
       flex-direction: column;\
+  -ms-flex-align: end;\
+      align-items: flex-end;\
 }\
-\
-/* ====== Q3 IMAGE ANSWERS ====== */\
 \
 .quiz-image-answers {\
   display: -ms-flexbox;\
@@ -671,15 +685,15 @@ a {\
   display: flex;\
   -ms-flex-direction: column;\
       flex-direction: column;\
-  -ms-flex-align: center;\
-      align-items: center;\
+  -ms-flex-align: start;\
+      align-items: flex-start;\
   gap: 7px;\
   cursor: pointer;\
-  width: calc(25% - 10px);\
-  min-width: 130px;\
+  width: 200px;\
+  -ms-flex-negative: 0;\
+      flex-shrink: 0;\
   border: 2px solid transparent;\
   border-radius: 8px;\
-  padding: 8px 6px;\
   transition: border-color 0.15s;\
   -webkit-user-select: none;\
       -ms-user-select: none;\
@@ -709,7 +723,7 @@ a {\
 }\
 \
 .quiz-image-answer.is-selected {\
-  border-color: #2e377b;\
+  border-color: transparent;\
 }\
 \
 .quiz-image-answer.is-correct {\
@@ -742,7 +756,6 @@ a {\
 \
 .quiz-image-answer__img-wrap {\
   width: 100%;\
-  aspect-ratio: 3/4;\
   overflow: hidden;\
   border-radius: 4px;\
   background: #f0f0f0;\
@@ -768,14 +781,18 @@ a {\
       order: 2;\
 }\
 \
-/* ====== FEEDBACK ====== */\
-\
 .quiz-feedback {\
   margin-top: 14px;\
 }\
 \
 .quiz-feedback--full {\
   margin-bottom: 10px;\
+}\
+\
+.quiz-body--feedback-img .quiz-feedback {\
+  width: 397px;\
+  margin-top: 0;\
+  margin-bottom: 0;\
 }\
 \
 .quiz-feedback-text {\
@@ -796,16 +813,15 @@ a {\
   color: #d00;\
 }\
 \
-/* ====== NAVIGATION ====== */\
-\
 .quiz-nav {\
-  position: absolute;\
-  right: 30px;\
-  bottom: 30px;\
+  position: relative;\
   display: -ms-flexbox;\
   display: flex;\
   -ms-flex-align: center;\
       align-items: center;\
+  margin-top: auto;\
+  -ms-flex-item-align: end;\
+      align-self: flex-end;\
 }\
 \
 .quiz-nav .btn-wrap__border {\
@@ -818,8 +834,6 @@ a {\
   border-radius: 100px;\
   pointer-events: none;\
 }\
-\
-/* ====== BUTTONS ====== */\
 \
 .quiz-btn {\
   height: 41px;\
@@ -871,16 +885,15 @@ a {\
 }\
 \
 .quiz-btn--next:disabled {\
-  opacity: 0.5;\
+  background: #BDBDBD;\
   cursor: not-allowed;\
+  color: #000000;\
 }\
 \
 .quiz-btn--next:disabled:active {\
   -webkit-transform: none;\
           transform: none;\
 }\
-\
-/* btn-wrap: CTA buttons on start/email/result screens */\
 \
 .btn-wrap {\
   position: relative;\
@@ -914,8 +927,6 @@ a {\
   pointer-events: none;\
   z-index: 1;\
 }\
-\
-/* ====== EMAIL SCREEN ====== */\
 \
 .quiz-screen--email {\
   -ms-flex-direction: column;\
@@ -963,9 +974,9 @@ a {\
 .email-body {\
   -ms-flex: 1;\
       flex: 1;\
+  min-height: 0;\
   display: -ms-flexbox;\
   display: flex;\
-  gap: 30px;\
   overflow: hidden;\
 }\
 \
@@ -990,11 +1001,18 @@ a {\
 .email-body__form {\
   -ms-flex: 1;\
       flex: 1;\
-  padding: 30px 30px 30px 0;\
+  min-height: 0;\
+  padding: 30px;\
   display: -ms-flexbox;\
   display: flex;\
   -ms-flex-direction: column;\
       flex-direction: column;\
+  overflow-y: auto;\
+  overflow-x: hidden;\
+}\
+\
+.email-body__form > * {\
+  width: 479px;\
 }\
 \
 .quiz-field {\
@@ -1073,9 +1091,9 @@ a {\
 }\
 \
 .btn-wrap--email-cta {\
-  width: 479px;\
+  width: 100%;\
   height: 74px;\
-  margin-top: 30px;\
+  margin-top: 25px;\
   margin-bottom: 12px;\
 }\
 \
@@ -1099,10 +1117,8 @@ a {\
   cursor: pointer;\
   text-decoration: underline;\
   display: block;\
-  margin-top: 20px;\
+  margin-top: 10px;\
 }\
-\
-/* ====== RESULT SCREENS ====== */\
 \
 .quiz-screen--result {\
   -ms-flex-direction: column;\
@@ -1155,7 +1171,7 @@ a {\
   font-size: 16px;\
   font-weight: 700;\
   color: #000;\
-  margin-bottom: 8px;\
+  margin-bottom: 25px;\
 }\
 \
 .result-tips {\
@@ -1212,6 +1228,13 @@ a {\
       flex-shrink: 0;\
 }\
 \
+.result-share-mob {\
+  font-size: 11px;\
+  color: #4b54a0;\
+  text-decoration: underline;\
+  text-align: center;\
+}\
+\
 .btn-wrap--social {\
   width: 65px;\
   height: 74px;\
@@ -1255,27 +1278,27 @@ a {\
   background-image: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'%3E%3Cpath d=\'M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z\'/%3E%3C/svg%3E");\
 }\
 \
-.result-social-btn--vk {\
-  background: #4c75a3;\
+.result-social-btn--max {\
+  background: #fff;\
 }\
 \
-.result-social-btn--vk::before {\
-  background-image: url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'white\'%3E%3Cpath d=\'M13.17 15.58h1.08s.33-.04.5-.22c.16-.17.15-.5.15-.5s-.02-1.52.68-1.75c.7-.22 1.59 1.47 2.54 2.12.72.48 1.27.38 1.27.38l2.54-.04s1.33-.08.7-1.13c-.05-.08-.36-.76-1.86-2.15-1.57-1.45-1.36-1.22.53-3.73 1.15-1.53 1.61-2.46 1.47-2.86-.14-.38-1-.28-1-.28l-2.87.02s-.21-.03-.37.07a.67.67 0 0 0-.23.3s-.44 1.18-1.03 2.18c-1.24 2.11-1.74 2.22-1.94 2.09-.47-.3-.35-1.23-.35-1.88 0-2.05.31-2.9-.61-3.13-.3-.07-.52-.12-1.29-.13-.99-.01-1.82.01-2.3.24-.31.15-.56.49-.41.51.18.02.59.11.81.42.28.39.27 1.27.27 1.27s.16 2.41-.38 2.71c-.37.2-.88-.21-1.97-2.09-.56-.97-.99-2.05-.99-2.05a.75.75 0 0 0-.22-.28c-.18-.13-.42-.17-.42-.17l-2.72.02s-.41.01-.56.19c-.13.16-.01.49-.01.49s2.12 4.97 4.53 7.47c2.2 2.28 4.71 2.13 4.71 2.13z\'/%3E%3C/svg%3E");\
+.result-social-btn--max::before {\
+  background-image: url("https://files.carrotquest.app/message-images/71534/71534-1781853715631-11a7kqoh.png");\
+  width: 65px;\
+  height: 65px;\
+  border-radius: 50%;\
 }\
-\
-/* ====== ZOOM BUTTON ====== */\
 \
 .quiz-zoom-btn {\
   position: absolute;\
-  bottom: 18px;\
-  left: 18px;\
+  bottom: 15px;\
+  left: 15px;\
   width: 19px;\
   height: 19px;\
   background: #ee7668;\
   border: none;\
   border-radius: 9.5px;\
   cursor: pointer;\
-  padding: 4px;\
   z-index: 10;\
   display: -ms-flexbox;\
   display: flex;\
@@ -1291,16 +1314,14 @@ a {\
 }\
 \
 .quiz-zoom-btn .quiz-zoom-icon {\
-  width: 11px;\
-  height: 11px;\
+  width: 19px;\
+  height: 19px;\
   -o-object-fit: contain;\
      object-fit: contain;\
   display: block;\
   -ms-flex-negative: 0;\
       flex-shrink: 0;\
 }\
-\
-/* ====== LIGHTBOX ====== */\
 \
 .quiz-lightbox {\
   position: fixed;\
@@ -1336,7 +1357,6 @@ a {\
   max-height: 88vh;\
   -o-object-fit: contain;\
      object-fit: contain;\
-  border-radius: 6px;\
 }\
 \
 .quiz-lightbox__close {\
@@ -1378,8 +1398,6 @@ a {\
           transform: rotate(-45deg);\
 }\
 \
-/* ====== EXIT MODAL ====== */\
-\
 .exit-modal {\
   position: absolute;\
   top: 0;\
@@ -1398,7 +1416,6 @@ a {\
 \
 .exit-modal__box {\
   background: #fff;\
-  border-radius: 12px;\
   padding: 30px;\
   width: 477px;\
   max-width: 90%;\
@@ -1450,23 +1467,43 @@ a {\
   height: 65px;\
 }\
 \
-/* ====== MOBILE ====== */\
+.mob {\
+  display: none !important;\
+}\
 \
 @media (max-width: 700px) {\
+  .pc {\
+    display: none !important;\
+  }\
+\
+  .mob {\
+    display: block !important;\
+  }\
+\
   body {\
     overflow-y: auto;\
   }\
 \
+  .quiz-close {\
+    top: 10px;\
+    right: 10px;\
+  }\
+\
   .wrapper__body {\
     padding: 10px;\
-    -ms-flex-align: start;\
-        align-items: flex-start;\
-    padding-top: 20px;\
+    -ms-flex-align: center;\
+        align-items: center;\
+    -ms-flex-pack: center;\
+        justify-content: center;\
   }\
 \
   .quiz-card {\
     max-width: 340px;\
     margin: 0 auto;\
+  }\
+\
+  .start-btn {\
+    font-size: 14px;\
   }\
 \
   .quiz-screen {\
@@ -1503,7 +1540,7 @@ a {\
 \
   .start-header {\
     min-height: 108px;\
-    padding: 16px 40px 14px;\
+    padding: 20px;\
   }\
 \
   .start-title {\
@@ -1522,7 +1559,7 @@ a {\
   }\
 \
   .start-photo {\
-    width: calc(100% - 40px);\
+    width: 100%;\
     height: 162px;\
     border-radius: 100px 100px 0 0;\
     -ms-flex-order: 2;\
@@ -1535,7 +1572,7 @@ a {\
   .start-content {\
     -ms-flex-order: 1;\
         order: 1;\
-    padding: 28px 20px 20px;\
+    padding: 20px;\
   }\
 \
   .start-heading {\
@@ -1547,35 +1584,65 @@ a {\
   }\
 \
   .quiz-header {\
-    padding: 30px 36px 14px 14px;\
+    padding: 14px 36px 14px 14px;\
     min-height: unset;\
+    height: auto !important;\
   }\
 \
   .quiz-header-q {\
     font-size: 14px;\
+    text-align: center;\
+  }\
+\
+  #s7,\
+  #s8,\
+  #s9,\
+  #s10 {\
+    height: auto !important;\
   }\
 \
   .quiz-body {\
     -ms-flex-direction: column;\
         flex-direction: column;\
-    padding: 0 0 65px;\
+    padding: 20px;\
     gap: 0;\
   }\
 \
   .quiz-body--full {\
-    padding: 12px 12px 65px;\
+    padding: 12px 14px;\
   }\
 \
   .quiz-painting-col {\
-    width: 100%;\
-    height: 160px;\
-    -ms-flex-negative: 1;\
-        flex-shrink: 1;\
+    width: 295px;\
+    height: 152px;\
+    -ms-flex-negative: 0;\
+        flex-shrink: 0;\
+    margin-bottom: 20px;\
   }\
 \
   .quiz-painting-col--grid {\
     height: auto;\
-    padding: 10px;\
+    padding: 0;\
+    width: 100%;\
+    overflow-x: auto;\
+    overflow-y: visible;\
+  }\
+\
+  .quiz-painting-col--grid .quiz-paintings-grid {\
+    display: -ms-flexbox;\
+    display: flex;\
+    -ms-flex-wrap: nowrap;\
+        flex-wrap: nowrap;\
+    height: auto;\
+    width: -webkit-max-content;\
+    width: max-content;\
+  }\
+\
+  .quiz-paint-cell {\
+    -ms-flex-negative: 0;\
+        flex-shrink: 0;\
+    width: 140px;\
+    height: 140px;\
   }\
 \
   .quiz-painting-bg {\
@@ -1583,30 +1650,99 @@ a {\
   }\
 \
   .quiz-answers-col {\
-    padding: 12px 14px 65px;\
+    padding: 0;\
+    width: 100%;\
+    height: auto !important;\
+  }\
+\
+  .quiz-nav .btn-wrap__border {\
+    top: -5px;\
   }\
 \
   .quiz-answers {\
     gap: 7px;\
+    max-height: 230px;\
+    overflow-y: auto;\
+    width: 100%;\
   }\
 \
   .quiz-answer {\
-    height: auto;\
-    min-height: 42px;\
-    font-size: 13px;\
+    width: 100%;\
+    height: 50px;\
+    min-height: 50px;\
+    font-size: 14px;\
     padding: 8px 12px;\
     gap: 10px;\
   }\
 \
+  .quiz-answer--wide {\
+    height: auto !important;\
+    min-height: 50px;\
+  }\
+\
+  #s6 .quiz-answer {\
+    height: 55px !important;\
+    min-height: 55px;\
+  }\
+\
+  #s9 .quiz-painting-col {\
+    width: 295px;\
+    height: 152px;\
+  }\
+\
+  #s9 .quiz-answer {\
+    height: 119px !important;\
+    min-height: 119px;\
+    border-radius: 30px;\
+  }\
+\
+  #s7 .quiz-answer {\
+    height: 125px !important;\
+    min-height: 125px;\
+    border-radius: 30px;\
+  }\
+\
+  #s7 .quiz-answers {\
+    max-height: 400px;\
+  }\
+\
+  #s8 .quiz-answer {\
+    height: 165px !important;\
+    min-height: 165px;\
+    border-radius: 30px;\
+  }\
+\
+  #s8 .quiz-answers {\
+    max-height: 400px;\
+  }\
+\
+  #s10 .quiz-answers {\
+    max-height: 350px;\
+  }\
+\
+  #s10 .quiz-answer {\
+    height: 154px !important;\
+    min-height: 154px;\
+    border-radius: 30px;\
+  }\
+\
   .quiz-image-answers {\
     gap: 8px;\
-    -ms-flex-wrap: wrap;\
-        flex-wrap: wrap;\
+    -ms-flex-wrap: nowrap;\
+        flex-wrap: nowrap;\
+    overflow-x: auto;\
+    overflow-y: visible;\
+    width: 100%;\
+    min-width: 0;\
+    -ms-flex-pack: start;\
+        justify-content: flex-start;\
   }\
 \
   .quiz-image-answer {\
-    width: calc(50% - 6px);\
-    min-width: 100px;\
+    -ms-flex-negative: 0;\
+        flex-shrink: 0;\
+    width: 140px;\
+    min-width: 0;\
   }\
 \
   .quiz-body--feedback-img {\
@@ -1619,38 +1755,58 @@ a {\
     height: 200px;\
     -ms-flex-negative: 0;\
         flex-shrink: 0;\
+    padding: 0;\
+  }\
+\
+  .quiz-body--feedback-img .quiz-feedback {\
+    width: 100%;\
   }\
 \
   .quiz-body--feedback-img .quiz-answers-col {\
-    padding: 12px 14px 65px;\
+    padding: 0;\
   }\
 \
   .quiz-nav {\
-    right: 14px;\
-    bottom: 14px;\
+    width: 100%;\
+    -ms-flex-item-align: stretch;\
+        align-self: stretch;\
+    height: 59px;\
+    margin-top: 20px;\
   }\
 \
   .quiz-nav .btn-wrap__border {\
-    height: 42px;\
+    height: 50px;\
   }\
 \
   .quiz-btn--next {\
-    width: 200px;\
-    height: 42px;\
+    width: 100%;\
+    height: 50px;\
     font-size: 12px;\
   }\
 \
   .quiz-feedback-text {\
-    font-size: 11px;\
+    font-size: 12px;\
+  }\
+\
+  .quiz-lightbox__box {\
+    width: 90vw;\
+  }\
+\
+  .quiz-lightbox__img {\
+    width: 100%;\
+  }\
+\
+  .quiz-screen--email {\
+    min-height: unset;\
   }\
 \
   .email-header {\
-    min-height: 100px;\
+    min-height: 160px;\
     padding: 16px 20px;\
   }\
 \
   .email-header__title {\
-    font-size: 20px;\
+    font-size: 24px;\
   }\
 \
   .email-header__sub {\
@@ -1665,27 +1821,51 @@ a {\
 \
   .email-body__img {\
     width: 100%;\
-    height: 160px;\
     border-radius: 0;\
     -ms-flex-item-align: stretch;\
         align-self: stretch;\
+    -ms-flex-order: 2;\
+        order: 2;\
+    margin-top: auto;\
   }\
 \
   .email-body__img img {\
-    height: 160px;\
+    height: auto;\
   }\
 \
   .email-body__form {\
     padding: 14px;\
+    -ms-flex-order: 1;\
+        order: 1;\
+  }\
+\
+  .email-body__form > * {\
+    width: 100%;\
+  }\
+\
+  .quiz-field {\
+    height: 50px;\
+    font-size: 14px;\
   }\
 \
   .btn-wrap--email-cta {\
     width: 100%;\
+    height: 59px;\
+  }\
+\
+  .btn-wrap--email-cta .quiz-btn {\
+    height: 50px;\
+    font-size: 14px;\
+  }\
+\
+  .btn-wrap--email-cta .btn-wrap__border {\
+    height: 50px;\
   }\
 \
   .result-header {\
-    height: 70px;\
-    padding: 0 20px;\
+    height: auto !important;\
+    min-height: 70px;\
+    padding: 16px 20px;\
   }\
 \
   .result-title {\
@@ -1698,7 +1878,12 @@ a {\
 \
   .result-desc,\
   .result-tips li {\
-    font-size: 14px;\
+    font-size: 12px;\
+  }\
+\
+  .result-tips-title {\
+    font-size: 12px;\
+    margin-bottom: 15px;\
   }\
 \
   .result-actions {\
@@ -1710,10 +1895,30 @@ a {\
 \
   .btn-wrap--result-cta {\
     width: 100%;\
+    height: auto;\
+  }\
+\
+  .quiz-screen--result .btn-wrap .quiz-btn {\
+    position: relative;\
+    top: auto;\
+    margin-top: 9px;\
+    height: 50px;\
+    font-size: 14px;\
+  }\
+\
+  .quiz-screen--result .btn-wrap .quiz-btn.mob {\
+    display: -ms-flexbox !important;\
+    display: flex !important;\
+  }\
+\
+  .quiz-screen--result .btn-wrap__border {\
+    height: 50px;\
   }\
 \
   .result-socials {\
     gap: 10px;\
+    -ms-flex-pack: center;\
+        justify-content: center;\
   }\
 \
   .exit-modal__box {\
@@ -1722,6 +1927,10 @@ a {\
 \
   .exit-modal__text {\
     font-size: 16px;\
+  }\
+\
+  .exit-modal__sub {\
+    font-size: 13px;\
   }\
 \
   .btn-wrap--exit {\
@@ -1734,7 +1943,7 @@ a {\
 <div class="wrapper__body">\
   <div class="quiz-card">\
 \
-    <!-- ====== START SCREEN ====== -->\
+    \
     <div id="s0" class="quiz-screen quiz-screen--start">\
       <div class="start-header">\
         <a class="quiz-close js-close-btn"></a>\
@@ -1743,7 +1952,8 @@ a {\
       </div>\
       <div class="start-body">\
         <div class="start-photo">\
-          <img src="https://files.carrotquest.app/message-images/71534/71534-1781681667626-yr868nt2.png" alt="">\
+          <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781681667626-yr868nt2.png" alt="">\
+          <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781781472073-irxf6v2z.png" alt="">\
         </div>\
         <div class="start-content">\
           <p class="start-heading">Тест: какой Вы искусствовед?</p>\
@@ -1757,7 +1967,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- ====== EXIT MODAL ====== -->\
+    \
     <div id="exit-modal" class="exit-modal hidden">\
       <div class="exit-modal__box">\
         <a class="quiz-close exit-modal__close js-exit-cancel"></a>\
@@ -1770,9 +1980,9 @@ a {\
       </div>\
     </div>\
 \
-    <!-- ====== QUESTION SCREENS s1–s10 ====== -->\
+    \
 \
-    <!-- Q1: painting left, answers right -->\
+    \
     <div id="s1" class="quiz-screen hidden" data-q="1">\
       <div class="quiz-header quiz-header--has-painting">\
         <a class="quiz-close js-close-btn"></a>\
@@ -1780,8 +1990,9 @@ a {\
       </div>\
       <div class="quiz-body">\
         <div class="quiz-painting-col">\
-          <div class="quiz-painting-bg quiz-painting-bg--yellow">\
-            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/49a6eb35-f763-4d54-951d-92c2a75c61fb" alt="">\
+          <div class="quiz-painting-bg">\
+            <img class="quiz-painting-img pc" src="https://files.carrotquest.app/message-images/71534/71534-1781764855016-gtlz5eck.png" alt="">\
+        <img class="quiz-painting-img mob" src="https://files.carrotquest.app/message-images/71534/71534-1781782061719-nu0yp9cv.png" alt="">\
             <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
           </div>\
         </div>\
@@ -1804,7 +2015,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q2: painting left, answers right -->\
+    \
     <div id="s2" class="quiz-screen hidden" data-q="2">\
       <div class="quiz-header quiz-header--has-painting">\
         <a class="quiz-close js-close-btn"></a>\
@@ -1812,8 +2023,9 @@ a {\
       </div>\
       <div class="quiz-body">\
         <div class="quiz-painting-col">\
-          <div class="quiz-painting-bg quiz-painting-bg--yellow">\
-            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/4bd6a7a3-af28-45bc-87db-8d0037cd2fe0" alt="">\
+          <div class="quiz-painting-bg">\
+            <img class="quiz-painting-img pc" src="https://files.carrotquest.app/message-images/71534/71534-1781764999342-vx0u6232.png" alt="">\
+        <img class="quiz-painting-img mob" src="https://files.carrotquest.app/message-images/71534/71534-1781783196498-9exgbday.png" alt="">\
             <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
           </div>\
         </div>\
@@ -1836,7 +2048,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q3: 4 image options (Madonnas) -->\
+    \
     <div id="s3" class="quiz-screen hidden" data-q="3">\
       <div class="quiz-header quiz-header--full">\
         <a class="quiz-close js-close-btn"></a>\
@@ -1847,34 +2059,38 @@ a {\
           <label class="quiz-image-answer">\
             <input type="radio" name="q3" value="0">\
             <div class="quiz-image-answer__img-wrap">\
-              <img src="https://www.figma.com/api/mcp/asset/c25e0ee5-d3b2-4ac6-809c-941b00ef7673" alt="Беллини">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781783517501-sj9iccll.png" alt="Беллини">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781783517501-sj9iccll.png" alt="Беллини">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
-            <span>Беллини, кватроченто XV в.</span>\
+            <span></span>\
           </label>\
           <label class="quiz-image-answer">\
             <input type="radio" name="q3" value="1">\
             <div class="quiz-image-answer__img-wrap">\
-              <img src="https://www.figma.com/api/mcp/asset/a4b4efa7-3754-4f73-88df-73340d1c1556" alt="Липпи">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781765692116-8t578zwg.png" alt="Липпи">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781765692116-8t578zwg.png" alt="Липпи">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
-            <span>Липпи, флорентийская XV в.</span>\
+            <span></span>\
           </label>\
           <label class="quiz-image-answer">\
             <input type="radio" name="q3" value="2">\
             <div class="quiz-image-answer__img-wrap">\
-              <img src="https://www.figma.com/api/mcp/asset/f778ced4-8fbc-4537-ad58-6aac89241c28" alt="Назарейец">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781765734535-8zxqkh35.png" alt="Назарейец">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781765734535-8zxqkh35.png" alt="Назарейец">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
-            <span>Мадонна немецкого назарейца XIX в.</span>\
+            <span></span>\
           </label>\
           <label class="quiz-image-answer">\
             <input type="radio" name="q3" value="3">\
             <div class="quiz-image-answer__img-wrap">\
-              <img src="https://www.figma.com/api/mcp/asset/011dad37-3562-43f4-84ba-99b4962311eb" alt="Боттичелли">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781765777947-vgh154pr.png" alt="Боттичелли">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781765777947-vgh154pr.png" alt="Боттичелли">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
-            <span>Боттичелли, флорентийская XV в.</span>\
+            <span></span>\
           </label>\
         </div>\
         <div class="quiz-feedback hidden js-feedback quiz-feedback--full">\
@@ -1888,7 +2104,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q4: 2x2 painting grid left, text answers right -->\
+    \
     <div id="s4" class="quiz-screen hidden" data-q="4">\
       <div class="quiz-header quiz-header--has-painting quiz-header--small">\
         <a class="quiz-close js-close-btn"></a>\
@@ -1898,19 +2114,23 @@ a {\
         <div class="quiz-painting-col quiz-painting-col--grid">\
           <div class="quiz-paintings-grid">\
             <div class="quiz-paint-cell quiz-paint-cell--yellow">\
-              <img src="https://www.figma.com/api/mcp/asset/4d1e3446-7087-413e-abfd-bacb0a315d99" alt="Картина А">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781766277634-wojusgj0.png" alt="Картина А">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781785009765-sfzax02c.png" alt="Картина А">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
             <div class="quiz-paint-cell quiz-paint-cell--coral">\
-              <img src="https://www.figma.com/api/mcp/asset/104d1432-eadd-464e-866d-4645d9ec83eb" alt="Картина Б">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781766336666-v3ruwux8.png" alt="Картина Б">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781785027248-thhfmkx6.png" alt="Картина Б">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
             <div class="quiz-paint-cell quiz-paint-cell--coral">\
-              <img src="https://www.figma.com/api/mcp/asset/bbd271a4-e071-48b5-a515-e4e63b83cb10" alt="Картина В">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781766363709-mak7vild.png" alt="Картина В">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781785049663-4ge56i7g.png" alt="Картина В">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
             <div class="quiz-paint-cell quiz-paint-cell--yellow">\
-              <img src="https://www.figma.com/api/mcp/asset/b352d0e9-9c86-4578-98cd-acfe8c0a9e11" alt="Картина Г">\
+              <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781766386953-objztdtd.png" alt="Картина Г">\
+              <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781785061904-2xt9xzqt.png" alt="Картина Г">\
               <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
             </div>\
           </div>\
@@ -1934,7 +2154,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q5: painting left, answers right -->\
+    \
     <div id="s5" class="quiz-screen hidden" data-q="5">\
       <div class="quiz-header quiz-header--has-painting">\
         <a class="quiz-close js-close-btn"></a>\
@@ -1942,8 +2162,9 @@ a {\
       </div>\
       <div class="quiz-body">\
         <div class="quiz-painting-col">\
-          <div class="quiz-painting-bg quiz-painting-bg--yellow">\
-            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/66236319-cb25-4ffe-aa55-7972e8f99d45" alt="">\
+          <div class="quiz-painting-bg">\
+            <img class="quiz-painting-img pc" src="https://files.carrotquest.app/message-images/71534/71534-1781767133921-iasndrso.png" alt="">\
+        <img class="quiz-painting-img mob" src="https://files.carrotquest.app/message-images/71534/71534-1781784528878-41po14jo.png" alt="">\
             <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
           </div>\
         </div>\
@@ -1966,7 +2187,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q6: painting left, answers right -->\
+    \
     <div id="s6" class="quiz-screen hidden" data-q="6">\
       <div class="quiz-header quiz-header--has-painting">\
         <a class="quiz-close js-close-btn"></a>\
@@ -1974,8 +2195,9 @@ a {\
       </div>\
       <div class="quiz-body">\
         <div class="quiz-painting-col">\
-          <div class="quiz-painting-bg quiz-painting-bg--yellow">\
-            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/87535259-a28a-48c2-a491-71bf4491314f" alt="">\
+          <div class="quiz-painting-bg">\
+            <img class="quiz-painting-img pc" src="https://files.carrotquest.app/message-images/71534/71534-1781767193426-jk3fmk23.png" alt="">\
+        <img class="quiz-painting-img mob" src="https://files.carrotquest.app/message-images/71534/71534-1781784778742-94m1hl8p.png" alt="">\
             <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
           </div>\
         </div>\
@@ -1998,7 +2220,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q7: text only, full width -->\
+    \
     <div id="s7" class="quiz-screen hidden" data-q="7">\
       <div class="quiz-header quiz-header--full">\
         <a class="quiz-close js-close-btn"></a>\
@@ -2022,7 +2244,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q8: text only, full width -->\
+    \
     <div id="s8" class="quiz-screen hidden" data-q="8">\
       <div class="quiz-header quiz-header--full">\
         <a class="quiz-close js-close-btn"></a>\
@@ -2046,7 +2268,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q9: painting left, answers right -->\
+    \
     <div id="s9" class="quiz-screen hidden" data-q="9">\
       <div class="quiz-header quiz-header--has-painting">\
         <a class="quiz-close js-close-btn"></a>\
@@ -2054,8 +2276,9 @@ a {\
       </div>\
       <div class="quiz-body">\
         <div class="quiz-painting-col">\
-          <div class="quiz-painting-bg quiz-painting-bg--yellow">\
-            <img class="quiz-painting-img" src="https://www.figma.com/api/mcp/asset/8deba7da-3033-4e8a-8748-1376da5c0c4e" alt="">\
+          <div class="quiz-painting-bg">\
+            <img class="quiz-painting-img pc" src="https://files.carrotquest.app/message-images/71534/71534-1781768399538-hr98mfld.png" alt="">\
+        <img class="quiz-painting-img mob" src="https://files.carrotquest.app/message-images/71534/71534-1781785418131-0nai5jqj.png" alt="">\
             <button class="quiz-zoom-btn js-zoom-btn"><img class="quiz-zoom-icon" src="https://files.carrotquest.app/message-images/71534/71534-1781676153701-nc0a7fb7.png" alt=""></button>\
           </div>\
         </div>\
@@ -2078,7 +2301,7 @@ a {\
       </div>\
     </div>\
 \
-    <!-- Q10: text only, full width -->\
+    \
     <div id="s10" class="quiz-screen hidden" data-q="10">\
       <div class="quiz-header quiz-header--full">\
         <a class="quiz-close js-close-btn"></a>\
@@ -2102,20 +2325,21 @@ a {\
       </div>\
     </div>\
 \
-    <!-- ====== EMAIL FORM SCREEN ====== -->\
+    \
     <div id="s-email" class="quiz-screen quiz-screen--email hidden">\
       <a class="quiz-close js-close-btn"></a>\
       <div class="email-header">\
-        <h2 class="email-header__title">Готовы узнать ваш уровень?</h2>\
+        <h2 class="email-header__title">Готовы узнать <br class="mob">  ваш уровень?</h2>\
         <p class="email-header__sub">Оставьте email — мы сразу покажем результат, пришлем его копию вам на почту и подберем курс под ваш уровень. Без спама, только материалы, релевантные вашему результату.</p>\
       </div>\
       <div class="email-body">\
         <div class="email-body__img">\
-          <img src="https://www.figma.com/api/mcp/asset/380a9e96-3095-440f-92c1-87824126ac89" alt="">\
+          <img class="pc" src="https://files.carrotquest.app/message-images/71534/71534-1781769055871-ow3olz1y.png" alt="">\
+          <img class="mob" src="https://files.carrotquest.app/message-images/71534/71534-1781785866484-oj1aq6cd.png" alt="">\
         </div>\
         <div class="email-body__form">\
           <input type="text" class="quiz-field js-name-input" placeholder="Введите Ваше имя" name="name">\
-          <input type="email" class="quiz-field js-email-input" placeholder="Введите Ваш эл. адрес *" name="email">\
+          <input type="email" class="quiz-field js-email-input" placeholder="Введите Ваш эл. адрес *" name="email" required>\
           <div class="quiz-checkbox-row">\
             <input type="checkbox" id="cb1" class="js-cb1">\
             <label for="cb1">Я даю <a href="#" class="cb-link">согласие</a> на обработку своих персональных данных.</label>\
@@ -2128,14 +2352,14 @@ a {\
             <button class="quiz-btn js-submit-email">УЗНАТЬ РЕЗУЛЬТАТ</button>\
             <span class="btn-wrap__border"></span>\
           </div>\
-          <a href="#" class="quiz-skip-email js-skip-email">Посмотреть результат без e-mail →</a>\
+          <a href="#" class="quiz-skip-email js-skip-email hidden">Посмотреть результат без e-mail →</a>\
         </div>\
       </div>\
     </div>\
 \
-    <!-- ====== RESULT SCREENS ====== -->\
+    \
 \
-    <!-- Result 1: 0–3 correct — Турист в музее -->\
+    \
     <div id="s-result-1" class="quiz-screen quiz-screen--result hidden">\
       <a class="quiz-close js-close-btn"></a>\
       <div class="result-header">\
@@ -2153,23 +2377,25 @@ a {\
       </div>\
       <div class="result-actions">\
         <div class="btn-wrap btn-wrap--result-cta">\
-          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/vvedenie-v-istoriyu-iskusstv/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Записаться на курс «Введение в историю искусств» →</a>\
+          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/vvedenie-v-istoriyu-iskusstv/" target="_blank" class="quiz-btn js-result-btn pc" onclick="carrotquest.clicked()">Записаться на курс «Введение в историю искусств» →</a>\
+          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/vvedenie-v-istoriyu-iskusstv/" target="_blank" class="quiz-btn js-result-btn mob" onclick="carrotquest.clicked()">ВВЕДЕНИЕ В ИСТОРИЮ ИСКУССТВ</a>\
           <span class="btn-wrap__border"></span>\
         </div>\
-        <div class="result-socials">\
+        <div class="result-socials pc">\
           <div class="btn-wrap btn-wrap--social">\
             <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
           <div class="btn-wrap btn-wrap--social">\
-            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>\
+            <a href="https://max.ru/id9731074734_bot" target="_blank" class="result-social-btn result-social-btn--max js-max-btn" title="MAX"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
         </div>\
+        <a class="mob result-share-mob" href="#">Поделиться →</a>\
       </div>\
     </div>\
 \
-    <!-- Result 2: 4–6 correct — Внимательный зритель -->\
+    \
     <div id="s-result-2" class="quiz-screen quiz-screen--result hidden">\
       <a class="quiz-close js-close-btn"></a>\
       <div class="result-header">\
@@ -2187,23 +2413,25 @@ a {\
       </div>\
       <div class="result-actions">\
         <div class="btn-wrap btn-wrap--result-cta">\
-          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Посмотреть курсы по эпохам →</a>\
+          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/" target="_blank" class="quiz-btn js-result-btn pc" onclick="carrotquest.clicked()">Посмотреть курсы по эпохам →</a>\
+          <a href="https://agena-art.ru/kursy-istoriya-iskusstv/" target="_blank" class="quiz-btn js-result-btn mob" onclick="carrotquest.clicked()">ПОСМОТРЕТЬ КУРСЫ ПО ЭПОХАМ</a>\
           <span class="btn-wrap__border"></span>\
         </div>\
-        <div class="result-socials">\
+        <div class="result-socials pc">\
           <div class="btn-wrap btn-wrap--social">\
             <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
           <div class="btn-wrap btn-wrap--social">\
-            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>\
+            <a href="https://max.ru/id9731074734_bot" target="_blank" class="result-social-btn result-social-btn--max js-max-btn" title="MAX"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
         </div>\
+        <a class="mob result-share-mob" href="#">Поделиться →</a>\
       </div>\
     </div>\
 \
-    <!-- Result 3: 7–8 correct — Любитель с библиотекой -->\
+    \
     <div id="s-result-3" class="quiz-screen quiz-screen--result hidden">\
       <a class="quiz-close js-close-btn"></a>\
       <div class="result-header">\
@@ -2221,23 +2449,25 @@ a {\
       </div>\
       <div class="result-actions">\
         <div class="btn-wrap btn-wrap--result-cta">\
-          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Выбрать углубленный курс →</a>\
+          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn pc" onclick="carrotquest.clicked()">Выбрать углубленный курс →</a>\
+          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn mob" onclick="carrotquest.clicked()">ВЫБРАТЬ УГЛУБЛЕННЫЙ КУРС</a>\
           <span class="btn-wrap__border"></span>\
         </div>\
-        <div class="result-socials">\
+        <div class="result-socials pc">\
           <div class="btn-wrap btn-wrap--social">\
             <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
           <div class="btn-wrap btn-wrap--social">\
-            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>\
+            <a href="https://max.ru/id9731074734_bot" target="_blank" class="result-social-btn result-social-btn--max js-max-btn" title="MAX"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
         </div>\
+        <a class="mob result-share-mob" href="#">Поделиться →</a>\
       </div>\
     </div>\
 \
-    <!-- Result 4: 9–10 correct — Кандидат в кураторы -->\
+    \
     <div id="s-result-4" class="quiz-screen quiz-screen--result hidden">\
       <a class="quiz-close js-close-btn"></a>\
       <div class="result-header">\
@@ -2255,29 +2485,32 @@ a {\
       </div>\
       <div class="result-actions">\
         <div class="btn-wrap btn-wrap--result-cta">\
-          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn" onclick="carrotquest.clicked()">Подробнее о программах профпереподготовки →</a>\
+          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn pc" onclick="carrotquest.clicked()">Подробнее о программах профпереподготовки →</a>\
+          <a href="https://agena-art.ru/dpo_education/" target="_blank" class="quiz-btn js-result-btn mob" onclick="carrotquest.clicked()">ВЫБРАТЬ УГЛУБЛЕННЫЙ КУРС</a>\
           <span class="btn-wrap__border"></span>\
         </div>\
-        <div class="result-socials">\
+        <div class="result-socials pc">\
           <div class="btn-wrap btn-wrap--social">\
             <a href="https://t.me/agena_art" target="_blank" class="result-social-btn result-social-btn--tg js-tg-btn" title="Telegram"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
           <div class="btn-wrap btn-wrap--social">\
-            <a href="https://vk.com/agenaart" target="_blank" class="result-social-btn result-social-btn--vk js-vk-btn" title="ВКонтакте"></a>\
+            <a href="https://max.ru/id9731074734_bot" target="_blank" class="result-social-btn result-social-btn--max js-max-btn" title="MAX"></a>\
             <span class="btn-wrap__border"></span>\
           </div>\
         </div>\
+        <a class="mob result-share-mob" href="#">Поделиться →</a>\
       </div>\
     </div>\
 \
-  </div><!-- .quiz-card -->\
-</div><!-- .wrapper__body -->\
+  </div>\
+</div>\
 \
 <div id="quiz-lightbox" class="quiz-lightbox hidden">\
   <div class="quiz-lightbox__overlay js-lightbox-close"></div>\
   <div class="quiz-lightbox__box">\
-    <img class="quiz-lightbox__img js-lightbox-img" src="" alt="">\
+    <img class="quiz-lightbox__img js-lightbox-img pc" src="" alt="">\
+    <img class="quiz-lightbox__img js-lightbox-img mob" src="" alt="">\
     <button class="quiz-lightbox__close js-lightbox-close"></button>\
   </div>\
 </div>\
@@ -2326,66 +2559,54 @@ var cqpopup_name = "Глаз искусствоведа",\
       this.track("Коммуникации: Прочитано сообщение - " + cqpopup_name);\
     }\
   };\
-\
-// ====== STATE ======\
-var currentQ = 0; // 0 = start/email/result, 1–10 = question number\
-var quizPhase = "question"; // "question" | "feedback"\
+var currentQ = 0;\
+var quizPhase = "question";\
 var correctCount = 0;\
-\
-// ====== QUESTIONS DATA ======\
 var QUESTIONS = [{\
-  // Q1: Каравадджо\
   correct: 1,\
-  feedbacks: ["Неверно. Микеланджело мастерски изображал мускулистые тела, но его стиль отличается идеализированными, монументальными формами и скульптурной сдержанностью. Резкий тенебризм ему не свойственен.", "Верно! Это фрагмент картины Каравадджо. Его фирменный «тенебризм» — резкий контраст света и тени на тёмном фоне — перевернул европейскую живопись. Каравадджо отказался от идеализации и писал людей с улицы.", "Неверно. Рубенс заимствовал у Каравадджо драматизм, но изображал тела значительно пышнее и мягче — это характерная «рубенсовская» манера.", "Неверно. Хосе де Рибера испытал сильное влияние Каравадджо, особенно в изображении мучеников, но данный фрагмент принадлежит самому Каравадджо."]\
+  feedbacks: ["Неверно. Хотя Микеланджело и прославился пластичностью изображения мужского тела, у него оно обычно выглядит героически, идеализированно. Здесь же мы видим грязную кожу, морщины, резкий контрастный свет, что плохо вписывается в Высокое Возрождение. <br><br> На самом деле это картина Караваджо “Распятие святого Петра” (рубеж XVI-XVII веков).", "\\u0412\\u0435\\u0440\\u043D\\u043E. \\u042D\\u0442\\u043E \\u0444\\u0440\\u0430\\u0433\\u043C\\u0435\\u043D\\u0442 \\"\\u0420\\u0430\\u0441\\u043F\\u044F\\u0442\\u0438\\u044F \\u0441\\u0432\\u044F\\u0442\\u043E\\u0433\\u043E \\u041F\\u0435\\u0442\\u0440\\u0430\\". \\u0423\\u0437\\u043D\\u0430\\u0432\\u0430\\u0435\\u043C\\u044B\\u0435 \\u043F\\u0440\\u0438\\u0437\\u043D\\u0430\\u043A\\u0438: \\u0442\\u0435\\u043D\\u0435\\u0431\\u0440\\u0438\\u0437\\u043C, \\u0434\\u0435\\u043C\\u043E\\u043D\\u0441\\u0442\\u0440\\u0430\\u0442\\u0438\\u0432\\u043D\\u043E \\u043D\\u0435\\u0438\\u0434\\u0435\\u0430\\u043B\\u0438\\u0437\\u0438\\u0440\\u043E\\u0432\\u0430\\u043D\\u043D\\u043E\\u0435 \\u0442\\u0435\\u043B\\u043E \\u043F\\u043E\\u0436\\u0438\\u043B\\u043E\\u0433\\u043E \\u0447\\u0435\\u043B\\u043E\\u0432\\u0435\\u043A\\u0430 \\u2028\\u0441 \\u0433\\u0440\\u044F\\u0437\\u043D\\u044B\\u043C\\u0438 \\u0441\\u0442\\u0443\\u043F\\u043D\\u044F\\u043C\\u0438, \\u043A\\u043E\\u043D\\u0442\\u0440\\u0430\\u0441\\u0442\\u043D\\u044B\\u0439 \\u0441\\u0432\\u0435\\u0442. <br><br>\\u041A\\u0430\\u0440\\u0430\\u0432\\u0430\\u0434\\u0436\\u043E \\u043E\\u0434\\u043D\\u0438\\u043C \\u0438\\u0437 \\u043F\\u0435\\u0440\\u0432\\u044B\\u0445 \\u0432 \\u0435\\u0432\\u0440\\u043E\\u043F\\u0435\\u0439\\u0441\\u043A\\u043E\\u0439 \\u0436\\u0438\\u0432\\u043E\\u043F\\u0438\\u0441\\u0438 \\u0441\\u0442\\u0430\\u043B \\u043F\\u0438\\u0441\\u0430\\u0442\\u044C \\u0441\\u0432\\u044F\\u0442\\u044B\\u0445 \\u0441 \\u043D\\u0430\\u0442\\u0443\\u0440\\u0449\\u0438\\u043A\\u043E\\u0432 \\u0438\\u0437 \\u0440\\u0438\\u043C\\u0441\\u043A\\u0438\\u0445 \\u0442\\u0440\\u0430\\u043A\\u0442\\u0438\\u0440\\u043E\\u0432, \\u0447\\u0442\\u043E \\u043F\\u043E\\u0437\\u0436\\u0435 \\u0441\\u0442\\u0430\\u043B\\u043E \\u043E\\u0431\\u0449\\u0435\\u0439 \\u043F\\u0440\\u0430\\u043A\\u0442\\u0438\\u043A\\u043E\\u0439 \\u0445\\u0443\\u0434\\u043E\\u0436\\u043D\\u0438\\u043A\\u043E\\u0432 \\u0431\\u0430\\u0440\\u043E\\u043A\\u043A\\u043E.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0420\\u0443\\u0431\\u0435\\u043D\\u0441 \\u0442\\u043E\\u0436\\u0435 \\u0438\\u0437\\u043E\\u0431\\u0440\\u0430\\u0436\\u0430\\u043B \\u043C\\u0443\\u0436\\u0441\\u043A\\u043E\\u0435 \\u0442\\u0435\\u043B\\u043E, \\u2028\\u043D\\u043E \\u0435\\u0433\\u043E \\u043F\\u0430\\u043B\\u0438\\u0442\\u0440\\u0430 \\u043F\\u0440\\u0438\\u043D\\u0446\\u0438\\u043F\\u0438\\u0430\\u043B\\u044C\\u043D\\u043E \\u0434\\u0440\\u0443\\u0433\\u0430\\u044F: \\u0442\\u0435\\u043F\\u043B\\u044B\\u0435 \\u0440\\u043E\\u0437\\u043E\\u0432\\u043E-\\u0437\\u043E\\u043B\\u043E\\u0442\\u044B\\u0435 \\u0442\\u043E\\u043D\\u0430, \\u0440\\u0443\\u043C\\u044F\\u043D\\u0430\\u044F \\u043F\\u043B\\u043E\\u0442\\u044C, \\u043C\\u044F\\u0433\\u043A\\u0438\\u0439 \\u0440\\u0430\\u0441\\u0441\\u0435\\u044F\\u043D\\u043D\\u044B\\u0439 \\u0441\\u0432\\u0435\\u0442. \\u041A\\u043E\\u043D\\u0442\\u0440\\u0430\\u0441\\u0442 \\u0443 \\u0420\\u0443\\u0431\\u0435\\u043D\\u0441\\u0430 \\u0431\\u044B\\u0432\\u0430\\u0435\\u0442, \\u043D\\u043E \\u043E\\u043D \\u043E\\u0431\\u044B\\u0447\\u043D\\u043E \\u043D\\u0435 \\u0441\\u043E\\u0437\\u0434\\u0430\\u0435\\u0442 \\u0442\\u0430\\u043A\\u043E\\u0433\\u043E \\"\\u0442\\u0435\\u0430\\u0442\\u0440\\u0430\\u043B\\u044C\\u043D\\u043E\\u0433\\u043E\\" \\u044D\\u0444\\u0444\\u0435\\u043A\\u0442\\u0430 \\u043F\\u0440\\u043E\\u0436\\u0435\\u043A\\u0442\\u043E\\u0440\\u0430.<br><br>\\u041F\\u0435\\u0440\\u0435\\u0434 \\u043D\\u0430\\u043C\\u0438 \\u0440\\u0430\\u043D\\u043D\\u0435\\u0435 \\u0438\\u0442\\u0430\\u043B\\u044C\\u044F\\u043D\\u0441\\u043A\\u043E\\u0435 \\u0431\\u0430\\u0440\\u043E\\u043A\\u043A\\u043E, \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u0430 \\u041A\\u0430\\u0440\\u0430\\u0432\\u0430\\u0434\\u0436\\u043E \\u201C\\u0420\\u0430\\u0441\\u043F\\u044F\\u0442\\u0438\\u0435 \\u0441\\u0432\\u044F\\u0442\\u043E\\u0433\\u043E \\u041F\\u0435\\u0442\\u0440\\u0430\\u201D.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0420\\u0438\\u0431\\u0435\\u0440\\u0430 \\u0434\\u0435\\u0439\\u0441\\u0442\\u0432\\u0438\\u0442\\u0435\\u043B\\u044C\\u043D\\u043E \\u0440\\u0430\\u0431\\u043E\\u0442\\u0430\\u043B \\u0432 \\u043F\\u043E\\u0434\\u043E\\u0431\\u043D\\u043E\\u0439 \\u0434\\u0440\\u0430\\u043C\\u0430\\u0442\\u0438\\u0447\\u0435\\u0441\\u043A\\u043E\\u0439 \\u043C\\u0430\\u043D\\u0435\\u0440\\u0435, \\u043D\\u043E \\u0443 \\u043D\\u0435\\u0433\\u043E \\u0442\\u0435\\u043D\\u0435\\u0431\\u0440\\u0438\\u0437\\u043C \\u0435\\u0449\\u0435 \\u0431\\u043E\\u043B\\u0435\\u0435 \\u0432\\u044B\\u0440\\u0430\\u0436\\u0435\\u043D. \\u041A\\u043E\\u0436\\u0430 \\u0447\\u0430\\u0441\\u0442\\u043E \\u043E\\u0431\\u0432\\u0435\\u0442\\u0440\\u0435\\u043D\\u043D\\u0430\\u044F, \\u2028\\u0441 \\u043F\\u043E\\u0434\\u0447\\u0435\\u0440\\u043A\\u043D\\u0443\\u0442\\u043E\\u0439 \\u0444\\u0430\\u043A\\u0442\\u0443\\u0440\\u043E\\u0439. <br><br>\\u041D\\u0430 \\u0441\\u0430\\u043C\\u043E\\u043C \\u0434\\u0435\\u043B\\u0435 \\u044D\\u0442\\u043E \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u0430 \\u041A\\u0430\\u0440\\u0430\\u0432\\u0430\\u0434\\u0436\\u043E \\u201C\\u0420\\u0430\\u0441\\u043F\\u044F\\u0442\\u0438\\u0435 \\u0441\\u0432\\u044F\\u0442\\u043E\\u0433\\u043E \\u041F\\u0435\\u0442\\u0440\\u0430\\u201D."]\
 }, {\
-  // Q2: Голландская школа XVII\
   correct: 1,\
-  feedbacks: ["Неверно. Итальянская школа XVI века предпочитала более плотное письмо, тёплые золотистые тона и монументальную трактовку образа — здесь иная техника.", "Верно! Прозрачные лессировки, голубоватые рефлексы на коже, глубокий чёрный фон и жемчужные украшения — характерные приметы голландского XVII века. Вермеер и его современники виртуозно передавали текстуру материалов.", "Неверно. Французское рококо XVIII века тяготело к пастельным тонам и игривым мотивам, а не к такому плотному ювелирному письму.", "Неверно. Английская школа XIX века развивалась в направлении романтизма и прерафаэлитизма — совсем другая манера работы с цветом."]\
+  feedbacks: ["Неверно. На итальянских портретах XVI века тоже виртуозно написаны украшения, но техника совсем другая: более плотные мазки, теплый коричневатый грунт, отсутствие холодных рефлексов. И главное, итальянцы XVI века не делали такого глубокого фона.<br><br>На самом деле это “Женщина с жемчужным ожерельем” Вермеера (Голландия, XVII век).", "\\u0412\\u0435\\u0440\\u043D\\u043E. \\u042D\\u0442\\u043E \\u0433\\u043E\\u043B\\u043B\\u0430\\u043D\\u0434\\u0441\\u043A\\u0438\\u0439 \\u0437\\u043E\\u043B\\u043E\\u0442\\u043E\\u0439 \\u0432\\u0435\\u043A. \\u041D\\u0430\\u043B\\u0438\\u0446\\u043E \\u0445\\u0430\\u0440\\u0430\\u043A\\u0442\\u0435\\u0440\\u043D\\u044B\\u0435 \\u043F\\u0440\\u0438\\u0437\\u043D\\u0430\\u043A\\u0438: \\u0442\\u043E\\u043D\\u0447\\u0430\\u0439\\u0448\\u0438\\u0435 \\u043B\\u0435\\u0441\\u0441\\u0438\\u0440\\u043E\\u0432\\u043A\\u0438, \\u043E\\u043F\\u0442\\u0438\\u0447\\u0435\\u0441\\u043A\\u0438 \\u0442\\u043E\\u0447\\u043D\\u0430\\u044F \\u043F\\u0435\\u0440\\u0435\\u0434\\u0430\\u0447\\u0430 \\u043F\\u043E\\u0432\\u0435\\u0440\\u0445\\u043D\\u043E\\u0441\\u0442\\u0438 \\u0436\\u0435\\u043C\\u0447\\u0443\\u0433\\u0430 \\u2028\\u0441 \\u0445\\u043E\\u043B\\u043E\\u0434\\u043D\\u044B\\u043C \\u0431\\u043B\\u0438\\u043A\\u043E\\u043C, \\u0438\\u0441\\u043F\\u043E\\u043B\\u044C\\u0437\\u043E\\u0432\\u0430\\u043D\\u0438\\u0435 \\u0433\\u043B\\u0443\\u0431\\u043E\\u043A\\u043E\\u0433\\u043E \\u0444\\u043E\\u043D\\u0430. <br><br>\\u042D\\u0442\\u043E \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u0430 \\u201C\\u0416\\u0435\\u043D\\u0449\\u0438\\u043D\\u0430 \\u0441 \\u0436\\u0435\\u043C\\u0447\\u0443\\u0436\\u043D\\u044B\\u043C \\u043E\\u0436\\u0435\\u0440\\u0435\\u043B\\u044C\\u0435\\u043C\\u201D \\u0412\\u0435\\u0440\\u043C\\u0435\\u0435\\u0440\\u0430.", "Неверно. Французский XVIII век - это преимущественно рококо с розово-голубыми пастельными тонами, мягкой дымкой, без резких контрастов. Жемчуг и кожу там тоже писали отлично, но в принципиально иной манере, без подобной холодной точности.<br><br>На самом деле это “Женщина с жемчужным ожерельем” Вермеера, Голландия, XVII век.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0410\\u043D\\u0433\\u043B\\u0438\\u0439\\u0441\\u043A\\u0438\\u0439 XIX \\u0432\\u0435\\u043A - \\u044D\\u0442\\u043E \\u043B\\u0438\\u0431\\u043E \\u0432\\u0438\\u043A\\u0442\\u043E\\u0440\\u0438\\u0430\\u043D\\u0441\\u043A\\u0438\\u0439 \\u0430\\u043A\\u0430\\u0434\\u0435\\u043C\\u0438\\u0437\\u043C, \\u043B\\u0438\\u0431\\u043E \\u043F\\u0440\\u0435\\u0440\\u0430\\u0444\\u0430\\u044D\\u043B\\u0438\\u0442\\u044B \\u0441 \\u0438\\u0445 \\u044F\\u0440\\u043A\\u0438\\u043C\\u0438 \\u043D\\u0430\\u0441\\u044B\\u0449\\u0435\\u043D\\u043D\\u044B\\u043C\\u0438 \\u043A\\u0440\\u0430\\u0441\\u043A\\u0430\\u043C\\u0438 \\u0438 \\u043F\\u043B\\u043E\\u0441\\u043A\\u0438\\u043C\\u0438 \\u043A\\u043E\\u043C\\u043F\\u043E\\u0437\\u0438\\u0446\\u0438\\u044F\\u043C\\u0438. \\u041D\\u0438 \\u0442\\u0435, \\u043D\\u0438 \\u0434\\u0440\\u0443\\u0433\\u0438\\u0435 \\u043D\\u0435 \\u0440\\u0430\\u0431\\u043E\\u0442\\u0430\\u043B\\u0438 \\u2028\\u0432 \\u043F\\u043E\\u0434\\u043E\\u0431\\u043D\\u043E\\u0439 \\u0442\\u0435\\u0445\\u043D\\u0438\\u043A\\u0435 \\u043C\\u043D\\u043E\\u0433\\u043E\\u0441\\u043B\\u043E\\u0439\\u043D\\u043E\\u0439 \\u043B\\u0435\\u0441\\u0441\\u0438\\u0440\\u043E\\u0432\\u043A\\u0438. <br><br>\\u041D\\u0430 \\u0441\\u0430\\u043C\\u043E\\u043C \\u0434\\u0435\\u043B\\u0435 \\u044D\\u0442\\u043E \\u201C\\u0416\\u0435\\u043D\\u0449\\u0438\\u043D\\u0430 \\u0441 \\u0436\\u0435\\u043C\\u0447\\u0443\\u0436\\u043D\\u044B\\u043C \\u043E\\u0436\\u0435\\u0440\\u0435\\u043B\\u044C\\u0435\\u043C\\u201D \\u0412\\u0435\\u0440\\u043C\\u0435\\u0435\\u0440\\u0430, \\u0413\\u043E\\u043B\\u043B\\u0430\\u043D\\u0434\\u0438\\u044F, XVII \\u0432\\u0435\\u043A."]\
 }, {\
-  // Q3: Назарейец XIX — лишний\
   correct: 2,\
-  feedbacks: ["Неверно. Беллини — это кватроченто, XV век: золотистое свечение, выразительные лики, жёсткий контур раннего Возрождения. Это подлинная эпоха, не «лишний».", "Неверно. Липпи — флорентийский мастер XV века, предшественник Боттичелли. Его мягкая линия и нежные лики — настоящее кватроченто.", "Верно! Это работа немецкого назарейца XIX века, подражающего Проторенессансу. Назарейцы пытались возродить «чистоту» средневековой религиозной живописи, но их работы выдаёт чрезмерная гладкость письма и сентиментальность, несвойственная подлинному XV веку.", "Неверно. Боттичелли — флорентийский мастер XV века, один из вершин Возрождения. Его Мадонны узнаются по меланхоличной красоте и тонкой линии."]\
+  feedbacks: ["Неверно. Это подлинная флорентийская Мадонна конца XV века (кватроченто) кисти Боттичелли. Характерные признаки: S-образная фигура, изгиб тела, светлый колорит, легкая печаль на лице. Эпоха совпадает с двумя другими подлинниками в этом ряду.", "Неверно. Это типичное венецианское кватроченто, последняя треть XV века - Джованни Беллини. Узнается по скульптурной моделировке драпировок. Подлинник эпохи.", "Верно. Это работа немецкого \\"назарейца\\" XIX века Иоганна Фридриха Овербека, который сознательно копировал черты Возрождения. <br><br>Подвох в деталях: слишком \\"прилизанная\\" манера письма, неестественно насыщенные краски, графичность, изображение ярких эмоций на лице, нетипичное для строгого кватроченто. ", "Неверно. Это флорентийская работа середины XV века авторства Филиппо Липпи - учителя Боттичелли. Здесь видны типичные черты раннего кватроченто: четкий контур, локальный цвет, еще не до конца преодоленная \\"точеность\\" позднеготической традиции."]\
 }, {\
-  // Q4: хронология Рафаэль→Веласкес→Делакруа→Мане\
   correct: 0,\
-  feedbacks: ["Верно! Рафаэль (1483–1520, Возрождение) → Веласкес (1599–1660, Барокко) → Делакруа (1798–1863, Романтизм) → Мане (1832–1883, путь к Импрессионизму). Четыре эпохи, три столетия.", "Неверно. Делакруа (1798–1863) жил позже Веласкеса (1599–1660), а не до него. Романтизм идёт после Барокко.", "Неверно. Веласкес (1599–1660) жил на 80 лет позже Рафаэля, а не раньше. Барокко наступило после Возрождения.", "Неверно. Делакруа (1798–1863) старше Мане (1832–1883): Романтизм предшествует переходу к Импрессионизму, а не следует за ним."]\
+  feedbacks: ["Верно. Это правильная последовательность: Высокое Возрождение (Рафаэль, XV-XVI век) → испанское барокко (Веласкес, XVII век) → французский романтизм (Делакруа, 30-е годы XIX века) → протомодернизм (Мане, 60-е годы XIX века). <br><br>Между Рафаэлем и Веласкесом около 140 лет, между Делакруа и Мане - всего 30, но эстетически между ними - пропасть. ", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0412\\u0435\\u043B\\u0430\\u0441\\u043A\\u0435\\u0441 \\u0440\\u0430\\u0431\\u043E\\u0442\\u0430\\u043B \\u0432 XVII \\u0432\\u0435\\u043A\\u0435, \\u0430 \\u0414\\u0435\\u043B\\u0430\\u043A\\u0440\\u0443\\u0430 - \\u2028\\u0432 \\u043F\\u0435\\u0440\\u0432\\u043E\\u0439 \\u043F\\u043E\\u043B\\u043E\\u0432\\u0438\\u043D\\u0435 XIX. \\u041C\\u0435\\u0436\\u0434\\u0443 \\u043D\\u0438\\u043C\\u0438 \\u0431\\u043E\\u043B\\u0435\\u0435 150 \\u043B\\u0435\\u0442. <br><br>\\u041B\\u043E\\u0432\\u0443\\u0448\\u043A\\u0430 \\u0432 \\u0442\\u043E\\u043C, \\u0447\\u0442\\u043E \\u0438 \\u0412\\u0435\\u043B\\u0430\\u0441\\u043A\\u0435\\u0441, \\u0438 \\u0414\\u0435\\u043B\\u0430\\u043A\\u0440\\u0443\\u0430 \\u043F\\u0438\\u0441\\u0430\\u043B\\u0438 \\u2028\\u0432 \\u0434\\u0440\\u0430\\u043C\\u0430\\u0442\\u0438\\u0447\\u0435\\u0441\\u043A\\u043E\\u0439 \\u043C\\u0430\\u043D\\u0435\\u0440\\u0435 \\u0441 \\u0442\\u0435\\u043C\\u043D\\u044B\\u043C\\u0438 \\u0442\\u0435\\u043D\\u044F\\u043C\\u0438, \\u2028\\u043D\\u043E \\u0412\\u0435\\u043B\\u0430\\u0441\\u043A\\u0435\\u0441 - \\u044D\\u0442\\u043E \\u0438\\u0441\\u043F\\u0430\\u043D\\u0441\\u043A\\u043E\\u0435 \\u0431\\u0430\\u0440\\u043E\\u043A\\u043A\\u043E, \\u0430 \\u0414\\u0435\\u043B\\u0430\\u043A\\u0440\\u0443\\u0430 - \\u0444\\u0440\\u0430\\u043D\\u0446\\u0443\\u0437\\u0441\\u043A\\u0438\\u0439 \\u0440\\u043E\\u043C\\u0430\\u043D\\u0442\\u0438\\u0437\\u043C, \\u0438 \\u043E\\u043D\\u0438 \\u0440\\u0430\\u0437\\u0434\\u0435\\u043B\\u0435\\u043D\\u044B \\u043A\\u043B\\u0430\\u0441\\u0441\\u0438\\u0446\\u0438\\u0437\\u043C\\u043E\\u043C \\u0438 \\u0440\\u043E\\u043A\\u043E\\u043A\\u043E XVIII \\u0432\\u0435\\u043A\\u0430.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0420\\u0430\\u0444\\u0430\\u044D\\u043B\\u044C (XV-XVI \\u0432\\u0435\\u043A) \\u0440\\u0430\\u0431\\u043E\\u0442\\u0430\\u043B \\u043D\\u0430\\u043C\\u043D\\u043E\\u0433\\u043E \\u0440\\u0430\\u043D\\u044C\\u0448\\u0435 \\u0412\\u0435\\u043B\\u0430\\u0441\\u043A\\u0435\\u0441\\u0430 (XVII \\u0432\\u0435\\u043A), \\u0412\\u043E\\u0437\\u0440\\u043E\\u0436\\u0434\\u0435\\u043D\\u0438\\u0435 \\u043F\\u0440\\u0435\\u0434\\u0448\\u0435\\u0441\\u0442\\u0432\\u0443\\u0435\\u0442 \\u0431\\u0430\\u0440\\u043E\\u043A\\u043A\\u043E. \\u0418 \\u0414\\u0435\\u043B\\u0430\\u043A\\u0440\\u0443\\u0430 \\u0440\\u0430\\u043D\\u044C\\u0448\\u0435 \\u041C\\u0430\\u043D\\u0435, \\u2028\\u0430 \\u043D\\u0435 \\u043D\\u0430\\u043E\\u0431\\u043E\\u0440\\u043E\\u0442. \\u0420\\u043E\\u043C\\u0430\\u043D\\u0442\\u0438\\u0437\\u043C \\u0414\\u0435\\u043B\\u0430\\u043A\\u0440\\u0443\\u0430 - \\u044D\\u0442\\u043E \\u043F\\u0435\\u0440\\u0432\\u0430\\u044F \\u043F\\u043E\\u043B\\u043E\\u0432\\u0438\\u043D\\u0430 XIX \\u0432\\u0435\\u043A\\u0430, \\u0430 \\u043F\\u0440\\u0435\\u0434\\u0442\\u0435\\u0447\\u0430 \\u0438\\u043C\\u043F\\u0440\\u0435\\u0441\\u0441\\u0438\\u043E\\u043D\\u0438\\u0437\\u043C\\u0430 \\u041C\\u0430\\u043D\\u0435 - \\u0432\\u0442\\u043E\\u0440\\u0430\\u044F.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u041C\\u0430\\u043D\\u0435 \\u0438 \\u0414\\u0435\\u043B\\u0430\\u043A\\u0440\\u0443\\u0430 \\u043F\\u0435\\u0440\\u0435\\u0441\\u0442\\u0430\\u0432\\u043B\\u0435\\u043D\\u044B \\u043C\\u0435\\u0441\\u0442\\u0430\\u043C\\u0438. \\"\\u0421\\u0432\\u043E\\u0431\\u043E\\u0434\\u0430 \\u043D\\u0430 \\u0431\\u0430\\u0440\\u0440\\u0438\\u043A\\u0430\\u0434\\u0430\\u0445\\" \\u043D\\u0430\\u043F\\u0438\\u0441\\u0430\\u043D\\u0430 \\u0432 1830 \\u0433\\u043E\\u0434\\u0443, \\u0441\\u0440\\u0430\\u0437\\u0443 \\u043F\\u043E\\u0441\\u043B\\u0435 \\u0418\\u044E\\u043B\\u044C\\u0441\\u043A\\u043E\\u0439 \\u0440\\u0435\\u0432\\u043E\\u043B\\u044E\\u0446\\u0438\\u0438. \\"\\u0417\\u0430\\u0432\\u0442\\u0440\\u0430\\u043A \\u043D\\u0430 \\u0442\\u0440\\u0430\\u0432\\u0435\\" - \\u2028\\u0432 1863 \\u0433\\u043E\\u0434\\u0443, \\u0438 \\u0438\\u043C\\u0435\\u043D\\u043D\\u043E \\u044D\\u0442\\u0430 \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u0430 \\u0441\\u0442\\u0430\\u043B\\u0430 \\u0441\\u0438\\u043C\\u0432\\u043E\\u043B\\u0438\\u0447\\u0435\\u0441\\u043A\\u0438\\u043C \\u043D\\u0430\\u0447\\u0430\\u043B\\u043E\\u043C \\u0441\\u043E\\u0432\\u0440\\u0435\\u043C\\u0435\\u043D\\u043D\\u043E\\u0433\\u043E \\u0438\\u0441\\u043A\\u0443\\u0441\\u0441\\u0442\\u0432\\u0430. <br><br>\\u0414\\u0435\\u043B\\u0430\\u043A\\u0440\\u0443\\u0430 - \\u0441\\u0442\\u0430\\u0440\\u0448\\u0438\\u0439 \\u0441\\u043E\\u0432\\u0440\\u0435\\u043C\\u0435\\u043D\\u043D\\u0438\\u043A, \\u0430 \\u041C\\u0430\\u043D\\u0435 - \\u043D\\u0430\\u0441\\u043B\\u0435\\u0434\\u043D\\u0438\\u043A, \\u043E\\u0442\\u0432\\u0435\\u0440\\u0433\\u0448\\u0438\\u0439 \\u0440\\u043E\\u043C\\u0430\\u043D\\u0442\\u0438\\u0447\\u0435\\u0441\\u043A\\u0443\\u044E \\u0440\\u0438\\u0442\\u043E\\u0440\\u0438\\u043A\\u0443."]\
 }, {\
-  // Q5: Рождение Венеры — Рождение Афродиты по Гесиоду\
   correct: 0,\
-  feedbacks: ["Верно! Это «Рождение Венеры» Боттичелли (~1484–1486). Сюжет основан на «Теогонии» Гесиода: богиня любви рождается из морской пены. Слева — Зефир с Хлорис, справа — Ора (Гора), подающая покрывало.", "Неверно. В сцене Крещения Господня всегда присутствует Иоанн Креститель, льющий воду, и голубь Святого Духа. Здесь иные фигуры.", "Неверно. «Триумф Галатеи» — нереида на колеснице из раковины, запряжённой дельфинами, в окружении тритонов. Совсем другая композиция.", "Неверно. В истории Андромеды — скованная к скале девушка и Персей на Пегасе с головой Медузы. Здесь иная сцена."]\
+  feedbacks: ["Верно. Это \\"Рождение Венеры\\" Боттичелли (античный миф). Богиня появилась из морской пены, оплодотворенной кровью оскопленного Урана.<br><br>В круге Лоренцо Медичи, под влиянием флорентийского неоплатонизма, этот мотив понимали как образ божественной красоты и любви, возникающей в материальном мире и возвышающей человеческую душу.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0418\\u043A\\u043E\\u043D\\u043E\\u0433\\u0440\\u0430\\u0444\\u0438\\u044F \\u043A\\u0440\\u0435\\u0449\\u0435\\u043D\\u0438\\u044F \\u043F\\u0440\\u0438\\u043D\\u0446\\u0438\\u043F\\u0438\\u0430\\u043B\\u044C\\u043D\\u043E \\u0434\\u0440\\u0443\\u0433\\u0430\\u044F: \\u0425\\u0440\\u0438\\u0441\\u0442\\u043E\\u0441 \\u0432\\u0445\\u043E\\u0434\\u0438\\u0442 \\u0432 \\u0440\\u0435\\u043A\\u0443, \\u0418\\u043E\\u0430\\u043D\\u043D \\u041A\\u0440\\u0435\\u0441\\u0442\\u0438\\u0442\\u0435\\u043B\\u044C \\u043F\\u043E\\u043B\\u0438\\u0432\\u0430\\u0435\\u0442 \\u0435\\u0433\\u043E \\u0432\\u043E\\u0434\\u043E\\u0439, \\u0441\\u0432\\u0435\\u0440\\u0445\\u0443 \\u043D\\u0438\\u0441\\u0445\\u043E\\u0434\\u0438\\u0442 \\u0421\\u0432\\u044F\\u0442\\u043E\\u0439 \\u0414\\u0443\\u0445. <br>\\u0420\\u0430\\u043A\\u043E\\u0432\\u0438\\u043D\\u0430 \\u0432 \\u0445\\u0440\\u0438\\u0441\\u0442\\u0438\\u0430\\u043D\\u0441\\u043A\\u043E\\u0439 \\u0438\\u043A\\u043E\\u043D\\u043E\\u0433\\u0440\\u0430\\u0444\\u0438\\u0438 - \\u0430\\u0442\\u0440\\u0438\\u0431\\u0443\\u0442 \\u043F\\u0430\\u043B\\u043E\\u043C\\u043D\\u0438\\u043A\\u0430 \\u0438 \\u043A\\u0440\\u0435\\u0441\\u0442\\u0438\\u043B\\u044C\\u043D\\u043E\\u0439 \\u043A\\u0443\\u043F\\u0435\\u043B\\u0438, \\u043D\\u043E \\u043D\\u0438\\u043A\\u043E\\u0433\\u0434\\u0430 \\u2028\\u043D\\u0435 \\"\\u043A\\u043E\\u0440\\u0430\\u0431\\u043B\\u044C\\" \\u0434\\u043B\\u044F \\u0441\\u0430\\u043C\\u043E\\u0439 \\u0444\\u0438\\u0433\\u0443\\u0440\\u044B.<br><br>\\u0417\\u0434\\u0435\\u0441\\u044C \\u0441\\u044E\\u0436\\u0435\\u0442 \\u044F\\u0432\\u043D\\u043E \\u043C\\u0438\\u0444\\u043E\\u043B\\u043E\\u0433\\u0438\\u0447\\u0435\\u0441\\u043A\\u0438\\u0439, \\u044D\\u0442\\u043E \\u201C\\u0420\\u043E\\u0436\\u0434\\u0435\\u043D\\u0438\\u0435 \\u0412\\u0435\\u043D\\u0435\\u0440\\u044B\\u201D \\u0411\\u043E\\u0442\\u0442\\u0438\\u0447\\u0435\\u043B\\u043B\\u0438. ", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0413\\u0430\\u043B\\u0430\\u0442\\u0435\\u044F - \\u043D\\u0435\\u0440\\u0435\\u0438\\u0434\\u0430 (\\u043D\\u0435 \\u043F\\u0443\\u0442\\u0430\\u0442\\u044C \\u0441 \\u0413\\u0430\\u043B\\u0430\\u0442\\u0435\\u0435\\u0439 \\u2028\\u0438\\u0437 \\u043C\\u0438\\u0444\\u0430 \\u043E \\u041F\\u0438\\u0433\\u043C\\u0430\\u043B\\u0438\\u043E\\u043D\\u0435), \\u0432 \\u0436\\u0438\\u0432\\u043E\\u043F\\u0438\\u0441\\u0438 \\u043E\\u043D\\u0430 \\u043E\\u0431\\u044B\\u0447\\u043D\\u043E \\u0438\\u0437\\u043E\\u0431\\u0440\\u0430\\u0436\\u0430\\u0435\\u0442\\u0441\\u044F \\u0432 \\u043A\\u043E\\u043B\\u0435\\u0441\\u043D\\u0438\\u0446\\u0435 \\u0438\\u0437 \\u0440\\u0430\\u043A\\u043E\\u0432\\u0438\\u043D\\u044B, \\u0437\\u0430\\u043F\\u0440\\u044F\\u0436\\u0435\\u043D\\u043D\\u043E\\u0439 \\u0434\\u0435\\u043B\\u044C\\u0444\\u0438\\u043D\\u0430\\u043C\\u0438, \\u0432 \\u043E\\u043A\\u0440\\u0443\\u0436\\u0435\\u043D\\u0438\\u0438 \\u0442\\u0440\\u0438\\u0442\\u043E\\u043D\\u043E\\u0432.<br><br>\\u0417\\u0434\\u0435\\u0441\\u044C \\u0436\\u0435 - \\u043E\\u0434\\u0438\\u043D\\u043E\\u0447\\u043D\\u0430\\u044F \\u0444\\u0438\\u0433\\u0443\\u0440\\u0430, \\u0438 \\u0440\\u0430\\u043A\\u043E\\u0432\\u0438\\u043D\\u0430 \\u0432\\u044B\\u0441\\u0442\\u0443\\u043F\\u0430\\u0435\\u0442 \\u043D\\u0435 \\u0432 \\u0440\\u043E\\u043B\\u0438 \\u043A\\u043E\\u043B\\u0435\\u0441\\u043D\\u0438\\u0446\\u044B. \\u042D\\u0442\\u043E \\u0430\\u043D\\u0442\\u0438\\u0447\\u043D\\u044B\\u0439 \\u043C\\u0438\\u0444 - \\u201C\\u0420\\u043E\\u0436\\u0434\\u0435\\u043D\\u0438\\u0435 \\u0412\\u0435\\u043D\\u0435\\u0440\\u044B\\u201D \\u0411\\u043E\\u0442\\u0442\\u0438\\u0447\\u0435\\u043B\\u043B\\u0438.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0410\\u043D\\u0434\\u0440\\u043E\\u043C\\u0435\\u0434\\u0443 \\u043F\\u043E \\u043C\\u0438\\u0444\\u0443 \\u043F\\u0440\\u0438\\u043A\\u043E\\u0432\\u044B\\u0432\\u0430\\u044E\\u0442 \\u043A \\u0441\\u043A\\u0430\\u043B\\u0435 \\u2028\\u043D\\u0430 \\u0431\\u0435\\u0440\\u0435\\u0433\\u0443 \\u043C\\u043E\\u0440\\u044F. \\u041F\\u0435\\u0440\\u0441\\u0435\\u0439 \\u043F\\u0440\\u0438\\u043B\\u0435\\u0442\\u0430\\u0435\\u0442 \\u043D\\u0430 \\u043A\\u0440\\u044B\\u043B\\u0430\\u0442\\u044B\\u0445 \\u0441\\u0430\\u043D\\u0434\\u0430\\u043B\\u0438\\u044F\\u0445 \\u0441 \\u0433\\u043E\\u043B\\u043E\\u0432\\u043E\\u0439 \\u041C\\u0435\\u0434\\u0443\\u0437\\u044B \\u0413\\u043E\\u0440\\u0433\\u043E\\u043D\\u044B (\\u043F\\u043E \\u043E\\u0434\\u043D\\u043E\\u0439 \\u2028\\u0438\\u0437 \\u0432\\u0435\\u0440\\u0441\\u0438\\u0439) \\u0438 \\u0441\\u043F\\u0430\\u0441\\u0430\\u0435\\u0442 \\u0435\\u0435. \\u041E\\u0431\\u044B\\u0447\\u043D\\u043E \\u043D\\u0430 \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u0435 \\u0432\\u0438\\u0434\\u0438\\u043C \\u0446\\u0435\\u043F\\u0438, \\u043C\\u043E\\u0440\\u0441\\u043A\\u043E\\u0435 \\u0447\\u0443\\u0434\\u043E\\u0432\\u0438\\u0449\\u0435, \\u041F\\u0435\\u0440\\u0441\\u0435\\u044F \\u0432 \\u0433\\u0435\\u0440\\u043E\\u0438\\u0447\\u0435\\u0441\\u043A\\u043E\\u043C \\u043E\\u0431\\u0440\\u0430\\u0437\\u0435. \\u0417\\u0434\\u0435\\u0441\\u044C \\u043D\\u0435\\u0442 \\u043D\\u0438 \\u043E\\u0434\\u043D\\u043E\\u0433\\u043E \\u0438\\u0437 \\u044D\\u0442\\u0438\\u0445 \\u044D\\u043B\\u0435\\u043C\\u0435\\u043D\\u0442\\u043E\\u0432. <br><br>\\u042D\\u0442\\u043E \\u201C\\u0420\\u043E\\u0436\\u0434\\u0435\\u043D\\u0438\\u0435 \\u0412\\u0435\\u043D\\u0435\\u0440\\u044B\\u201D \\u0411\\u043E\\u0442\\u0442\\u0438\\u0447\\u0435\\u043B\\u043B\\u0438. "]\
 }, {\
-  // Q6: Святая Анна с Мадонной и младенцем\
   correct: 2,\
-  feedbacks: ["Неверно. В «Святом семействе» изображены Мария, Иосиф и младенец Иисус. Здесь другой иконографический тип — трёхфигурная «пирамида» с пожилой женщиной.", "Неверно. Сретение Господне — эпизод в храме: Симеон Богоприимец держит младенца, рядом пророчица Анна. Здесь иная иконографическая схема.", "Верно! Это «Святая Анна с Мадонной и младенцем Христом» — иконографический тип, где бабушка (Анна), дочь (Мария) и внук (Иисус) образуют пирамиду. Именно Леонардо да Винчи сделал эту композицию знаменитой — Лувр хранит и картон, и законченное полотно.", "Неверно. В «Поклонении волхвов» всегда присутствуют трое мудрецов с дарами и обширная свита. Здесь интимная трёхфигурная сцена."]\
+  feedbacks: ["Неверно. Для Святого семейства тут не хватает Иосифа, который часто изображается пожилым мужчиной с инструментами плотника или цветущим жезлом. Здесь же - женщина в зеленом. <br><br>Это “Святая Анна с Мадонной и младенцем Христом”, поздняя картина Леонардо да Винчи. ", "Неверно. Сретение - это эпизод, когда Иисуса приносят в Иерусалимский храм, и старец Симеон берет его на руки. Иконография обычно такая: храмовая колоннада, Симеон Богоприимец, Анна, иногда - голуби (для принесения жертвы). Здесь нет такого набора элементов. <br><br>Это “Святая Анна с Мадонной и младенцем Христом”, поздняя картина Леонардо да Винчи. ", "\\u0412\\u0435\\u0440\\u043D\\u043E. \\u042D\\u0442\\u043E \\u043F\\u043E\\u043F\\u0443\\u043B\\u044F\\u0440\\u043D\\u0435\\u0439\\u0448\\u0430\\u044F \\u0432 \\u0438\\u0442\\u0430\\u043B\\u044C\\u044F\\u043D\\u0441\\u043A\\u043E\\u043C \\u0420\\u0435\\u043D\\u0435\\u0441\\u0441\\u0430\\u043D\\u0441\\u0435 \\u043A\\u043E\\u043C\\u043F\\u043E\\u0437\\u0438\\u0446\\u0438\\u044F, \\u201C\\u0421\\u0432\\u044F\\u0442\\u0430\\u044F \\u0410\\u043D\\u043D\\u0430 \\u0441 \\u041C\\u0430\\u0434\\u043E\\u043D\\u043D\\u043E\\u0439 \\u2028\\u0438 \\u043C\\u043B\\u0430\\u0434\\u0435\\u043D\\u0446\\u0435\\u043C \\u0425\\u0440\\u0438\\u0441\\u0442\\u043E\\u043C\\u201D, \\u043F\\u043E\\u0437\\u0434\\u043D\\u044F\\u044F \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u0430 \\u041B\\u0435\\u043E\\u043D\\u0430\\u0440\\u0434\\u043E \\u2028\\u0434\\u0430 \\u0412\\u0438\\u043D\\u0447\\u0438. <br><br>\\u0416\\u0435\\u043D\\u0449\\u0438\\u043D\\u0430 \\u0432 \\u0437\\u0435\\u043B\\u0435\\u043D\\u043E\\u043C - \\u044D\\u0442\\u043E \\u043C\\u0430\\u0442\\u044C \\u0411\\u043E\\u0433\\u043E\\u043C\\u0430\\u0442\\u0435\\u0440\\u0438 \\u0410\\u043D\\u043D\\u0430.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0412 \\"\\u041F\\u043E\\u043A\\u043B\\u043E\\u043D\\u0435\\u043D\\u0438\\u0438 \\u0432\\u043E\\u043B\\u0445\\u0432\\u043E\\u0432\\" \\u043E\\u0431\\u044F\\u0437\\u0430\\u0442\\u0435\\u043B\\u044C\\u043D\\u043E \\u043F\\u0440\\u0438\\u0441\\u0443\\u0442\\u0441\\u0442\\u0432\\u0443\\u044E\\u0442 \\u0442\\u0440\\u0438 \\u0446\\u0430\\u0440\\u044F \\u0441 \\u0434\\u0430\\u0440\\u0430\\u043C\\u0438 (\\u0437\\u043E\\u043B\\u043E\\u0442\\u043E, \\u043B\\u0430\\u0434\\u0430\\u043D, \\u0441\\u043C\\u0438\\u0440\\u043D\\u0430), \\u0447\\u0430\\u0441\\u0442\\u043E \\u0432\\u0435\\u0440\\u0431\\u043B\\u044E\\u0434\\u044B \\u0438\\u043B\\u0438 \\u043B\\u043E\\u0448\\u0430\\u0434\\u0438, \\u0437\\u0432\\u0435\\u0437\\u0434\\u0430 \\u2028\\u043D\\u0430\\u0434 \\u044F\\u0441\\u043B\\u044F\\u043C\\u0438, \\u0438\\u043D\\u043E\\u0433\\u0434\\u0430 \\u0432\\u043E\\u043B \\u0438 \\u043E\\u0441\\u0435\\u043B. \\u042D\\u0442\\u043E \\u043C\\u043D\\u043E\\u0433\\u043E\\u0444\\u0438\\u0433\\u0443\\u0440\\u043D\\u0430\\u044F \\u0441\\u043B\\u043E\\u0436\\u043D\\u0430\\u044F \\u043A\\u043E\\u043C\\u043F\\u043E\\u0437\\u0438\\u0446\\u0438\\u044F, \\u0430 \\u043D\\u0435 \\u0441\\u0446\\u0435\\u043D\\u0430 \\u0441 \\u0434\\u0432\\u0443\\u043C\\u044F \\u0436\\u0435\\u043D\\u0449\\u0438\\u043D\\u0430\\u043C\\u0438 \\u0438 \\u043C\\u043B\\u0430\\u0434\\u0435\\u043D\\u0446\\u0435\\u043C. <br><br>\\u042D\\u0442\\u043E \\u201C\\u0421\\u0432\\u044F\\u0442\\u0430\\u044F \\u0410\\u043D\\u043D\\u0430 \\u0441 \\u041C\\u0430\\u0434\\u043E\\u043D\\u043D\\u043E\\u0439 \\u0438 \\u043C\\u043B\\u0430\\u0434\\u0435\\u043D\\u0446\\u0435\\u043C \\u0425\\u0440\\u0438\\u0441\\u0442\\u043E\\u043C\\u201D, \\u043F\\u043E\\u0437\\u0434\\u043D\\u044F\\u044F \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u0430 \\u041B\\u0435\\u043E\\u043D\\u0430\\u0440\\u0434\\u043E \\u0434\\u0430 \\u0412\\u0438\\u043D\\u0447\\u0438."]\
 }, {\
-  // Q7: pronk stilleven демонстрировали богатство\
   correct: 1,\
-  feedbacks: ["Неверно. «Vanitas» появлялись в гостиных, но их главная функция — напоминание о тщете земного («memento mori»), а не декоративность. Это морально-религиозный жанр.", "Верно! «Pronk stilleven» (от нидерл. «pronken» — выставляться напоказ) — роскошные натюрморты, где каждый предмет служил знаком состоятельности: китайский фарфор, серебряная посуда, экзотические лимоны. Заказчик буквально «кричал» богатством через холст.", "Неверно. Цветочные натюрморты НЕ писались «с натуры» в едином сеансе — цветы разных сезонов изображались вместе. Художники использовали зарисовки из разных времён и ботанические альбомы.", "Неверно. Голландская Реформация была враждебна религиозным изображениям в церквях. Натюрморт расцвёл как светский жанр — его заказчиками были купцы и буржуазия, а не церковь."]\
+  feedbacks: ["Неверно. \\"Vanitas\\" (от лат. \\"суета\\") - это морализаторский жанр, напоминание о бренности жизни. Такие натюрморты вешали в кабинете или библиотеке, а не для украшения парадных гостиных. <br><br>Верным было утверждение о том, что pronk stilleven (\\"роскошные натюрморты\\") демонстрировали богатство заказчика и его доступ к колониальным товарам.", "Верно. \\"Pronk\\" в переводе с голландского значит \\"роскошь\\". Этот тип натюрморта расцвел в Голландии XVII века.<br><br>Очищенный лимон, китайский фарфор династии Мин, серебряный сосуд, персидский ковер -  каждый предмет был свидетельством высокого социального статуса заказчика. Это типичная ярмарка тщеславия. ", "Неверно. Цветочные натюрморты - это почти всегда обобщенные образы, а не зарисовки с натуры. Художники часто собирали в одном букете цветы, которые цветут в разные сезоны.<br><br>Верным было утверждение о том, что pronk stilleven (\\"роскошные натюрморты\\") демонстрировали богатство заказчика и его доступ к колониальным товарам.", "Неверно. Протестантская реформация изгнала живопись из храмов, и это вынудило голландских художников искать светских заказчиков: так начался расцвет жанровой живописи и портретов. <br><br>Верным было утверждение о том, что pronk stilleven (\\"роскошные натюрморты\\") демонстрировали богатство заказчика и его доступ к колониальным товарам."]\
 }, {\
-  // Q8: Бунт 14 выпускников Петербургской Академии\
   correct: 1,\
-  feedbacks: ["Неверно. Московское училище живописи играло важную роль в развитии реализма, но «Бунт четырнадцати» произошёл в Петербургской Академии художеств, а не в Москве.", "Верно! В 1863 году четырнадцать лучших выпускников Петербургской Академии художеств отказались писать дипломную работу на мифологический сюжет («Пир в Валгалле»). Они основали «Артель художников» под руководством Крамского, из которой позднее выросло Товарищество передвижников.", "Неверно. «Бунт четырнадцати» был о свободе творческого выбора, а не о социальных требованиях, связанных с крепостным правом.", "Неверно. Разгромы выставок передвижников были, но это отдельный исторический эпизод, не связанный с «Бунтом четырнадцати» 1863 года."]\
+  feedbacks: ["Неверно. В Москве такого не было.<br><br>На самом деле речь о событии 1863 года: четырнадцать выпускников Петербургской Академии художеств отказались писать дипломную работу на обязательный мифологический сюжет \\"Пир в Валгалле\\". Позже они образовали Товарищество передвижников.", "\\u0412\\u0435\\u0440\\u043D\\u043E. \\u0412 1863 \\u0433\\u043E\\u0434\\u0443 \\u0447\\u0435\\u0442\\u044B\\u0440\\u043D\\u0430\\u0434\\u0446\\u0430\\u0442\\u044C \\u0432\\u044B\\u043F\\u0443\\u0441\\u043A\\u043D\\u0438\\u043A\\u043E\\u0432 \\u0418\\u043C\\u043F\\u0435\\u0440\\u0430\\u0442\\u043E\\u0440\\u0441\\u043A\\u043E\\u0439 \\u0410\\u043A\\u0430\\u0434\\u0435\\u043C\\u0438\\u0438 \\u0445\\u0443\\u0434\\u043E\\u0436\\u0435\\u0441\\u0442\\u0432 \\u0432\\u043E \\u0433\\u043B\\u0430\\u0432\\u0435 \\u0441 \\u0418\\u0432\\u0430\\u043D\\u043E\\u043C \\u041A\\u0440\\u0430\\u043C\\u0441\\u043A\\u0438\\u043C \\u043E\\u0442\\u043A\\u0430\\u0437\\u0430\\u043B\\u0438\\u0441\\u044C \\u043F\\u0438\\u0441\\u0430\\u0442\\u044C \\u0434\\u0438\\u043F\\u043B\\u043E\\u043C\\u043D\\u0443\\u044E \\u0440\\u0430\\u0431\\u043E\\u0442\\u0443 \\u043D\\u0430 \\u043E\\u0431\\u044F\\u0437\\u0430\\u0442\\u0435\\u043B\\u044C\\u043D\\u044B\\u0439 \\u043C\\u0438\\u0444\\u043E\\u043B\\u043E\\u0433\\u0438\\u0447\\u0435\\u0441\\u043A\\u0438\\u0439 \\u0441\\u044E\\u0436\\u0435\\u0442 \\"\\u041F\\u0438\\u0440 \\u0432 \\u0412\\u0430\\u043B\\u0433\\u0430\\u043B\\u043B\\u0435\\".<br><br>\\u041E\\u043D\\u0438 \\u043F\\u043E\\u0442\\u0440\\u0435\\u0431\\u043E\\u0432\\u0430\\u043B\\u0438 \\u0441\\u0432\\u043E\\u0431\\u043E\\u0434\\u043D\\u043E\\u0433\\u043E \\u0432\\u044B\\u0431\\u043E\\u0440\\u0430 \\u0442\\u0435\\u043C\\u044B \\u0438, \\u043D\\u0435 \\u043F\\u043E\\u043B\\u0443\\u0447\\u0438\\u0432 \\u0440\\u0430\\u0437\\u0440\\u0435\\u0448\\u0435\\u043D\\u0438\\u044F, \\u0434\\u0435\\u043C\\u043E\\u043D\\u0441\\u0442\\u0440\\u0430\\u0442\\u0438\\u0432\\u043D\\u043E \\u043F\\u043E\\u043A\\u0438\\u043D\\u0443\\u043B\\u0438 \\u0410\\u043A\\u0430\\u0434\\u0435\\u043C\\u0438\\u044E \\u2028\\u0431\\u0435\\u0437 \\u0434\\u0438\\u043F\\u043B\\u043E\\u043C\\u043E\\u0432. ", "Неверно. Реальный бунт был не социальным, а эстетическим, за свободу выбора темы. <br><br>На самом деле речь о событии 1863 года: четырнадцать выпускников Петербургской Академии художеств отказались писать дипломную работу на обязательный мифологический сюжет \\"Пир в Валгалле\\". Позже они образовали Товарищество передвижников.  ", "Неверно. Хотя передвижники часто подвергались критике, такого погрома не было.<br><br>На самом деле речь о событии 1863 года: четырнадцать выпускников Петербургской Академии художеств отказались писать дипломную работу на обязательный мифологический сюжет \\"Пир в Валгалле\\". Позже они образовали Товарищество передвижников."]\
 }, {\
-  // Q9: Сад земных наслаждений — триптих, внешние створки\
   correct: 0,\
-  feedbacks: ["Верно! «Сад земных наслаждений» Иеронима Босха — триптих. Когда алтарь закрыт, на внешних створках видна монохромная гризайльная роспись: мир на третий день творения — не менее значимое произведение того же мастера. Открытый и закрытый триптих — два «лица» одного шедевра.", "Неверно. «Тайная вечеря» Леонардо — настенная роспись (фреска), а не переносное полотно. Распятие Монторфано находится на противоположной стене и написано другим художником.", "Неверно. «Менины» Веласкеса — холст в Прадо. Никакого скрытого автопортрета на обороте официально не зафиксировано.", "Неверно. «Девушка с жемчужной серёжкой» Вермеера — холст, и никакой документально подтверждённой значимой работы на его обороте не существует."]\
+  feedbacks: ["Верно. \\"Сад земных наслаждений\\" Иеронима Босха - один из самых известных триптихов европейской живописи. В закрытом виде на внешних створках мы видим монохромное изображение Земли в момент творения (вода, скалы и первые растения, без людей и животных). ", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u041D\\u0430 \\u043F\\u0440\\u043E\\u0442\\u0438\\u0432\\u043E\\u043F\\u043E\\u043B\\u043E\\u0436\\u043D\\u043E\\u0439 \\u0441\\u0442\\u0435\\u043D\\u0435 \\u0432 \\u0442\\u0440\\u0430\\u043F\\u0435\\u0437\\u043D\\u043E\\u0439 \\u043C\\u043E\\u043D\\u0430\\u0441\\u0442\\u044B\\u0440\\u044F \\u0421\\u0430\\u043D\\u0442\\u0430-\\u041C\\u0430\\u0440\\u0438\\u044F-\\u0434\\u0435\\u043B\\u043B\\u0435-\\u0413\\u0440\\u0430\\u0446\\u0438\\u0435 \\u0434\\u0435\\u0439\\u0441\\u0442\\u0432\\u0438\\u0442\\u0435\\u043B\\u044C\\u043D\\u043E \\u0435\\u0441\\u0442\\u044C \\"\\u0420\\u0430\\u0441\\u043F\\u044F\\u0442\\u0438\\u0435\\" \\u041C\\u043E\\u043D\\u0442\\u043E\\u0440\\u0444\\u0430\\u043D\\u043E, \\u043D\\u043E \\u044D\\u0442\\u043E \\u0440\\u0430\\u0431\\u043E\\u0442\\u0430 \\u0434\\u0440\\u0443\\u0433\\u043E\\u0433\\u043E \\u0430\\u0432\\u0442\\u043E\\u0440\\u0430, \\u0430 \\u043F\\u043E\\u0440\\u0442\\u0440\\u0435\\u0442\\u044B \\u043A\\u0438\\u0441\\u0442\\u0438 \\u041B\\u0435\\u043E\\u043D\\u0430\\u0440\\u0434\\u043E \\u2028\\u043D\\u0435 \\u0441\\u043E\\u0445\\u0440\\u0430\\u043D\\u0438\\u043B\\u0438\\u0441\\u044C.<br><br>\\u0410 \\u043C\\u044B \\u0438\\u043C\\u0435\\u043B\\u0438 \\u0432 \\u0432\\u0438\\u0434\\u0443 \\u201C\\u0421\\u0430\\u0434 \\u0437\\u0435\\u043C\\u043D\\u044B\\u0445 \\u043D\\u0430\\u0441\\u043B\\u0430\\u0436\\u0434\\u0435\\u043D\\u0438\\u0439\\u201D \\u0411\\u043E\\u0441\\u0445\\u0430, \\u043D\\u0430 \\u0432\\u043D\\u0435\\u0448\\u043D\\u0438\\u0445 \\u0441\\u0442\\u0432\\u043E\\u0440\\u043A\\u0430\\u0445 \\u043A\\u043E\\u0442\\u043E\\u0440\\u043E\\u0433\\u043E \\u0435\\u0441\\u0442\\u044C \\u0438\\u0437\\u043E\\u0431\\u0440\\u0430\\u0436\\u0435\\u043D\\u0438\\u0435 \\u0417\\u0435\\u043C\\u043B\\u0438 \\u0432 \\u043C\\u043E\\u043C\\u0435\\u043D\\u0442 \\u0442\\u0432\\u043E\\u0440\\u0435\\u043D\\u0438\\u044F \\u0435\\u0433\\u043E \\u0436\\u0435 \\u0430\\u0432\\u0442\\u043E\\u0440\\u0441\\u0442\\u0432\\u0430.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u041D\\u0430 \\u043E\\u0431\\u0440\\u0430\\u0442\\u043D\\u043E\\u0439 \\u0441\\u0442\\u043E\\u0440\\u043E\\u043D\\u0435 \\"\\u041C\\u0435\\u043D\\u0438\\u043D\\" \\u043D\\u0438\\u043A\\u0430\\u043A\\u0438\\u0445 \\u0438\\u0437\\u043E\\u0431\\u0440\\u0430\\u0436\\u0435\\u043D\\u0438\\u0439 \\u043D\\u0435\\u0442. \\u041E\\u0431\\u0440\\u0430\\u0437 \\u0412\\u0435\\u043B\\u0430\\u0441\\u043A\\u0435\\u0441\\u0430 \\u0438 \\u0442\\u0430\\u043A \\u043F\\u0440\\u0438\\u0441\\u0443\\u0442\\u0441\\u0442\\u0432\\u0443\\u0435\\u0442 \\u043D\\u0430 \\u043B\\u0438\\u0446\\u0435\\u0432\\u043E\\u0439 \\u0441\\u0442\\u043E\\u0440\\u043E\\u043D\\u0435 \\u043A\\u0430\\u0440\\u0442\\u0438\\u043D\\u044B, \\u2028\\u0443 \\u043C\\u043E\\u043B\\u044C\\u0431\\u0435\\u0440\\u0442\\u0430. <br><br>\\u0410 \\u043C\\u044B \\u0438\\u043C\\u0435\\u043B\\u0438 \\u0432 \\u0432\\u0438\\u0434\\u0443 \\u201C\\u0421\\u0430\\u0434 \\u0437\\u0435\\u043C\\u043D\\u044B\\u0445 \\u043D\\u0430\\u0441\\u043B\\u0430\\u0436\\u0434\\u0435\\u043D\\u0438\\u0439\\u201D \\u0411\\u043E\\u0441\\u0445\\u0430, \\u043D\\u0430 \\u0432\\u043D\\u0435\\u0448\\u043D\\u0438\\u0445 \\u0441\\u0442\\u0432\\u043E\\u0440\\u043A\\u0430\\u0445 \\u043A\\u043E\\u0442\\u043E\\u0440\\u043E\\u0433\\u043E \\u0435\\u0441\\u0442\\u044C \\u0438\\u0437\\u043E\\u0431\\u0440\\u0430\\u0436\\u0435\\u043D\\u0438\\u0435 \\u0417\\u0435\\u043C\\u043B\\u0438 \\u0432 \\u043C\\u043E\\u043C\\u0435\\u043D\\u0442 \\u0442\\u0432\\u043E\\u0440\\u0435\\u043D\\u0438\\u044F \\u0435\\u0433\\u043E \\u0436\\u0435 \\u0430\\u0432\\u0442\\u043E\\u0440\\u0441\\u0442\\u0432\\u0430.", "\\u041D\\u0435\\u0432\\u0435\\u0440\\u043D\\u043E. \\u0420\\u0435\\u0441\\u0442\\u0430\\u0432\\u0440\\u0430\\u0442\\u043E\\u0440\\u044B \\u043F\\u0440\\u043E\\u0432\\u0435\\u043B\\u0438 \\u043C\\u043D\\u043E\\u0433\\u043E \\u0438\\u0441\\u0441\\u043B\\u0435\\u0434\\u043E\\u0432\\u0430\\u043D\\u0438\\u0439 \\u0440\\u0430\\u0437\\u043B\\u0438\\u0447\\u043D\\u044B\\u0445 \\u043F\\u043E\\u043B\\u043E\\u0442\\u0435\\u043D \\u0412\\u0435\\u0440\\u043C\\u0435\\u0435\\u0440\\u0430. \\u041D\\u043E \\u043D\\u0430 \\"\\u0414\\u0435\\u0432\\u0443\\u0448\\u043A\\u0435 \\u2028\\u0441 \\u0436\\u0435\\u043C\\u0447\\u0443\\u0436\\u043D\\u043E\\u0439 \\u0441\\u0435\\u0440\\u0435\\u0436\\u043A\\u043E\\u0439\\" \\u0432\\u0442\\u043E\\u0440\\u043E\\u0439 \\u043A\\u043E\\u043C\\u043F\\u043E\\u0437\\u0438\\u0446\\u0438\\u0438 \\u043E\\u0431\\u043D\\u0430\\u0440\\u0443\\u0436\\u0435\\u043D\\u043E \\u043D\\u0435 \\u0431\\u044B\\u043B\\u043E. <br><br>\\u0410 \\u043C\\u044B \\u0438\\u043C\\u0435\\u043B\\u0438 \\u0432 \\u0432\\u0438\\u0434\\u0443 \\u201C\\u0421\\u0430\\u0434 \\u0437\\u0435\\u043C\\u043D\\u044B\\u0445 \\u043D\\u0430\\u0441\\u043B\\u0430\\u0436\\u0434\\u0435\\u043D\\u0438\\u0439\\u201D \\u0411\\u043E\\u0441\\u0445\\u0430, \\u043D\\u0430 \\u0432\\u043D\\u0435\\u0448\\u043D\\u0438\\u0445 \\u0441\\u0442\\u0432\\u043E\\u0440\\u043A\\u0430\\u0445 \\u043A\\u043E\\u0442\\u043E\\u0440\\u043E\\u0433\\u043E \\u0435\\u0441\\u0442\\u044C \\u0438\\u0437\\u043E\\u0431\\u0440\\u0430\\u0436\\u0435\\u043D\\u0438\\u0435 \\u0417\\u0435\\u043C\\u043B\\u0438 \\u0432 \\u043C\\u043E\\u043C\\u0435\\u043D\\u0442 \\u0442\\u0432\\u043E\\u0440\\u0435\\u043D\\u0438\\u044F \\u0435\\u0433\\u043E \\u0436\\u0435 \\u0430\\u0432\\u0442\\u043E\\u0440\\u0441\\u0442\\u0432\\u0430."]\
 }, {\
-  // Q10: Рублёв, Гостеприимство Авраама\
   correct: 1,\
-  feedbacks: ["Неверно. Откровение Иоанна Богослова описывает небесные видения, но не трёх ангелов за столом у Авраама. Феофан Грек — великий мастер, работавший в России, но «Троицу» создал именно Рублёв.", "Верно! Иконография восходит к ветхозаветному «Гостеприимству Авраама» (Быт. 18): три странника-ангела у Мамврийского дуба, которых традиция отождествила со Святой Троицей. Икона Андрея Рублёва (~1411 или 1425–1427) — вершина русской иконописи, хранится в Третьяковской галерее.", "Неверно. Рублёв не изобрёл этот сюжет — он работал в рамках устойчивой иконографической традиции «Гостеприимства Авраама». Его гений — в совершенстве воплощения, а не в создании иконографии.", "Неверно. Видение пророка Исайи — совсем другой иконографический тип. Дионисий — великий иконописец рубежа XV–XVI веков, продолжатель Рублёва, но «Троицу» создал именно Рублёв."]\
+  feedbacks: ["Неверно. Откровение Иоанна Богослова описывает Бога на престоле.<br><br>На самом деле Андрей Рублев взял за основу явление странников у Мамврийского дуба. К Аврааму пришли три путника, и он угостил их трапезой. Рублев убрал из композиции Авраама, Сарру, теленка и почти все бытовые детали, оставив только трех ангелов вокруг чаши.", "Верно. Сюжет ветхозаветный, из 18 главы Книги Бытия: к Аврааму у Мамврийского дуба пришли три путника, и он угостил их трапезой. Рублев убрал из композиции Авраама, Сарру, теленка и почти все бытовые детали, оставив только трех ангелов вокруг чаши.", "Неверно. Рублев ничего не придумывал. <br><br>На самом деле он взял за основу явление странников у Мамврийского дуба. К Аврааму пришли три путника, и он угостил их трапезой. Рублев убрал из композиции Авраама, Сарру, теленка и почти все бытовые детали, оставив только трех ангелов вокруг чаши.", "Неверно. Видение Исайи - это совсем другой иконографический сюжет.<br><br>На самом деле Андрей Рублев взял за основу явление странников у Мамврийского дуба. К Аврааму пришли три путника, и он угостил их трапезой. Рублев убрал из композиции Авраама, Сарру, теленка и все бытовые детали, оставив только трех ангелов вокруг чаши."]\
 }];\
-\
-// ====== INIT ======\
-\
 document.addEventListener("readystatechange", function () {\
   if (document.readyState === "complete") {\
     carrotquest.read();\
     carrotquest.animation();\
+    setTgLink(\'https://t.me/agena_art_manager_bot\');\
   }\
 });\
-\
-// ====== SCREEN NAVIGATION ======\
-\
+function setTgLink(link) {\
+  var tgLink = link;\
+  tgLink += top.carrotquest.data.user.user_signature.telegram ? "?start=".concat(top.carrotquest.data.user.user_signature.telegram) : \'\';\
+  document.querySelectorAll(\'.js-tg-btn\').forEach(function (btn) {\
+    btn.href = tgLink;\
+  });\
+}\
 function showScreen(id) {\
   document.querySelectorAll(".quiz-screen").forEach(function (s) {\
     s.classList.add("hidden");\
@@ -2393,9 +2614,6 @@ function showScreen(id) {\
   var target = document.getElementById(id);\
   if (target) target.classList.remove("hidden");\
 }\
-\
-// ====== CLOSE LOGIC ======\
-\
 document.addEventListener("click", function (e) {\
   var isBg = e.target.classList.contains("js-close-bg");\
   var isClose = e.target.closest && e.target.closest(".js-close-btn");\
@@ -2414,18 +2632,12 @@ document.querySelector(".js-exit-confirm").addEventListener("click", function ()
 document.querySelector(".js-exit-cancel").addEventListener("click", function () {\
   document.getElementById("exit-modal").classList.add("hidden");\
 });\
-\
-// ====== START ======\
-\
 document.querySelector(".js-start-quiz").addEventListener("click", function () {\
   carrotquest.track(cqpopup_name + " - Нажал ПРОЙТИ ТЕСТ");\
   currentQ = 1;\
   quizPhase = "question";\
   showScreen("s1");\
 });\
-\
-// ====== ANSWER SELECTION ======\
-\
 document.addEventListener("click", function (e) {\
   var answerEl = e.target.closest(".quiz-answer, .quiz-image-answer");\
   if (!answerEl) return;\
@@ -2439,9 +2651,6 @@ document.addEventListener("click", function (e) {\
   var nextBtn = screen.querySelector(".js-btn-next");\
   if (nextBtn) nextBtn.disabled = false;\
 });\
-\
-// ====== NEXT BUTTON ======\
-\
 document.addEventListener("click", function (e) {\
   var btn = e.target.closest(".js-btn-next");\
   if (!btn || btn.disabled) return;\
@@ -2453,8 +2662,6 @@ document.addEventListener("click", function (e) {\
     var qData = QUESTIONS[currentQ - 1];\
     var isCorrect = selectedIndex === qData.correct;\
     if (isCorrect) correctCount++;\
-\
-    // highlight all answers, hide non-selected\
     screen.querySelectorAll(".quiz-answer, .quiz-image-answer").forEach(function (a) {\
       var radio = a.querySelector("input[type=\'radio\']");\
       if (!radio) return;\
@@ -2468,13 +2675,10 @@ document.addEventListener("click", function (e) {\
         a.classList.add("hidden");\
       }\
     });\
-\
-    // for image-answer questions: switch to two-column layout (image left, feedback right)\
     var imageAnswersEl = screen.querySelector(".quiz-image-answers");\
     if (imageAnswersEl) {\
       var bodyEl = imageAnswersEl.closest(".quiz-body--full");\
       if (bodyEl) {\
-        // snapshot img-wrap size before layout change\
         var selectedAnswer = screen.querySelector(".quiz-image-answer.is-selected");\
         var imgWrapToPin = selectedAnswer ? selectedAnswer.querySelector(".quiz-image-answer__img-wrap") : null;\
         var pinnedRect = imgWrapToPin ? imgWrapToPin.getBoundingClientRect() : null;\
@@ -2494,12 +2698,9 @@ document.addEventListener("click", function (e) {\
         rightCol.appendChild(navNode);\
       }\
     }\
-\
-    // build feedback answer label\
     var selectedInput = screen.querySelector("input[value=\'" + selectedIndex + "\']");\
     var answerText = "";\
     if (selectedInput) {\
-      // for image answers the text is after the img-wrap div\
       var next = selectedInput.nextElementSibling;\
       if (next && next.classList.contains("quiz-image-answer__img-wrap")) {\
         next = next.nextElementSibling;\
@@ -2527,21 +2728,14 @@ document.addEventListener("click", function (e) {\
     var kwClass = \'quiz-feedback-keyword \' + (isCorrect ? \'quiz-feedback-keyword--correct\' : \'quiz-feedback-keyword--wrong\');\
     fbTextEl.innerHTML = \'<span class="\' + kwClass + \'">\' + firstWord + \'</span>\' + rest;\
     feedbackEl.classList.remove("hidden");\
-\
-    // lock radio buttons\
     screen.querySelectorAll("input[type=\'radio\']").forEach(function (r) {\
       r.disabled = true;\
     });\
-\
-    // update button label for next step\
-    if (currentQ < 10) {\
-      btn.textContent = "ДАЛЕЕ (" + (currentQ + 1) + " ИЗ 10)";\
-    } else {\
+    if (currentQ === 10) {\
       btn.textContent = "УЗНАТЬ РЕЗУЛЬТАТ";\
     }\
     quizPhase = "feedback";\
   } else {\
-    // advance\
     if (currentQ < 10) {\
       currentQ++;\
       quizPhase = "question";\
@@ -2558,9 +2752,6 @@ document.addEventListener("click", function (e) {\
     }\
   }\
 });\
-\
-// ====== EMAIL FORM ======\
-\
 document.querySelector(".js-submit-email").addEventListener("click", function () {\
   var emailInput = document.querySelector(".js-email-input");\
   var email = emailInput.value.trim();\
@@ -2578,8 +2769,10 @@ document.querySelector(".js-submit-email").addEventListener("click", function ()
   }\
   cb1.style.outline = "";\
   cb2.style.outline = "";\
+  var nameInput = document.querySelector(".js-name-input");\
+  var name = nameInput ? nameInput.value.trim() : "";\
   carrotquest.replied();\
-  carrotquest.identify([{\
+  var identifyProps = [{\
     op: "update_or_create",\
     key: "$email",\
     value: email\
@@ -2587,7 +2780,15 @@ document.querySelector(".js-submit-email").addEventListener("click", function ()
     op: "update_or_create",\
     key: cqpopup_name + " - Правильных ответов",\
     value: correctCount\
-  }]);\
+  }];\
+  if (name) {\
+    identifyProps.push({\
+      op: "update_or_create",\
+      key: "$name",\
+      value: name\
+    });\
+  }\
+  carrotquest.identify(identifyProps);\
   carrotquest.track(cqpopup_name + " - Отправил email");\
   showResult();\
 });\
@@ -2596,63 +2797,73 @@ document.querySelector(".js-skip-email").addEventListener("click", function (e) 
   carrotquest.track(cqpopup_name + " - Пропустил email");\
   showResult();\
 });\
-\
-// ====== RESULT ROUTING ======\
-\
 function showResult() {\
   var resultId;\
+  var segment;\
   if (correctCount <= 3) {\
     resultId = "s-result-1";\
+    segment = "tourist";\
   } else if (correctCount <= 6) {\
     resultId = "s-result-2";\
+    segment = "viewer";\
   } else if (correctCount <= 8) {\
     resultId = "s-result-3";\
+    segment = "amateur";\
   } else {\
     resultId = "s-result-4";\
+    segment = "curator";\
   }\
   var scoreText = "Вы ответили верно на " + correctCount + " из 10 вопросов";\
   document.querySelectorAll(".js-score-text").forEach(function (el) {\
     el.textContent = scoreText;\
   });\
+  var timestamp = new Date().toISOString();\
+  carrotquest.identify([{\
+    op: "update_or_create",\
+    key: cqpopup_name + " - Сегмент",\
+    value: segment\
+  }]);\
   carrotquest.track(cqpopup_name + " - Завершил квиз", {\
-    "Правильных ответов": correctCount\
+    "Правильных ответов": correctCount,\
+    "Сегмент": segment,\
+    "Timestamp": timestamp\
   });\
   showScreen(resultId);\
 }\
-\
-// ====== RESULT CTA & SOCIALS ======\
-\
 document.addEventListener("click", function (e) {\
-  if (e.target.closest(".js-result-btn")) {\
-    carrotquest.clicked();\
-  }\
   if (e.target.closest(".js-tg-btn")) {\
     carrotquest.track(cqpopup_name + " - Перешел в Telegram");\
   }\
-  if (e.target.closest(".js-vk-btn")) {\
-    carrotquest.track(cqpopup_name + " - Перешел в VK");\
+  if (e.target.closest(".js-max-btn")) {\
+    carrotquest.track(cqpopup_name + " - Перешел в MAX");\
   }\
 });\
-\
-// ====== ZOOM / LIGHTBOX ======\
-\
 document.addEventListener("click", function (e) {\
   var btn = e.target.closest(".js-zoom-btn");\
   if (!btn) return;\
   e.stopPropagation();\
   var container = btn.closest(".quiz-painting-bg, .quiz-paint-cell, .quiz-image-answer__img-wrap");\
-  var img = container ? container.querySelector("img:not(.quiz-zoom-icon)") : null;\
+  var imgs = container ? container.querySelectorAll("img:not(.quiz-zoom-icon)") : null;\
+  var img = null;\
+  if (imgs) {\
+    for (var i = 0; i < imgs.length; i++) {\
+      if (getComputedStyle(imgs[i]).display !== "none") {\
+        img = imgs[i];\
+        break;\
+      }\
+    }\
+  }\
   if (!img) return;\
-  document.querySelector(".js-lightbox-img").src = img.src;\
+  document.querySelectorAll(".js-lightbox-img").forEach(function (el) {\
+    el.src = img.src;\
+  });\
   document.getElementById("quiz-lightbox").classList.remove("hidden");\
 });\
 document.addEventListener("click", function (e) {\
   if (e.target.closest(".js-lightbox-close")) {\
     document.getElementById("quiz-lightbox").classList.add("hidden");\
   }\
-});\
-\
-// ====== UTILS ======</script>\
+});</script>\
 </body>\
 </html>\
 \
