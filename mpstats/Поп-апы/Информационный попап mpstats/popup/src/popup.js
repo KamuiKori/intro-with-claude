@@ -1,29 +1,9 @@
 var slides = [
-  {
-    badge: 'Бейдж',
-    title: 'Заголовок в две строки делать',
-    text: 'Дополнительный абзац размещается под заголовком и не превышает трех строк'
-  },
-  {
-    badge: 'Бейдж',
-    title: 'Заголовок в две строки делать',
-    text: 'Дополнительный абзац размещается под заголовком и не превышает трех строк'
-  },
-  {
-    badge: 'Бейдж',
-    title: 'Заголовок в две строки делать',
-    text: 'Дополнительный абзац размещается под заголовком и не превышает трех строк'
-  },
-  {
-    badge: 'Бейдж',
-    title: 'Заголовок в две строки делать',
-    text: 'Дополнительный абзац размещается под заголовком и не превышает трех строк'
-  },
-  {
-    badge: 'Бейдж',
-    title: 'Заголовок в две строки делать',
-    text: 'Дополнительный абзац размещается под заголовком и не превышает трех строк'
-  }
+  'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png',
+  'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png',
+  'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png',
+  'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png',
+  'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png'
 ];
 
 var adLabel   = 'Реклама';
@@ -68,20 +48,10 @@ var cqpopup_name = "Информационный попап mpstats",
       }
     };
 
-function renderSlide(slide) {
+function renderSlide(imageUrl) {
   var el = document.createElement('div');
   el.className = 'cq-popup__slide';
-  el.innerHTML =
-    '<div class="cq-popup__cover-top">' +
-      '<div class="cq-popup__badge-row">' +
-        '<div class="cq-popup__badge">' +
-          '<div class="cq-popup__badge-volume"></div>' +
-          '<div class="cq-popup__badge-face"><span>' + slide.badge + '</span></div>' +
-        '</div>' +
-      '</div>' +
-      '<p class="cq-popup__cover-title">' + slide.title + '</p>' +
-    '</div>' +
-    '<div class="cq-popup__cover-text"><p>' + slide.text + '</p></div>';
+  el.innerHTML = '<img class="cq-popup__slide-img" src="' + imageUrl + '" alt="">';
   return el;
 }
 

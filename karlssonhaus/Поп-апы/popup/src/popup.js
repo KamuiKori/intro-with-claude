@@ -1,4 +1,4 @@
-var cqpopup_name = 'Поп-ап таймер 1';
+var cqpopup_name = 'Поп-ап таймер 2';
 var carrotquest = {
     track: function(eventName, params) {
         parent.window.carrotquest.track(eventName, params);
@@ -36,10 +36,9 @@ var carrotquest = {
 
 var isMob = false;
 
-var currentForm = "#form-1";
+var currentForm = "#form-2";
 
 var SIZE = {
-    "#form-1": { width: "490px", height: "540px" },
     "#form-2": { width: "490px", height: "470px" }
 };
 
@@ -49,13 +48,10 @@ document.addEventListener("readystatechange", function() {
         isMob = parentW < 768;
         if (isMob) {
             document.body.classList.add('mob');
-            document.querySelector('.cqp__text-h1').src = 'https://files.carrotquest.app/message-images/69303/69303-1781076119221-9jz0b431.png';
-            var btn = document.querySelector('.cqp__button');
-            btn.classList.add('mob');
-            btn.style.background = 'url("https://files.carrotquest.app/message-images/69303/69303-1781076452429-dxjuvgdw.png") no-repeat center / cover';
             document.querySelector('.promocode').classList.add('mob');
         }
-        resizeToForm();
+        initTimer();
+        minimizePopup();
         carrotquest.read();
         carrotquest.animation();
         carrotquest.track(cqpopup_name + ' - запуск таймера')
@@ -63,26 +59,14 @@ document.addEventListener("readystatechange", function() {
 });
 
 document.addEventListener("click", function(e) {
-    var btnPromo = e.target.closest(".get-promo");
-    if (btnPromo) {
-        showPromo();
-    }
     var btnMinimize = e.target.closest(".cqp__minimize");
     if (btnMinimize) {
-        if (currentForm === "#form-2") {
-            minimizePopup();
-        } else {
-            carrotquest.close();
-        }
+        minimizePopup();
         return;
     }
     var btnClose = e.target.closest(".cqp__close:not(.cqp__minimize)");
     if (btnClose) {
-        if (document.querySelector(".cqp__body").classList.contains("cqp__body-minimize")) {
-            carrotquest.close();
-        } else {
-            minimizePopup();
-        }
+        carrotquest.close();
     }
 });
 
@@ -96,16 +80,6 @@ function resizeToForm() {
             carrotquest.resizeFrame(size.width, size.height);
         }
     }, 100);
-}
-
-function showPromo() {
-    currentForm = "#form-2";
-    document.querySelector("#form-1").classList.add("hidden");
-    document.querySelector("#form-2").classList.remove("hidden");
-    initTimer();
-    carrotquest.clicked();
-    carrotquest.track(cqpopup_name + " - Перешел на экран с промокодом");
-    resizeToForm();
 }
 
 function wrapperExpandPopup(e) {
@@ -126,7 +100,6 @@ function minimizePopup() {
         document.body.classList.add('minimized');
         document.querySelector('.wrapper__body').classList.remove('opened');
     }
-    document.querySelector("#form-1").classList.add("hidden");
     document.querySelector("#form-2").classList.add("hidden");
     document.querySelector(".cqp__minimize").classList.add("hidden");
     document.querySelector(".cqp__close:not(.cqp__minimize)").classList.remove("hidden");
@@ -185,26 +158,36 @@ function expandPopup() {
 function timer(deadLine) {
     var timer_minute = document.querySelector(".timer-minute");
     var timer_second = document.querySelector(".timer-second");
-    function tick() {
+    function tiсk() {
         var nowDate = new Date();
         var deadlineDate = new Date(deadLine);
         var diffDate = new Date(deadlineDate - nowDate);
         var minute = diffDate.getUTCMinutes();
         var second = diffDate.getUTCSeconds();
-        minute < 10 ? timer_minute.textContent = "0" + minute : timer_minute.textContent = minute;
-        second < 10 ? timer_second.textContent = "0" + second : timer_second.textContent = second;
+        minute < 10 ? timer_minute.textContent = "0"+minute : timer_minute.textContent = minute;
+        second < 10 ? timer_second.textContent = "0"+second : timer_second.textContent = second;
         if (diffDate <= 0) {
             clearInterval(around);
             timer_minute.textContent = "00";
             timer_second.textContent = "00";
         }
     }
-    tick();
-    var around = setInterval(tick, 1000);
-}
-
+    tiсk();
+    var around = setInterval(tiсk, 1000);
+};
 function initTimer() {
-    var deadLine = new Date().getTime() + 30 * 60 * 1000;
-    localStorage.setItem("cq_timer_deadline", deadLine);
-    timer(deadLine);
+    var timerEl = document.querySelector(".timer");
+    timerEl.style.opacity = "0";
+    var stored = parseInt(localStorage.getItem("cq_timer_deadline"), 10);
+    var now = new Date().getTime();
+    if (stored && stored > now) {
+        timer(stored);
+    } else {
+        document.querySelector(".timer-minute").textContent = "00";
+        document.querySelector(".timer-second").textContent = "00";
+    }
+    setTimeout(function() {
+        timerEl.style.opacity = "1";
+    }, 50);
 }
+initTimer();

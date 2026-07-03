@@ -546,8 +546,8 @@ a {\
             <img class="popup__gift popup__gift--g2" src="https://files.carrotquest.app/message-images/69303/69303-1781008777064-mp5gnbe1.png" alt="">\
             <div class="popup__card">\
                 <button class="popup__close cq-popup__close" aria-label="Закрыть"></button>\
-                <img src="https://files.carrotquest.app/message-images/69303/69303-1781008384165-6yp1ykqn.png" class="popup__title pc">\
-                <img src="https://files.carrotquest.app/message-images/69303/69303-1781007571353-j44jttfl.png" class="popup__title mob">\
+                <img src="https://files.carrotquest.app/message-images/69303/69303-1782888569857-vbtfm2mt.png" class="popup__title pc">\
+                <img src="https://files.carrotquest.app/message-images/69303/69303-1782888601570-pa7rs8z8.png" class="popup__title mob">\
                 <div class="popup__body">\
                     <div class="popup__col-left"></div>\
                     <div class="popup__col-right">\

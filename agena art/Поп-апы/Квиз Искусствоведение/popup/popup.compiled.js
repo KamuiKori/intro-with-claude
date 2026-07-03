@@ -1289,8 +1289,7 @@ document.querySelector(".js-start-quiz").addEventListener("click", function () {
 });\
 document.querySelector(".js-btn-plan").addEventListener("click", function () {\
   carrotquest.track(cqpopup_name + " - Нажал ПРОСТО ХОЧУ УЧЕБНЫЙ ПЛАН");\
-  cameFromPlan = true;\
-  showScreen("plan");\
+  window.open("https://agena-art.getcourse.ru/dpo-uchebnyi-plan?utm_source=carrotquest&utm_medium=quiz&utm_campaign=6.1", "_blank");\
 });\
 document.addEventListener("click", function (e) {\
   var answer = e.target.closest(".quiz-answer");\
@@ -1389,7 +1388,7 @@ document.querySelector(".js-btn-telegram").addEventListener("click", function ()
     key: cqpopup_name + " - Канал связи",\
     value: "Telegram"\
   }]);\
-  var tgLink = "https://t.me/agena_art";\
+  var tgLink = "https://t.me/agena_art_manager_bot";\
   tgLink += top.carrotquest.data.user.user_signature.telegram ? "?start=" + top.carrotquest.data.user.user_signature.telegram : "";\
   window.open(tgLink, "_blank");\
   carrotquest.close();\

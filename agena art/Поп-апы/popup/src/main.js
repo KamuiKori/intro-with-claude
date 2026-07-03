@@ -21,5 +21,5 @@ iframeContent.open();
 iframeContent.writeln(popupContent);
 iframeContent.close();
 
-carrotquest.identify([{op: 'update_or_create', key: 'popup', value: 'opened'}]);
-localStorage["cq_popup"] = 'opened';
+carrotquest.identify([{ op: 'update_or_create', key: 'Квиз Искусствоведение - попап открыт', value: true }]);
+localStorage["cq_popup_quiz"] = 'opened';

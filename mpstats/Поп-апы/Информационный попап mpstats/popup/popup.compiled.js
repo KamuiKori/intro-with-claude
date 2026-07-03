@@ -86,7 +86,11 @@ body {\
   left: 0;\
   right: 0;\
   bottom: 0;\
-  background: #ec7937 url("https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png") center/contain no-repeat;\
+  background-color: #ec7937;\
+  background-image: url("https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png");\
+  background-position: center;\
+  background-size: contain;\
+  background-repeat: no-repeat;\
 }\
 \
 .cq-popup__main-placement {\
@@ -140,90 +144,12 @@ body {\
   position: relative;\
 }\
 \
-.cq-popup__cover-top {\
-  position: absolute;\
-  top: 24px;\
-  left: 24px;\
-  right: 24px;\
-  display: -ms-flexbox;\
-  display: flex;\
-  -ms-flex-direction: column;\
-      flex-direction: column;\
-  gap: 8px;\
-}\
-\
-.cq-popup__badge-row {\
-  display: -ms-flexbox;\
-  display: flex;\
-  -ms-flex-align: center;\
-      align-items: center;\
-}\
-\
-.cq-popup__badge {\
-  display: -ms-flexbox;\
-  display: flex;\
-  -ms-flex-align: center;\
-      align-items: center;\
-  height: 36px;\
-}\
-\
-.cq-popup__badge-volume {\
-  width: 28px;\
-  height: 36px;\
-  background: linear-gradient(180deg, #fffbf5 0.337%, #ffd119 50.337%, #ffe6c0 100%);\
-  border: 1px solid rgba(255, 255, 255, 0.5);\
-  border-radius: 999px 0 0 999px;\
-  margin-right: -20px;\
-  position: relative;\
-  z-index: 0;\
-  -ms-flex-negative: 0;\
-      flex-shrink: 0;\
-}\
-\
-.cq-popup__badge-face {\
-  background: linear-gradient(180deg, #ffe6c0 0.337%, #ffe019 50.337%, #ffc219 100%);\
-  border: 1px solid rgba(255, 255, 255, 0.5);\
-  border-radius: 999px;\
-  height: 36px;\
-  padding: 6px 12px;\
-  display: -ms-flexbox;\
-  display: flex;\
-  -ms-flex-align: center;\
-      align-items: center;\
-  -ms-flex-pack: center;\
-      justify-content: center;\
-  position: relative;\
-  z-index: 1;\
-}\
-\
-.cq-popup__badge-face span {\
-  font-weight: 500;\
-  font-size: 14px;\
-  line-height: 1.3;\
-  color: #121212;\
-  white-space: nowrap;\
-}\
-\
-.cq-popup__cover-title {\
-  font-weight: 700;\
-  font-size: 36px;\
-  line-height: 1.2;\
-  color: #121212;\
-}\
-\
-.cq-popup__cover-text {\
-  position: absolute;\
-  top: 158px;\
-  left: 24px;\
-  right: 24px;\
-}\
-\
-.cq-popup__cover-text p {\
-  font-weight: 500;\
-  font-size: 16px;\
-  line-height: 1.3;\
-  color: #121212;\
-  opacity: 0.8;\
+.cq-popup__slide-img {\
+  display: block;\
+  width: 100%;\
+  height: 100%;\
+  -o-object-fit: cover;\
+     object-fit: cover;\
 }\
 \
 .cq-popup__slider {\
@@ -454,18 +380,6 @@ body {\
     width: 270px;\
   }\
 \
-  .cq-popup__cover-title {\
-    font-size: 26px;\
-  }\
-\
-  .cq-popup__cover-text {\
-    top: 130px;\
-  }\
-\
-  .cq-popup__cover-text p {\
-    font-size: 13px;\
-  }\
-\
   .cq-popup__head {\
     height: 52px;\
   }\
@@ -504,14 +418,6 @@ body {\
 \
   .cq-popup__slide {\
     width: 220px;\
-  }\
-\
-  .cq-popup__cover-title {\
-    font-size: 20px;\
-  }\
-\
-  .cq-popup__cover-text {\
-    top: 112px;\
   }\
 \
   .cq-popup__headline {\
@@ -567,27 +473,7 @@ body {\
 </div>\
 <script>"use strict";\
 \
-var slides = [{\
-  badge: \'Бейдж\',\
-  title: \'Заголовок в две строки делать\',\
-  text: \'Дополнительный абзац размещается под заголовком и не превышает трех строк\'\
-}, {\
-  badge: \'Бейдж\',\
-  title: \'Заголовок в две строки делать\',\
-  text: \'Дополнительный абзац размещается под заголовком и не превышает трех строк\'\
-}, {\
-  badge: \'Бейдж\',\
-  title: \'Заголовок в две строки делать\',\
-  text: \'Дополнительный абзац размещается под заголовком и не превышает трех строк\'\
-}, {\
-  badge: \'Бейдж\',\
-  title: \'Заголовок в две строки делать\',\
-  text: \'Дополнительный абзац размещается под заголовком и не превышает трех строк\'\
-}, {\
-  badge: \'Бейдж\',\
-  title: \'Заголовок в две строки делать\',\
-  text: \'Дополнительный абзац размещается под заголовком и не превышает трех строк\'\
-}];\
+var slides = [\'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png\', \'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png\', \'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png\', \'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png\', \'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png\'];\
 var adLabel = \'Реклама\';\
 var headline = \'Заголовок не более строки\';\
 var paragraph = \'Мы обновили работу с фразами, добавили группировку по пресетам и статистику фраз по дням. Теперь ты можешь добавить в отслеживание фразы прямо из ключевых\';\
@@ -635,10 +521,10 @@ var cqpopup_name = "Информационный попап mpstats",\
       this.track("Коммуникации: Прочитано сообщение - " + cqpopup_name);\
     }\
   };\
-function renderSlide(slide) {\
+function renderSlide(imageUrl) {\
   var el = document.createElement(\'div\');\
   el.className = \'cq-popup__slide\';\
-  el.innerHTML = \'<div class="cq-popup__cover-top">\' + \'<div class="cq-popup__badge-row">\' + \'<div class="cq-popup__badge">\' + \'<div class="cq-popup__badge-volume"></div>\' + \'<div class="cq-popup__badge-face"><span>\' + slide.badge + \'</span></div>\' + \'</div>\' + \'</div>\' + \'<p class="cq-popup__cover-title">\' + slide.title + \'</p>\' + \'</div>\' + \'<div class="cq-popup__cover-text"><p>\' + slide.text + \'</p></div>\';\
+  el.innerHTML = \'<img class="cq-popup__slide-img" src="\' + imageUrl + \'" alt="">\';\
   return el;\
 }\
 function render() {\

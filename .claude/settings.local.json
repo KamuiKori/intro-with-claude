@@ -26,7 +26,15 @@
       "mcp__plugin_figma_figma__get_metadata",
       "mcp__plugin_figma_figma__search_design_system",
       "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); text=data[0]['text']; lines=[l for l in text.split\\('\\\\n'\\) if '116:' in l or 'email' in l.lower\\(\\) or 'result' in l.lower\\(\\) or 'почт' in l.lower\\(\\) or 'итог' in l.lower\\(\\) or 'финал' in l.lower\\(\\) or 'форм' in l.lower\\(\\)]; print\\('\\\\n'.join\\(lines[:80]\\)\\)\")",
-      "Bash(grep -n \"//\\\\|/\\\\*\" \"C:/Users/kamui/WebstormProjects/clients-intro-with-claude/agena art/Поп-апы/popup/src/popup.js\")"
+      "Bash(grep -n \"//\\\\|/\\\\*\" \"C:/Users/kamui/WebstormProjects/clients-intro-with-claude/agena art/Поп-апы/popup/src/popup.js\")",
+      "Skill(run)",
+      "Bash(npx --yes -p playwright node \"C:\\\\Users\\\\kamui\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-kamui-WebstormProjects-clients-intro-with-claude\\\\272b25d3-3284-4162-bfa9-3bce472367c9\\\\scratchpad\\\\screenshot.js\")",
+      "Bash(npx --yes playwright screenshot --help)",
+      "Bash(npx --yes playwright install chromium)",
+      "Bash(curl -s -o \"/c/Users/kamui/AppData/Local/Temp/claude/C--Users-kamui-WebstormProjects-clients-intro-with-claude/df080c7d-8922-422f-a58d-1beef2386ba1/scratchpad/figma-popup-desktop.png\" \"https://www.figma.com/api/mcp/asset/0f7020b7-1e5b-4cb8-a3cf-dc6d1a4bd2b1\")",
+      "Read(//c/Users/kamui/AppData/Local/Temp/claude/C--Users-kamui-WebstormProjects-clients-intro-with-claude/df080c7d-8922-422f-a58d-1beef2386ba1/scratchpad//**)",
+      "Bash(../../node_modules/.bin/gulp build *)",
+      "Bash(start \"\" \"popup/dist/popup.html\")"
     ]
   }
 }
