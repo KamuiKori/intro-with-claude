@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./popup/dist/popup.css" inline>
 </head>
 
-<body>
+<body class="cq-popup__is-step-1">
 <div class="cq-popup__bg"></div>
 <div class="wrapper__body">
     <div class="cq-popup__master">
@@ -27,63 +27,73 @@
                 </div>
                 <div class="cq-popup__head">
                     <div class="cq-popup__hat">
-                        <div class="cq-popup__ad-content hidden">
-                            <span class="cq-popup__ad-label"></span>
+                        <div class="cq-popup__ad-wrap">
+                            <div class="cq-popup__ad-content">
+                                <span class="cq-popup__ad-label hidden"></span>
+                            </div>
+                            <div class="cq-popup__ad-dots hidden">
+                                <div class="cq-popup__ad-dot"></div>
+                                <div class="cq-popup__ad-dot"></div>
+                                <div class="cq-popup__ad-dot"></div>
+                            </div>
+                            <div class="cq-popup__ad-tooltip">ООО «МПСТАТС ПРОДВИЖЕНИЕ» ИНН 7804713205 erid:2SDnjeWiL5Y</div>
                         </div>
-                        <div class="cq-popup__ad-dots hidden">
-                            <div class="cq-popup__ad-dot"></div>
-                            <div class="cq-popup__ad-dot"></div>
-                            <div class="cq-popup__ad-dot"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cq-popup__step cq-popup__step--1">
+                <div class="cq-popup__headline-wrap">
+                    <p class="cq-popup__headline"></p>
+                </div>
+                <div class="cq-popup__paragraph-wrap">
+                    <p class="cq-popup__paragraph"></p>
+                </div>
+                <div class="cq-popup__timer-wrap">
+                    <div class="cq-popup__timer">
+                        <div class="cq-popup__timer-item cq-popup__timer-item--days">
+                            <span class="cq-popup__timer-value cq-popup__timer-value--days"></span>
+                        </div>
+                        <span class="cq-popup__timer-sep">·</span>
+                        <div class="cq-popup__timer-item cq-popup__timer-item--unit">
+                            <span class="cq-popup__timer-value cq-popup__timer-value--hours"></span>
+                        </div>
+                        <span class="cq-popup__timer-sep">:</span>
+                        <div class="cq-popup__timer-item cq-popup__timer-item--unit">
+                            <span class="cq-popup__timer-value cq-popup__timer-value--minutes"></span>
+                        </div>
+                        <span class="cq-popup__timer-sep">:</span>
+                        <div class="cq-popup__timer-item cq-popup__timer-item--unit">
+                            <span class="cq-popup__timer-value cq-popup__timer-value--seconds"></span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="cq-popup__headline-wrap">
-                <p class="cq-popup__headline"></p>
-            </div>
-            <div class="cq-popup__paragraph-wrap">
-                <p class="cq-popup__paragraph"></p>
-            </div>
-            <div class="cq-popup__timer-wrap">
-                <div class="cq-popup__timer">
-                    <div class="cq-popup__timer-item cq-popup__timer-item--days">
-                        <span class="cq-popup__timer-value cq-popup__timer-value--days"></span>
-                    </div>
-                    <span class="cq-popup__timer-sep">·</span>
-                    <div class="cq-popup__timer-item cq-popup__timer-item--unit">
-                        <span class="cq-popup__timer-value cq-popup__timer-value--hours"></span>
-                    </div>
-                    <span class="cq-popup__timer-sep">:</span>
-                    <div class="cq-popup__timer-item cq-popup__timer-item--unit">
-                        <span class="cq-popup__timer-value cq-popup__timer-value--minutes"></span>
-                    </div>
-                    <span class="cq-popup__timer-sep">:</span>
-                    <div class="cq-popup__timer-item cq-popup__timer-item--unit">
-                        <span class="cq-popup__timer-value cq-popup__timer-value--seconds"></span>
+            <div class="cq-popup__step cq-popup__step--2">
+                <div class="cq-popup__scratch-wrap">
+                    <div class="scratch-container">
+                        <div class="hidden-content">
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784015336791-dm6m3zwp.png" alt="" class="pc win_img">
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784016522030-t0bneh27.png" alt="" class="mob win_img">
+                        </div>
+                        <canvas></canvas>
+                        <div class="win-message">
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784015336791-dm6m3zwp.png" alt="" class="pc win_img">
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784016522030-t0bneh27.png" alt="" class="mob win_img">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="cq-popup__scratch-wrap">
-                <div class="scratch-container">
-                    <div class="hidden-content">
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778672800184-pvwx4w6y.png" alt="" class="pc win_img">
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778671573087-kj42kctp.png" alt="" class="mob win_img">
-                    </div>
-                    <canvas></canvas>
-                    <div class="win-message">
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778672800184-pvwx4w6y.png" alt="" class="pc win_img">
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778671573087-kj42kctp.png" alt="" class="mob win_img">
-                    </div>
+                <div class="cq-popup__scratch-hint-wrap">
+                    <p class="description start"></p>
+                    <p class="description end hidden"></p>
                 </div>
-            </div>
-            <div class="cq-popup__scratch-hint-wrap">
-                <p class="description start"></p>
-                <p class="description end hidden"></p>
-            </div>
-            <div class="cq-popup__scratch-link-wrap hidden">
-                <a href="#" class="link" target="_blank"></a>
+                <div class="cq-popup__scratch-link-wrap mob hidden">
+                    <a href="#" class="link" target="_blank"></a>
+                </div>
             </div>
             <div class="cq-popup__btn-wrap">
+                <a class="cq-popup__tg-btn cq-popup__btn-outline pc hidden" target="_blank"></a>
+                <button type="button" class="cq-popup__next-btn cq-popup__btn-outline"></button>
+                <button type="button" class="cq-popup__back-btn cq-popup__btn-outline"></button>
                 <a class="cq-popup__cta" target="_blank"></a>
             </div>
         </div>

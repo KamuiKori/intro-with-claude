@@ -48,7 +48,7 @@ body {\
       justify-content: flex-end;\
   width: 100%;\
   height: 100%;\
-  padding-right: 80px;\
+  padding-right: 20px;\
 }\
 \
 .cq-popup__master {\
@@ -87,9 +87,8 @@ body {\
   right: 0;\
   bottom: 0;\
   background-color: #ec7937;\
-  background-image: url("https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png");\
   background-position: center;\
-  background-size: contain;\
+  background-size: cover;\
   background-repeat: no-repeat;\
 }\
 \
@@ -169,8 +168,8 @@ body {\
 }\
 \
 .cq-dot {\
-  width: 6px;\
-  height: 6px;\
+  width: 8px;\
+  height: 8px;\
   border-radius: 50%;\
   background: #DEDEDE;\
   -ms-flex-negative: 0;\
@@ -181,7 +180,7 @@ body {\
 \
 .cq-dot--active {\
   width: 20px;\
-  border-radius: 3px;\
+  border-radius: 4px;\
   background: #121212;\
 }\
 \
@@ -208,6 +207,16 @@ body {\
   gap: 8px;\
 }\
 \
+.cq-popup__ad-wrap {\
+  position: relative;\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  gap: 8px;\
+  cursor: pointer;\
+}\
+\
 .cq-popup__ad-content {\
   display: -ms-flexbox;\
   display: flex;\
@@ -216,6 +225,47 @@ body {\
   -ms-flex-pack: end;\
       justify-content: flex-end;\
   width: 72px;\
+}\
+\
+.cq-popup__ad-tooltip {\
+  position: absolute;\
+  bottom: calc(100% + 15px);\
+  right: 0;\
+  z-index: 2;\
+  width: 220px;\
+  padding: 10px 12px;\
+  background: #ffffff;\
+  color: #121212;\
+  font-weight: 400;\
+  font-size: 12px;\
+  line-height: 1.3;\
+  border-radius: 12px;\
+  opacity: 0;\
+  visibility: hidden;\
+  -webkit-transform: translateY(4px);\
+          transform: translateY(4px);\
+  transition: opacity 0.2s ease, visibility 0.2s ease, -webkit-transform 0.2s ease;\
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;\
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, -webkit-transform 0.2s ease;\
+  pointer-events: none;\
+}\
+\
+.cq-popup__ad-tooltip::before {\
+  content: "";\
+  position: absolute;\
+  top: 100%;\
+  right: 16px;\
+  border: 6px solid transparent;\
+  border-top-color: #ffffff;\
+}\
+\
+.cq-popup__ad-wrap:hover .cq-popup__ad-tooltip,\
+.cq-popup__ad-wrap--active .cq-popup__ad-tooltip {\
+  opacity: 1;\
+  visibility: visible;\
+  -webkit-transform: translateY(0);\
+          transform: translateY(0);\
+  pointer-events: auto;\
 }\
 \
 .cq-popup__ad-label {\
@@ -260,7 +310,7 @@ body {\
 }\
 \
 .cq-popup__paragraph-wrap {\
-  padding: 12px 32px 28px;\
+  padding: 12px 32px 16px;\
 }\
 \
 .cq-popup__paragraph {\
@@ -321,8 +371,10 @@ body {\
 \
 .scratch-container {\
   position: relative;\
-  width: 100%;\
-  height: 100px;\
+  width: 470px;\
+  max-width: 100%;\
+  margin: 0 auto;\
+  height: 125px;\
   cursor: crosshair;\
   -webkit-user-select: none;\
       -ms-user-select: none;\
@@ -400,7 +452,7 @@ canvas {\
 }\
 \
 .description {\
-  font-size: 12px;\
+  font-size: 14px;\
   color: #929292;\
   line-height: 20px;\
   text-align: center;\
@@ -425,15 +477,24 @@ canvas {\
 }\
 \
 .cq-popup__scratch-hint-wrap {\
-  padding: 0 32px 12px;\
-}\
-\
-.cq-popup__scratch-link-wrap {\
   padding: 0 32px 28px;\
 }\
 \
+.cq-popup__scratch-link-wrap {\
+  padding: 0 32px 23px;\
+}\
+\
 .cq-popup__btn-wrap {\
+  display: none;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  gap: 14px;\
   padding: 0 32px 32px;\
+}\
+\
+body.cq-popup__is-revealed .cq-popup__btn-wrap {\
+  display: -ms-flexbox;\
+  display: flex;\
 }\
 \
 .cq-popup__cta {\
@@ -454,8 +515,47 @@ canvas {\
   border: none;\
   border-radius: 100px;\
   padding: 20px 48px;\
-  width: 100%;\
+  -ms-flex: 1 0 0px;\
+      flex: 1 0 0;\
   cursor: pointer;\
+}\
+\
+.cq-popup__btn-outline {\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  -ms-flex-pack: center;\
+      justify-content: center;\
+  background: transparent;\
+  color: #121212;\
+  font-family: "Onest", sans-serif;\
+  font-weight: 500;\
+  font-size: 18px;\
+  line-height: normal;\
+  text-align: center;\
+  text-decoration: none;\
+  border: 2px solid #121212;\
+  border-radius: 100px;\
+  padding: 18px 0px;\
+  cursor: pointer;\
+}\
+\
+.cq-popup__tg-btn {\
+  -ms-flex-negative: 0;\
+      flex-shrink: 0;\
+  width: 200px;\
+}\
+\
+.cq-popup__next-btn,\
+.cq-popup__back-btn {\
+  display: none;\
+}\
+\
+.cq-popup__back-btn {\
+  -ms-flex-negative: 0;\
+      flex-shrink: 0;\
+  width: 110px;\
 }\
 \
 .cq-popup__close {\
@@ -477,11 +577,11 @@ canvas {\
   left: 50%;\
   top: 50%;\
   width: 2px;\
-  height: 16px;\
+  height: 20px;\
   background: #121212;\
   border-radius: 2px;\
   margin-left: -1px;\
-  margin-top: -8px;\
+  margin-top: -10px;\
 }\
 \
 .cq-popup__close::before {\
@@ -494,23 +594,36 @@ canvas {\
           transform: rotate(-45deg);\
 }\
 \
-@media (max-width: 768px) {\
+@media (max-width: 610px) {\
   .mob {\
     display: block;\
+  }\
+\
+  .description {\
+    font-size: 12px;\
   }\
 \
   .pc {\
     display: none;\
   }\
-}\
 \
-@media (max-width: 700px) {\
   .wrapper__body {\
-    -ms-flex-align: center;\
-        align-items: center;\
+    -ms-flex-align: end;\
+        align-items: flex-end;\
     -ms-flex-pack: center;\
         justify-content: center;\
     padding-right: 0;\
+  }\
+\
+  .cq-dot {\
+    width: 8px;\
+    height: 8px;\
+  }\
+\
+  .cq-dot--active {\
+    width: 20px;\
+    border-radius: 4px;\
+    background: #121212;\
   }\
 \
   .cq-popup__master {\
@@ -518,45 +631,14 @@ canvas {\
         flex-direction: column-reverse;\
     -ms-flex-align: end;\
         align-items: flex-end;\
-    padding: 15px;\
-    gap: 8px;\
-    max-width: 400px;\
+    gap: 12px;\
     width: 100%;\
+    margin: 0;\
   }\
 \
   .cq-popup__body {\
     width: 100%;\
-    border-radius: 24px;\
-  }\
-\
-  .cq-popup__banner {\
-    height: 270px;\
-  }\
-\
-  .cq-popup__main-placement {\
-    height: 218px;\
-  }\
-\
-  .cq-popup__cover {\
-    width: 270px;\
-  }\
-\
-  .cq-popup__cover-card {\
-    width: 270px;\
-    height: 190px;\
-    border-radius: 24px;\
-  }\
-\
-  .cq-popup__slide {\
-    width: 270px;\
-  }\
-\
-  .cq-popup__head {\
-    height: 52px;\
-  }\
-\
-  .cq-popup__hat {\
-    border-radius: 24px 24px 0 0;\
+    border-radius: 40px 40px 0 0;\
   }\
 \
   .cq-popup__headline {\
@@ -568,85 +650,93 @@ canvas {\
   }\
 \
   .cq-popup__timer-item {\
-    height: 32px;\
+    height: 31px;\
   }\
 \
   .cq-popup__timer-value {\
     font-size: 20px;\
   }\
 \
-  .cq-popup__timer-sep {\
-    font-size: 18px;\
+  .cq-popup__scratch-wrap {\
+    padding: 0 0 10px;\
   }\
 \
-  .description {\
-    font-size: 11px;\
+  .scratch-container {\
+    width: 376px;\
+    height: 100px;\
   }\
 \
-  .link {\
-    font-size: 13px;\
+  body.cq-popup__is-revealed .cq-popup__scratch-hint-wrap {\
+    padding-bottom: 6px;\
+  }\
+\
+  .cq-popup__btn-wrap {\
+    display: -ms-flexbox;\
+    display: flex;\
+    gap: 8px;\
+    padding: 0 32px 32px;\
   }\
 \
   .cq-popup__cta {\
     font-size: 16px;\
-    padding: 16px 32px;\
-  }\
-}\
-\
-@media (max-width: 400px) {\
-  .cq-popup__master {\
-    max-width: 320px;\
   }\
 \
-  .cq-popup__cover {\
-    width: 220px;\
+  body:not(.cq-popup__is-revealed) .cq-popup__cta {\
+    display: none;\
   }\
 \
-  .cq-popup__cover-card {\
-    width: 220px;\
-    height: 170px;\
+  body:not(.cq-popup__is-revealed) .cq-popup__back-btn {\
+    width: 100%;\
   }\
 \
-  .cq-popup__slide {\
-    width: 220px;\
-  }\
-\
-  .cq-popup__headline {\
-    font-size: 20px;\
-  }\
-\
-  .cq-popup__paragraph {\
-    font-size: 14px;\
-  }\
-\
-  .cq-popup__timer-item {\
-    height: 28px;\
-    padding: 3px 8px;\
-  }\
-\
-  .cq-popup__timer-item--unit {\
-    width: 42px;\
-  }\
-\
-  .cq-popup__timer-value {\
-    font-size: 17px;\
-  }\
-\
-  .cq-popup__timer-sep {\
+  .cq-popup__btn-outline {\
     font-size: 16px;\
   }\
 \
-  .description {\
-    font-size: 10px;\
+  .cq-popup__next-btn,\
+  .cq-popup__back-btn {\
+    display: -ms-flexbox;\
+    display: flex;\
+    width: 100%;\
   }\
 \
-  .link {\
-    font-size: 12px;\
+  .cq-popup__back-btn {\
+    width: 110px;\
+  }\
+\
+  .cq-popup__close {\
+    width: 25px;\
+    height: 25px;\
+  }\
+\
+  .cq-popup__close::before,\
+  .cq-popup__close::after {\
+    width: 1px;\
+    height: 16px;\
+    margin-left: -0.5px;\
+    margin-top: -8px;\
+  }\
+\
+  body.cq-popup__is-step-1 .cq-popup__step--2 {\
+    display: none;\
+  }\
+\
+  body.cq-popup__is-step-1 .cq-popup__back-btn,\
+  body.cq-popup__is-step-1 .cq-popup__cta {\
+    display: none;\
+  }\
+\
+  body.cq-popup__is-step-2 .cq-popup__step--1 {\
+    display: none;\
+  }\
+\
+  body.cq-popup__is-step-2 .cq-popup__next-btn {\
+    display: none;\
   }\
 }</style>\
 </head>\
 \
-<body>\
+<body class="cq-popup__is-step-1">\
 <div class="cq-popup__bg"></div>\
 <div class="wrapper__body">\
     <div class="cq-popup__master">\
@@ -663,63 +753,73 @@ canvas {\
                 </div>\
                 <div class="cq-popup__head">\
                     <div class="cq-popup__hat">\
-                        <div class="cq-popup__ad-content hidden">\
-                            <span class="cq-popup__ad-label"></span>\
+                        <div class="cq-popup__ad-wrap">\
+                            <div class="cq-popup__ad-content">\
+                                <span class="cq-popup__ad-label hidden"></span>\
+                            </div>\
+                            <div class="cq-popup__ad-dots hidden">\
+                                <div class="cq-popup__ad-dot"></div>\
+                                <div class="cq-popup__ad-dot"></div>\
+                                <div class="cq-popup__ad-dot"></div>\
+                            </div>\
+                            <div class="cq-popup__ad-tooltip">ООО «МПСТАТС ПРОДВИЖЕНИЕ» ИНН 7804713205 erid:2SDnjeWiL5Y</div>\
                         </div>\
-                        <div class="cq-popup__ad-dots hidden">\
-                            <div class="cq-popup__ad-dot"></div>\
-                            <div class="cq-popup__ad-dot"></div>\
-                            <div class="cq-popup__ad-dot"></div>\
+                    </div>\
+                </div>\
+            </div>\
+            <div class="cq-popup__step cq-popup__step--1">\
+                <div class="cq-popup__headline-wrap">\
+                    <p class="cq-popup__headline"></p>\
+                </div>\
+                <div class="cq-popup__paragraph-wrap">\
+                    <p class="cq-popup__paragraph"></p>\
+                </div>\
+                <div class="cq-popup__timer-wrap">\
+                    <div class="cq-popup__timer">\
+                        <div class="cq-popup__timer-item cq-popup__timer-item--days">\
+                            <span class="cq-popup__timer-value cq-popup__timer-value--days"></span>\
+                        </div>\
+                        <span class="cq-popup__timer-sep">·</span>\
+                        <div class="cq-popup__timer-item cq-popup__timer-item--unit">\
+                            <span class="cq-popup__timer-value cq-popup__timer-value--hours"></span>\
+                        </div>\
+                        <span class="cq-popup__timer-sep">:</span>\
+                        <div class="cq-popup__timer-item cq-popup__timer-item--unit">\
+                            <span class="cq-popup__timer-value cq-popup__timer-value--minutes"></span>\
+                        </div>\
+                        <span class="cq-popup__timer-sep">:</span>\
+                        <div class="cq-popup__timer-item cq-popup__timer-item--unit">\
+                            <span class="cq-popup__timer-value cq-popup__timer-value--seconds"></span>\
                         </div>\
                     </div>\
                 </div>\
             </div>\
-            <div class="cq-popup__headline-wrap">\
-                <p class="cq-popup__headline"></p>\
-            </div>\
-            <div class="cq-popup__paragraph-wrap">\
-                <p class="cq-popup__paragraph"></p>\
-            </div>\
-            <div class="cq-popup__timer-wrap">\
-                <div class="cq-popup__timer">\
-                    <div class="cq-popup__timer-item cq-popup__timer-item--days">\
-                        <span class="cq-popup__timer-value cq-popup__timer-value--days"></span>\
-                    </div>\
-                    <span class="cq-popup__timer-sep">·</span>\
-                    <div class="cq-popup__timer-item cq-popup__timer-item--unit">\
-                        <span class="cq-popup__timer-value cq-popup__timer-value--hours"></span>\
-                    </div>\
-                    <span class="cq-popup__timer-sep">:</span>\
-                    <div class="cq-popup__timer-item cq-popup__timer-item--unit">\
-                        <span class="cq-popup__timer-value cq-popup__timer-value--minutes"></span>\
-                    </div>\
-                    <span class="cq-popup__timer-sep">:</span>\
-                    <div class="cq-popup__timer-item cq-popup__timer-item--unit">\
-                        <span class="cq-popup__timer-value cq-popup__timer-value--seconds"></span>\
+            <div class="cq-popup__step cq-popup__step--2">\
+                <div class="cq-popup__scratch-wrap">\
+                    <div class="scratch-container">\
+                        <div class="hidden-content">\
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784015336791-dm6m3zwp.png" alt="" class="pc win_img">\
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784016522030-t0bneh27.png" alt="" class="mob win_img">\
+                        </div>\
+                        <canvas></canvas>\
+                        <div class="win-message">\
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784015336791-dm6m3zwp.png" alt="" class="pc win_img">\
+                            <img src="https://files.carrotquest.app/message-images/57576/57576-1784016522030-t0bneh27.png" alt="" class="mob win_img">\
+                        </div>\
                     </div>\
                 </div>\
-            </div>\
-            <div class="cq-popup__scratch-wrap">\
-                <div class="scratch-container">\
-                    <div class="hidden-content">\
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778672800184-pvwx4w6y.png" alt="" class="pc win_img">\
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778671573087-kj42kctp.png" alt="" class="mob win_img">\
-                    </div>\
-                    <canvas></canvas>\
-                    <div class="win-message">\
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778672800184-pvwx4w6y.png" alt="" class="pc win_img">\
-                        <img src="https://files.carrotquest.app/message-images/57576/57576-1778671573087-kj42kctp.png" alt="" class="mob win_img">\
-                    </div>\
+                <div class="cq-popup__scratch-hint-wrap">\
+                    <p class="description start"></p>\
+                    <p class="description end hidden"></p>\
                 </div>\
-            </div>\
-            <div class="cq-popup__scratch-hint-wrap">\
-                <p class="description start"></p>\
-                <p class="description end hidden"></p>\
-            </div>\
-            <div class="cq-popup__scratch-link-wrap hidden">\
-                <a href="#" class="link" target="_blank"></a>\
+                <div class="cq-popup__scratch-link-wrap mob hidden">\
+                    <a href="#" class="link" target="_blank"></a>\
+                </div>\
             </div>\
             <div class="cq-popup__btn-wrap">\
+                <a class="cq-popup__tg-btn cq-popup__btn-outline pc hidden" target="_blank"></a>\
+                <button type="button" class="cq-popup__next-btn cq-popup__btn-outline"></button>\
+                <button type="button" class="cq-popup__back-btn cq-popup__btn-outline"></button>\
                 <a class="cq-popup__cta" target="_blank"></a>\
             </div>\
         </div>\
@@ -735,20 +835,25 @@ var paragraph = \'Мы обновили работу с фразами, доба
 var ctaText = \'Кнопка\';\
 var linkUrl = \'#\';\
 var timerEndDate = \'2026-08-01T00:00:00\';\
+var timerDurationMinutes = null;\
 var scratchHintText = \'Проведите пальцем или курсором по серой области\';\
 var scratchDoneText = \'Скопируйте промокод, нажав на иконку справа\';\
-var scratchLinkText = \'Отправить промокод в Тэда\';\
+var scratchLinkText = \'Отправить промокод в Telegram\';\
 var scratchLinkUrl = \'#\';\
-var tedEventText = \'Клик по ссылке в Тэда\';\
+var tedEventText = \'Клик по ссылке в Telegram\';\
+var tgBtnText = \'Промокод в TG ↗\';\
+var nextBtnText = \'Вперед →\';\
+var backBtnText = \'← Назад\';\
 var promoCode = \'РОКЕТВЖУХ-ВН20\';\
 var isMob = top.window.innerWidth < 769;\
-var winImgCopied;\
-if (isMob) {\
-  winImgCopied = \'https://files.carrotquest.app/message-images/57576/57576-1778672201068-r0jejsfg.png\';\
-} else {\
-  winImgCopied = \'https://files.carrotquest.app/message-images/57576/57576-1778672897933-azmpao8s.png\';\
-}\
-var bgImg = \'https://files.carrotquest.app/message-images/57576/57576-1783068634971-myyx2iri.png\';\
+var winImgCopiedDesktop = \'https://files.carrotquest.app/message-images/57576/57576-1784015409534-28lfezpd.png\';\
+var winImgCopiedMobile = \'https://files.carrotquest.app/message-images/57576/57576-1784016545338-j0mwmntq.png\';\
+var winImgCopied = isMob ? winImgCopiedMobile : winImgCopiedDesktop;\
+var bgImgDesktop = \'https://files.carrotquest.app/message-images/57576/57576-1784015628747-xjv8ljsw.png\';\
+var bgImgMobile = \'https://files.carrotquest.app/message-images/57576/57576-1784016502593-psz5i2dq.png\';\
+var bgImg = isMob ? bgImgMobile : bgImgDesktop;\
+var bannerBgDesktop = \'https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png\';\
+var bannerBgMobile = \'https://files.carrotquest.app/message-images/57576/57576-1783498232833-1twz7nmg.png\';\
 var cqpopup_name = "Попап скретч c таймером без маркировки",\
   carrotquest = {\
     track: function track(eventName, params) {\
@@ -791,6 +896,15 @@ var cqpopup_name = "Попап скретч c таймером без марки
       this.track("Коммуникации: Прочитано сообщение - " + cqpopup_name);\
     }\
   };\
+function setTgLink(link) {\
+  var tgLink = link;\
+  try {\
+    tgLink += top.carrotquest.data.user.user_signature.telegram ? \'?start=\' + top.carrotquest.data.user.user_signature.telegram : \'\';\
+  } catch (err) {}\
+  document.querySelectorAll(\'.link, .cq-popup__tg-btn\').forEach(function (el) {\
+    el.href = tgLink;\
+  });\
+}\
 function renderSlide(imageUrl) {\
   var el = document.createElement(\'div\');\
   el.className = \'cq-popup__slide\';\
@@ -811,14 +925,21 @@ function render() {\
   document.querySelector(\'.cq-popup__paragraph\').textContent = paragraph;\
   document.querySelector(\'.description.start\').textContent = scratchHintText;\
   document.querySelector(\'.description.end\').textContent = scratchDoneText;\
-  var scratchLink = document.querySelector(\'.link\');\
-  scratchLink.textContent = scratchLinkText;\
-  scratchLink.href = scratchLinkUrl;\
+  document.querySelector(\'.link\').textContent = scratchLinkText;\
+  document.querySelector(\'.cq-popup__tg-btn\').textContent = tgBtnText;\
+  setTgLink(scratchLinkUrl);\
+  document.querySelector(\'.cq-popup__next-btn\').textContent = nextBtnText;\
+  document.querySelector(\'.cq-popup__back-btn\').textContent = backBtnText;\
   var cta = document.querySelector(\'.cq-popup__cta\');\
   cta.textContent = ctaText;\
   cta.href = linkUrl;\
 }\
+function setBannerBg() {\
+  var bannerBg = document.querySelector(\'.cq-popup__banner-bg\');\
+  bannerBg.style.backgroundImage = \'url(\' + (isMob ? bannerBgMobile : bannerBgDesktop) + \')\';\
+}\
 render();\
+setBannerBg();\
 (function () {\
   var track = document.querySelector(\'.cq-popup__cover-track\');\
   var slideEls = document.querySelectorAll(\'.cq-popup__slide\');\
@@ -856,8 +977,8 @@ function pad2(n) {\
 (function () {\
   var timerWrap = document.querySelector(\'.cq-popup__timer-wrap\');\
   if (!timerWrap) return;\
-  var endTime = new Date(timerEndDate).getTime();\
-  if (!timerEndDate || isNaN(endTime)) {\
+  var endTime = timerDurationMinutes ? Date.now() + timerDurationMinutes * 60 * 1000 : new Date(timerEndDate).getTime();\
+  if (!endTime || isNaN(endTime)) {\
     timerWrap.classList.add(\'hidden\');\
     return;\
   }\
@@ -866,6 +987,14 @@ function pad2(n) {\
   var minutesEl = document.querySelector(\'.cq-popup__timer-value--minutes\');\
   var secondsEl = document.querySelector(\'.cq-popup__timer-value--seconds\');\
   var countdownInterval;\
+  if (timerDurationMinutes) {\
+    var daysItem = daysEl.closest(\'.cq-popup__timer-item\');\
+    var hoursItem = hoursEl.closest(\'.cq-popup__timer-item\');\
+    daysItem.classList.add(\'hidden\');\
+    hoursItem.classList.add(\'hidden\');\
+    daysItem.nextElementSibling.classList.add(\'hidden\');\
+    hoursItem.nextElementSibling.classList.add(\'hidden\');\
+  }\
   function tick() {\
     var diff = endTime - Date.now();\
     if (diff <= 0) {\
@@ -951,7 +1080,7 @@ function pad2(n) {\
     if (percent > 50 && !revealed) {\
       revealed = true;\
       showWinElements();\
-      carrotquest.track(cqpopup_name + \' - Стёр карточку\');\
+      carrotquest.track(\'Коммуникации: Получил промокод - \' + cqpopup_name);\
     }\
   }\
   function copyOnClick(element, code) {\
@@ -963,7 +1092,7 @@ function pad2(n) {\
             item.src = winImgCopied;\
           });\
           document.querySelector(\'.description.end\').textContent = \'Промокод скопирован\';\
-          carrotquest.track(cqpopup_name + \' - Скопировал промокод\');\
+          carrotquest.track(\'Коммуникации: Скопировал промокод - \' + cqpopup_name);\
         };\
         var input = document.createElement(\'input\');\
         input.value = code;\
@@ -992,12 +1121,15 @@ function pad2(n) {\
   canvas.addEventListener(\'touchstart\', startDraw);\
   canvas.addEventListener(\'touchmove\', draw);\
   canvas.addEventListener(\'touchend\', endDraw);\
+  document.addEventListener(\'cq-popup:step-2\', resizeCanvas);\
   function showWinElements() {\
     winMessage.classList.add(\'show\');\
     scratchContainer.classList.add(\'win\');\
+    document.body.classList.add(\'cq-popup__is-revealed\');\
     document.querySelector(\'.description.start\').classList.add(\'hidden\');\
     document.querySelector(\'.description.end\').classList.remove(\'hidden\');\
     document.querySelector(\'.cq-popup__scratch-link-wrap\').classList.remove(\'hidden\');\
+    document.querySelector(\'.cq-popup__tg-btn\').classList.remove(\'hidden\');\
     var button = document.querySelector(\'.scratch-container.win\');\
     setTimeout(function () {\
       copyOnClick(button, promoCode);\
@@ -1020,7 +1152,30 @@ document.querySelector(".cq-popup__cta").addEventListener("click", function () {
 document.querySelector(".link").addEventListener("click", function () {\
   carrotquest.clicked();\
   carrotquest.track(cqpopup_name + \' - \' + tedEventText);\
-});</script>\
+});\
+document.querySelector(".cq-popup__tg-btn").addEventListener("click", function () {\
+  carrotquest.clicked();\
+  carrotquest.track(cqpopup_name + \' - \' + tedEventText);\
+});\
+document.querySelector(".cq-popup__next-btn").addEventListener("click", function () {\
+  document.body.classList.remove("cq-popup__is-step-1");\
+  document.body.classList.add("cq-popup__is-step-2");\
+  document.dispatchEvent(new Event(\'cq-popup:step-2\'));\
+});\
+document.querySelector(".cq-popup__back-btn").addEventListener("click", function () {\
+  document.body.classList.remove("cq-popup__is-step-2");\
+  document.body.classList.add("cq-popup__is-step-1");\
+});\
+(function () {\
+  var adWrap = document.querySelector(".cq-popup__ad-wrap");\
+  adWrap.addEventListener("click", function (event) {\
+    event.stopPropagation();\
+    adWrap.classList.toggle("cq-popup__ad-wrap--active");\
+  });\
+  document.addEventListener("click", function () {\
+    adWrap.classList.remove("cq-popup__ad-wrap--active");\
+  });\
+})();</script>\
 </body>\
 </html>\
 \

@@ -4,22 +4,28 @@ iframe.frameBorder = 0;
 iframe.style.opacity = "0";
 iframe.style.position = 'fixed';
 iframe.style.zIndex = '9999999999';
-iframe.style.width = '100%';
-iframe.style.height = '100%';
-iframe.style.transition = '.5s';
-iframe.style.top = '0';
-iframe.style.right = '0';
+iframe.style.width = '140px';
+iframe.style.height = '220px';
+
+iframe.style.transition = '.3s';
 iframe.style.left = '0';
-iframe.style.bottom = '0';
+iframe.style.bottom = '0px';
+
+if(top.window.innerWidth < 500){
+    iframe.style.width = '400px';
+    iframe.style.height = '400px';
+    iframe.style.bottom = '90px';
+}
 
 document.body.appendChild(iframe);
-
-var iframeContent = (iframe.contentWindow || iframe.contentDocument);
+var iframeContent = iframe.contentWindow || iframe.contentDocument;
 if (iframeContent.document) iframeContent = iframeContent.document;
-
 iframeContent.open();
 iframeContent.writeln(popupContent);
 iframeContent.close();
-
-carrotquest.identify([{ op: 'update_or_create', key: 'Квиз Искусствоведение - попап открыт', value: true }]);
-localStorage["cq_popup_quiz"] = 'opened';
+carrotquest.identify([{
+    op: 'update_or_create',
+    key: 'popup',
+    value: 'opened'
+}]);
+localStorage["cq_popup"] = 'opened';

@@ -48,7 +48,7 @@ body {\
       justify-content: flex-end;\
   width: 100%;\
   height: 100%;\
-  padding-right: 80px;\
+  padding-right: 20px;\
 }\
 \
 .cq-popup__master {\
@@ -87,9 +87,8 @@ body {\
   right: 0;\
   bottom: 0;\
   background-color: #ec7937;\
-  background-image: url("https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png");\
   background-position: center;\
-  background-size: contain;\
+  background-size: cover;\
   background-repeat: no-repeat;\
 }\
 \
@@ -169,8 +168,8 @@ body {\
 }\
 \
 .cq-dot {\
-  width: 6px;\
-  height: 6px;\
+  width: 8px;\
+  height: 8px;\
   border-radius: 50%;\
   background: #DEDEDE;\
   -ms-flex-negative: 0;\
@@ -208,6 +207,16 @@ body {\
   gap: 8px;\
 }\
 \
+.cq-popup__ad-wrap {\
+  position: relative;\
+  display: -ms-flexbox;\
+  display: flex;\
+  -ms-flex-align: center;\
+      align-items: center;\
+  gap: 8px;\
+  cursor: pointer;\
+}\
+\
 .cq-popup__ad-content {\
   display: -ms-flexbox;\
   display: flex;\
@@ -216,6 +225,47 @@ body {\
   -ms-flex-pack: end;\
       justify-content: flex-end;\
   width: 72px;\
+}\
+\
+.cq-popup__ad-tooltip {\
+  position: absolute;\
+  bottom: calc(100% + 15px);\
+  right: 0;\
+  z-index: 2;\
+  width: 220px;\
+  padding: 10px 12px;\
+  background: #ffffff;\
+  color: #121212;\
+  font-weight: 400;\
+  font-size: 12px;\
+  line-height: 1.3;\
+  border-radius: 12px;\
+  opacity: 0;\
+  visibility: hidden;\
+  -webkit-transform: translateY(4px);\
+          transform: translateY(4px);\
+  transition: opacity 0.2s ease, visibility 0.2s ease, -webkit-transform 0.2s ease;\
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;\
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, -webkit-transform 0.2s ease;\
+  pointer-events: none;\
+}\
+\
+.cq-popup__ad-tooltip::before {\
+  content: "";\
+  position: absolute;\
+  top: 100%;\
+  right: 16px;\
+  border: 6px solid transparent;\
+  border-top-color: #ffffff;\
+}\
+\
+.cq-popup__ad-wrap:hover .cq-popup__ad-tooltip,\
+.cq-popup__ad-wrap--active .cq-popup__ad-tooltip {\
+  opacity: 1;\
+  visibility: visible;\
+  -webkit-transform: translateY(0);\
+          transform: translateY(0);\
+  pointer-events: auto;\
 }\
 \
 .cq-popup__ad-label {\
@@ -316,11 +366,11 @@ body {\
   left: 50%;\
   top: 50%;\
   width: 2px;\
-  height: 16px;\
+  height: 20px;\
   background: #121212;\
   border-radius: 2px;\
   margin-left: -1px;\
-  margin-top: -8px;\
+  margin-top: -10px;\
 }\
 \
 .cq-popup__close::before {\
@@ -333,13 +383,22 @@ body {\
           transform: rotate(-45deg);\
 }\
 \
-@media (max-width: 700px) {\
+@media (max-width: 610px) {\
   .wrapper__body {\
-    -ms-flex-align: center;\
-        align-items: center;\
+    -ms-flex-align: end;\
+        align-items: flex-end;\
     -ms-flex-pack: center;\
         justify-content: center;\
     padding-right: 0;\
+  }\
+\
+  .cq-dot {\
+    width: 8px;\
+    height: 8px;\
+  }\
+\
+  .cq-dot--active {\
+    width: 20px;\
   }\
 \
   .cq-popup__master {\
@@ -347,45 +406,14 @@ body {\
         flex-direction: column-reverse;\
     -ms-flex-align: end;\
         align-items: flex-end;\
-    padding: 15px;\
-    gap: 8px;\
-    max-width: 400px;\
+    gap: 12px;\
     width: 100%;\
+    margin: 0;\
   }\
 \
   .cq-popup__body {\
     width: 100%;\
-    border-radius: 24px;\
-  }\
-\
-  .cq-popup__banner {\
-    height: 270px;\
-  }\
-\
-  .cq-popup__main-placement {\
-    height: 218px;\
-  }\
-\
-  .cq-popup__cover {\
-    width: 270px;\
-  }\
-\
-  .cq-popup__cover-card {\
-    width: 270px;\
-    height: 190px;\
-    border-radius: 24px;\
-  }\
-\
-  .cq-popup__slide {\
-    width: 270px;\
-  }\
-\
-  .cq-popup__head {\
-    height: 52px;\
-  }\
-\
-  .cq-popup__hat {\
-    border-radius: 24px 24px 0 0;\
+    border-radius: 40px 40px 0 0;\
   }\
 \
   .cq-popup__headline {\
@@ -398,34 +426,19 @@ body {\
 \
   .cq-popup__cta {\
     font-size: 16px;\
-    padding: 16px 32px;\
-  }\
-}\
-\
-@media (max-width: 400px) {\
-  .cq-popup__master {\
-    max-width: 320px;\
   }\
 \
-  .cq-popup__cover {\
-    width: 220px;\
+  .cq-popup__close {\
+    width: 25px;\
+    height: 25px;\
   }\
 \
-  .cq-popup__cover-card {\
-    width: 220px;\
-    height: 170px;\
-  }\
-\
-  .cq-popup__slide {\
-    width: 220px;\
-  }\
-\
-  .cq-popup__headline {\
-    font-size: 20px;\
-  }\
-\
-  .cq-popup__paragraph {\
-    font-size: 14px;\
+  .cq-popup__close::before,\
+  .cq-popup__close::after {\
+    width: 1px;\
+    height: 16px;\
+    margin-left: -0.5px;\
+    margin-top: -8px;\
   }\
 }</style>\
 </head>\
@@ -447,13 +460,16 @@ body {\
                 </div>\
                 <div class="cq-popup__head">\
                     <div class="cq-popup__hat">\
-                        <div class="cq-popup__ad-content">\
-                            <span class="cq-popup__ad-label"></span>\
-                        </div>\
-                        <div class="cq-popup__ad-dots">\
-                            <div class="cq-popup__ad-dot"></div>\
-                            <div class="cq-popup__ad-dot"></div>\
-                            <div class="cq-popup__ad-dot"></div>\
+                        <div class="cq-popup__ad-wrap">\
+                            <div class="cq-popup__ad-content">\
+                                <span class="cq-popup__ad-label"></span>\
+                            </div>\
+                            <div class="cq-popup__ad-dots">\
+                                <div class="cq-popup__ad-dot"></div>\
+                                <div class="cq-popup__ad-dot"></div>\
+                                <div class="cq-popup__ad-dot"></div>\
+                            </div>\
+                            <div class="cq-popup__ad-tooltip">ООО «МПСТАТС ПРОДВИЖЕНИЕ» ИНН 7804713205 erid:2SDnjeWiL5Y</div>\
                         </div>\
                     </div>\
                 </div>\
@@ -479,6 +495,8 @@ var headline = \'Заголовок не более строки\';\
 var paragraph = \'Мы обновили работу с фразами, добавили группировку по пресетам и статистику фраз по дням. Теперь ты можешь добавить в отслеживание фразы прямо из ключевых\';\
 var ctaText = \'Кнопка\';\
 var linkUrl = \'#\';\
+var bannerBgDesktop = \'https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png\';\
+var bannerBgMobile = \'https://files.carrotquest.app/message-images/57576/57576-1783498232833-1twz7nmg.png\';\
 var cqpopup_name = "Информационный попап mpstats",\
   carrotquest = {\
     track: function track(eventName, params) {\
@@ -543,7 +561,14 @@ function render() {\
   cta.textContent = ctaText;\
   cta.href = linkUrl;\
 }\
+function setBannerBg() {\
+  var isMob = top.window.innerWidth <= 767;\
+  var bannerBg = document.querySelector(\'.cq-popup__banner-bg\');\
+  bannerBg.style.backgroundImage = \'url(\' + (isMob ? bannerBgMobile : bannerBgDesktop) + \')\';\
+}\
 render();\
+setBannerBg();\
+window.addEventListener(\'resize\', setBannerBg);\
 (function () {\
   var track = document.querySelector(\'.cq-popup__cover-track\');\
   var slideEls = document.querySelectorAll(\'.cq-popup__slide\');\
@@ -579,7 +604,17 @@ document.querySelectorAll(".cq-popup__close, .cq-popup__bg").forEach(function (i
 });\
 document.querySelector(".cq-popup__cta").addEventListener("click", function () {\
   carrotquest.clicked();\
-});</script>\
+});\
+(function () {\
+  var adWrap = document.querySelector(".cq-popup__ad-wrap");\
+  adWrap.addEventListener("click", function (event) {\
+    event.stopPropagation();\
+    adWrap.classList.toggle("cq-popup__ad-wrap--active");\
+  });\
+  document.addEventListener("click", function () {\
+    adWrap.classList.remove("cq-popup__ad-wrap--active");\
+  });\
+})();</script>\
 </body>\
 </html>\
 \

@@ -8,12 +8,13 @@ iframe.style.width = '140px';
 iframe.style.height = '220px';
 
 iframe.style.transition = '.3s';
-iframe.style.left = '20px';
-iframe.style.bottom = '20px';
+iframe.style.left = '0';
+iframe.style.bottom = '0px';
 
 if(top.window.innerWidth < 500){
     iframe.style.width = '400px';
     iframe.style.height = '400px';
+    iframe.style.bottom = '90px';
 }
 
 document.body.appendChild(iframe);

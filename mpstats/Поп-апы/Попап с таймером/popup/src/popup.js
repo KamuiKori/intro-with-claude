@@ -12,7 +12,11 @@ var paragraph = 'Мы обновили работу с фразами, доба�
 var ctaText   = 'Кнопка';
 var linkUrl   = '#';
 
-var timerEndDate = '2026-08-01T00:00:00';
+var bannerBgDesktop = 'https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png';
+var bannerBgMobile  = 'https://files.carrotquest.app/message-images/57576/57576-1783498232833-1twz7nmg.png';
+
+var timerEndDate         = '2026-08-01T00:00:00';
+var timerDurationMinutes = null;
 
 var cqpopup_name = "Попап с таймером",
     carrotquest = {
@@ -78,7 +82,15 @@ function render() {
   cta.href        = linkUrl;
 }
 
+function setBannerBg() {
+  var isMob    = top.window.innerWidth <= 767;
+  var bannerBg = document.querySelector('.cq-popup__banner-bg');
+  bannerBg.style.backgroundImage = 'url(' + (isMob ? bannerBgMobile : bannerBgDesktop) + ')';
+}
+
 render();
+setBannerBg();
+window.addEventListener('resize', setBannerBg);
 
 (function() {
   var track    = document.querySelector('.cq-popup__cover-track');
@@ -123,8 +135,11 @@ function pad2(n) {
   var timerWrap = document.querySelector('.cq-popup__timer-wrap');
   if (!timerWrap) return;
 
-  var endTime = new Date(timerEndDate).getTime();
-  if (!timerEndDate || isNaN(endTime)) {
+  var endTime = timerDurationMinutes
+    ? Date.now() + timerDurationMinutes * 60 * 1000
+    : new Date(timerEndDate).getTime();
+
+  if (!endTime || isNaN(endTime)) {
     timerWrap.classList.add('hidden');
     return;
   }
@@ -134,6 +149,16 @@ function pad2(n) {
   var minutesEl = document.querySelector('.cq-popup__timer-value--minutes');
   var secondsEl = document.querySelector('.cq-popup__timer-value--seconds');
   var countdownInterval;
+
+  if (timerDurationMinutes) {
+    var daysItem  = daysEl.closest('.cq-popup__timer-item');
+    var hoursItem = hoursEl.closest('.cq-popup__timer-item');
+
+    daysItem.classList.add('hidden');
+    hoursItem.classList.add('hidden');
+    daysItem.nextElementSibling.classList.add('hidden');
+    hoursItem.nextElementSibling.classList.add('hidden');
+  }
 
   function tick() {
     var diff = endTime - Date.now();
@@ -174,3 +199,16 @@ document.querySelectorAll(".cq-popup__close, .cq-popup__bg").forEach(function(it
 document.querySelector(".cq-popup__cta").addEventListener("click", function() {
   carrotquest.clicked();
 });
+
+(function() {
+  var adWrap = document.querySelector(".cq-popup__ad-wrap");
+
+  adWrap.addEventListener("click", function(event) {
+    event.stopPropagation();
+    adWrap.classList.toggle("cq-popup__ad-wrap--active");
+  });
+
+  document.addEventListener("click", function() {
+    adWrap.classList.remove("cq-popup__ad-wrap--active");
+  });
+})();

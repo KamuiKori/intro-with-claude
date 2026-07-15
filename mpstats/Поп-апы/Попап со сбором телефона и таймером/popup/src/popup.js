@@ -6,10 +6,17 @@ var slides = [
   'https://files.carrotquest.app/message-images/57576/57576-1783065565894-5bwm30vv.png'
 ];
 
-var adLabel   = 'Реклама';
-var headline  = 'Заголовок не более строки';
-var paragraph = 'Мы обновили работу с фразами, добавили группировку по пресетам и статистику фраз по дням. Теперь ты можешь добавить в отслеживание фразы прямо из ключевых';
-var ctaText   = 'Кнопка';
+var adLabel    = 'Реклама';
+var headline   = 'Заголовок не более строки';
+var paragraph1 = 'Мы обновили работу с фразами, добавили группировку по пресетам и статистику фраз по дням. Теперь ты можешь добавить в отслеживание фразы прямо из ключевых';
+var paragraph2 = 'Оставляйте заявку — расскажем ↓';
+var ctaText    = 'Кнопка';
+
+var nextBtnText = 'Вперед →';
+var backBtnText = '← Назад';
+
+var bannerBgDesktop = 'https://files.carrotquest.app/message-images/57576/57576-1781856546265-g57t26y9.png';
+var bannerBgMobile  = 'https://files.carrotquest.app/message-images/57576/57576-1783498232833-1twz7nmg.png';
 
 var timerEndDate = '2026-08-01T00:00:00';
 
@@ -22,6 +29,7 @@ var thanksHeadline  = 'Ваши контакты переданы';
 var thanksParagraph = 'Мы обновили работу с фразами, добавили группировку по пресетам и статистику фраз по дням. Теперь ты можешь добавить в отслеживание фразы прямо из ключевых';
 var thanksCtaText   = 'Кнопка';
 var thanksLinkUrl   = '#';
+var showThanksCta   = true;
 
 var cqpopup_name = "Попап со сбором телефона и таймером",
     carrotquest = {
@@ -81,7 +89,8 @@ function render() {
   var formView = document.querySelector('.cq-popup__view--form');
   formView.querySelector('.cq-popup__ad-label').textContent  = adLabel;
   formView.querySelector('.cq-popup__headline').textContent  = headline;
-  formView.querySelector('.cq-popup__paragraph').textContent = paragraph;
+  formView.querySelector('.cq-popup__paragraph--1').textContent = paragraph1;
+  formView.querySelector('.cq-popup__paragraph--2').textContent = paragraph2;
   formView.querySelector('.cq-popup__field-label').textContent = phoneLabel;
 
   formView.querySelector('.cq-popup__confidentiality-text').textContent = confidentialityText;
@@ -90,6 +99,8 @@ function render() {
   confidentialityLink.textContent = confidentialityLinkText;
   confidentialityLink.href        = confidentialityLinkUrl;
 
+  formView.querySelector('.cq-popup__next-btn').textContent = nextBtnText;
+  formView.querySelector('.cq-popup__back-btn').textContent = backBtnText;
   formView.querySelector('.cq-popup__cta--form').textContent = ctaText;
 
   var thanksView = document.querySelector('.cq-popup__view--thanks');
@@ -99,9 +110,18 @@ function render() {
   var thanksCta = thanksView.querySelector('.cq-popup__cta--thanks');
   thanksCta.textContent = thanksCtaText;
   thanksCta.href        = thanksLinkUrl;
+  thanksCta.classList.toggle('hidden', !showThanksCta);
+}
+
+function setBannerBg() {
+  var isMob    = top.window.innerWidth <= 767;
+  var bannerBg = document.querySelector('.cq-popup__view--form .cq-popup__banner-bg');
+  bannerBg.style.backgroundImage = 'url(' + (isMob ? bannerBgMobile : bannerBgDesktop) + ')';
 }
 
 render();
+setBannerBg();
+window.addEventListener('resize', setBannerBg);
 
 (function() {
   var track    = document.querySelector('.cq-popup__cover-track');
@@ -190,7 +210,7 @@ function pad2(n) {
   var iti = window.intlTelInput(phoneInput, {
     initialCountry: 'ru',
     preferredCountries: ['ru'],
-    autoPlaceholder: 'aggressive',
+    autoPlaceholder: 'off',
     formatOnDisplay: true,
     utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.14/build/js/utils.js'
   });
@@ -232,3 +252,26 @@ document.querySelector(".cq-popup__cta--thanks").addEventListener("click", funct
   carrotquest.clicked();
   carrotquest.track(cqpopup_name + ' - Клик по кнопке в отбивке');
 });
+
+document.querySelector(".cq-popup__next-btn").addEventListener("click", function() {
+  document.body.classList.remove("cq-popup__is-step-1");
+  document.body.classList.add("cq-popup__is-step-2");
+});
+
+document.querySelector(".cq-popup__back-btn").addEventListener("click", function() {
+  document.body.classList.remove("cq-popup__is-step-2");
+  document.body.classList.add("cq-popup__is-step-1");
+});
+
+(function() {
+  var adWrap = document.querySelector(".cq-popup__ad-wrap");
+
+  adWrap.addEventListener("click", function(event) {
+    event.stopPropagation();
+    adWrap.classList.toggle("cq-popup__ad-wrap--active");
+  });
+
+  document.addEventListener("click", function() {
+    adWrap.classList.remove("cq-popup__ad-wrap--active");
+  });
+})();

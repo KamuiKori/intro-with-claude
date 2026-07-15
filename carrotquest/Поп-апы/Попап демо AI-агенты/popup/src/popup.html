@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./popup/dist/popup.css" inline>
+</head>
+
+<body>
+<div class="cq-popup__bg" data-popmechanic-close></div>
+<div class="wrapper__body d_flex">
+    <div class="cq-popup__body">
+        <a class="cq-popup__close"></a>
+        <form id="form" class="cq-popup__card first-form">
+            <div class="cq-popup__illustration">
+                <img src="https://files.carrotquest.app/message-images/100/100-1783505175774-xwjceaf0.png" class="illustration illustration--desktop" alt="">
+                <img src="https://files.carrotquest.app/message-images/100/100-1783673403680-cy32t5df.png" class="illustration illustration--mobile" alt="">
+            </div>
+            <div class="cq-popup__content">
+                <p class="cq-popup__title">AI агенты: от первого визита до встречи без менеджера</p>
+                <div class="cq-popup__text">
+                    <p>Запускаем новый функционал: агентов, которые квалифицируют лида и отвечают на вопросы — одновременно. А ещё записывают на встречу и напоминают о ней.</p>
+                    <p>Хотите попробовать? Запишитесь на демо</p>
+                </div>
+                <div class="cq-popup__fields">
+                    <input class="cq_popup-input name" type="text" name="name" placeholder="Ваше имя" required>
+                    <input class="cq_popup-input phone" type="tel" name="phone" placeholder="Ваш телефон" required>
+                    <button type="submit" class="cq-popup__submit" data-popmechanic-submit>
+                        Записаться на демо
+                    </button>
+                </div>
+                <div class="cq-popup__consents">
+                    <div class="cq-popup__checkbox-row">
+                        <input type="checkbox" id="checkbox-1" class="cq-popup__checkbox" required>
+                        <label for="checkbox-1">Я даю <span class="cq-popup__link">согласие</span> на <span class="cq-popup__link">обработку персональных данных</span></label>
+                    </div>
+                    <div class="cq-popup__checkbox-row">
+                        <input type="checkbox" id="checkbox-2" class="cq-popup__checkbox" required>
+                        <label for="checkbox-2">Я даю <span class="cq-popup__link">согласие</span> на <span class="cq-popup__link">обратный звонок</span></label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <section id="thank" class="cq-popup__card cq-popup__card--thank second-form hidden">
+            <div class="cq-popup__illustration cq-popup__illustration--thank">
+                <img src="https://files.carrotquest.app/message-images/100/100-1783505728011-rn6ublf6.png" class="illustration illustration--thanks" alt="">
+            </div>
+            <div class="cq-popup__content">
+                <p class="cq-popup__title">Спасибо!</p>
+                <p class="cq-popup__text">Менеджер свяжется с вами в ближайшее время</p>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="./popup/dist/popup.js" inline></script>
+</body>
+</html>
